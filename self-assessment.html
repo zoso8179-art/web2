@@ -1570,26 +1570,16 @@ function notifyAndSave(submission, dimScores) {
   const { raw, max } = totalRawScore(dimScores);
   const band = outcomeBand(dimScores);
 
-  // Netlify's built-in form handling — fires the email notification configured
-  // in this site's own Notifications settings. No third-party service, no API key.
+  // This page is served from arc-advisory.co.uk (GitHub Pages), a different
+  // origin from the Netlify site the save function actually runs on, so the
+  // call has to go to the full address, not a relative one, and the function
+  // itself now sends back the CORS header that allows it. The Netlify Forms
+  // email notification that used to fire here doesn't have an equivalent,
+  // that's Netlify's own built-in form handling tied to a same-site request,
+  // there's no cross-origin version of it — dropped rather than left in
+  // looking like it works. The Airtable write below is the real record.
   try {
-    const body = new URLSearchParams({
-      'form-name': 'assessment-notification',
-      name: submission.contact.name,
-      company: submission.contact.company,
-      email: submission.contact.email,
-      score: `${raw}/${max}`,
-      band,
-      'contacted-ok': submission.contact.consent ? 'Yes' : 'No',
-    });
-    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body.toString() })
-      .catch(() => {});
-  } catch (e) { /* best-effort — never blocks the result screen */ }
-
-  // Same Airtable base, same tables, same function the facilitator tool
-  // already uses — one system of record for a company, not two.
-  try {
-    fetch('/.netlify/functions/save-session', {
+    fetch('https://arc-filter-salesmaturity.netlify.app/.netlify/functions/save-session', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

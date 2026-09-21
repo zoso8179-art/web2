@@ -107,6 +107,12 @@ nav.links a:hover,nav.links a:focus-visible{color:var(--navy)}
 .btn-primary:hover{background:var(--teal)}
 .btn-outline{border-color:var(--line-dark);color:#fff;background:transparent}
 .btn-outline:hover{border-color:var(--teal-bright);color:var(--teal-bright)}
+/* .btn-outline is designed for the dark navy hero — white text, near-invisible
+   border, both by design there. Reused as-is inside the two light-background
+   sections below (.sma, .estimator) it goes white-on-near-white, unreadable.
+   This scoped override only touches those two places. */
+.sma .btn-outline,.estimator .btn-outline{border-color:var(--ink);color:var(--ink)}
+.sma .btn-outline:hover,.estimator .btn-outline:hover{border-color:var(--teal);color:var(--teal)}
 .btn-teal{background:var(--teal);color:#fff}
 .btn-teal:hover{background:var(--teal-bright)}
 :focus-visible{outline:2px solid var(--teal);outline-offset:2px}
