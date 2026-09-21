@@ -1,0 +1,1867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sales Maturity Assessment — ARC Advisory</title>
+<meta name="description" content="A thirty-question self-assessment of your sales engine across six areas. A few minutes, one page of picture at the end.">
+<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAFJklEQVR4nO1VW2xURRj+/5mz9+6e3d6ALm2XLS3QG4iAaDDlUoQQoOEihRCgAiqEYKKBkKgRQqg+gEWBGE0IkIAa8RKfQDE0AQMpShApUFKqUJCyLZbezp6ze86Z+X3YIiBq4gMPBibzMjP//32Z77+hP6cYHuZiDxX9McGjQaD8J2tEBETA+28JAICIgAgAAPtv+gkQ/2L+ICogMgIiS9iWSbYNRCkuoDtQDJlDYS4XkgQJwPoxiejffoCMAYCdTMqEyRTFkxn0DspyZ2c6gn7mcSucSwJhWUIzkre7jJsdRqwzb+bk1m+OS9NK+cI/SYSMEZGpaQwwkD84feRwb34OObjVG090dsd/77LjhrQtQFRcLsXvc+cOUkcVcykGVIwnl7Nl31fOoJ+E/BsCRCREs09THI6cp0dnjB0pFOy5fLXjUL3e1iH0JEpChogMEAGIiEBKIiCE4S9V377a2nP1Onc7QfaLh4FwyV10zi3dQCEHTRg7sGJMvLO77VhDb/MVNAVzORW3iyvKHW2BSAohEVNhBcYQOTe7eznn6HFLIe6LATIkScnb3RklRXlVU/u6u07s2EvXYv6sdKfbAx4EACORSMZ1kBKIAJG53f40H0kCIMaYrhvJPg0YAwCnlF6vR8o7EiFjlpFQGBtRM8+Vn9P85WHe2r557cq225379n/uBEAAwzDGjC6fMXWSz+dVFG4YiaPHT9QfO+lxeZBhPK4XFkaWLZo/NBq50Rbbe+DgT40Xg4GAEALU3DJvejTnyYkTttcVrXjZn10EPGvNhk1ElEgmCkdXuLOLMiKjwBd+7fXNRHTsZMOhI/Vnz50nolWvbuDBIe7sonGTq3r7tNZrv+3Z9/HZxiYiml39ghKKBnPLwJcxNFI5e8LO97PGTfSk5YXyy3kw8vP5i3sPfNbU3LKxdht4crKio8E3eM26tyzLcmVEARwAvuaWX0+e+hH8eahGvq3/Ptbe4R1QBDyLh4Zs3fHRgiWrnKGoOrhUYYqid/Y01u2xuzV3ZrrWp5WVFpcXD58+d8mKpQuXLpxbu3VXSk0AUBTlldXLY+23gumhgmjk04NfgyR/wPdEWfF39cf0Xi07kmsmzfVv1DocDq/PK6VU0KHoN2KMcyXNiyQtw5hfNR0QF1fPKYhGCguio0aWXmi6DIwREQC8WLPI5XblhcN1uz7csm2XGlIt2yYizjHVKiSR0+XqbxsADIiY0wEcSUrbli6fZ86saS2/XJlRWREemK3rxrzZ0ww9jowBom2LqVWLhwwf33jhUnlpiWWanHNd0xp+OP1c5aRQVmbHlevxuL5/9/a1q2q0Po1zDoFwSWqH8spZIH9W9XIimjxzAfAMgMCeAwdNK5kZKQd3zro3a4moZNwU8ISfnfY8EW3ZtpOpQ3wDhpU+NaUt1h5rv3Xgky/ONzULYc9aUONILwjmlt2tZCJyKIqwxca33z1zrikUDieT5nsf7L4Za1cDal9X76lTZza9U9fV3eMPqQ2nz6xcuz4zIyPN52GcN7e0PlM5d+miOSOGFR4+crR62eqLl1pUNSCEuL+SEXXDsBLJQFBNHU3TMjTNFwgoDiWRSCR1I00NMETGWHdPL0ipqioBMcaSpmn0aiAlMHT5fB6PW0pJRPcRABFjjDFuCxsAgBAZcMZsIVIHzpktRCraClcAUAgbAAgAGXJkAIAIUkhJ1N8qiO6ZDgBCSnEnKQGIJPyZo0RS3n0C27bvdSRBNkh4YP3/Z/JjgkeA4A8fg218L015kwAAAABJRU5ErkJggg==">
+<style>
+:root {
+  --navy: #0D1B2A;
+  --teal: #4ECDC4;
+  --cream: #F0EFE9;
+  --white: #ffffff;
+  --mid-grey: #6B7280;
+  --light-grey: #E5E7EB;
+  --red: #EF4444;
+  --amber: #F59E0B;
+  --green: #10B981;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Arial, Helvetica, sans-serif; background: var(--cream); color: var(--navy); min-height: 100vh; -webkit-text-size-adjust: 100%; }
+
+.header { background: var(--navy); padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.header-title { color: var(--teal); font-size: 13px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; text-align: right; }
+
+.progress-wrap { background: var(--navy); padding: 0 24px 16px; }
+.progress-meta { display: flex; justify-content: space-between; align-items: baseline; font-size: 11px; color: rgba(255,255,255,0.55); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 7px; gap: 12px; }
+.progress-meta strong { color: var(--teal); font-weight: 700; }
+.progress-track { height: 5px; background: rgba(255,255,255,0.12); border-radius: 3px; overflow: hidden; }
+.progress-fill { height: 100%; width: 0%; background: var(--teal); border-radius: 3px; transition: width 0.25s ease; }
+
+.wrap { max-width: 760px; margin: 0 auto; padding: 30px 24px 60px; }
+.screen { display: none; }
+.screen.active { display: block; }
+
+.section-tag { display: inline-block; background: var(--teal); color: var(--navy); font-size: 10px; font-weight: 700; letter-spacing: 2px; padding: 3px 10px; border-radius: 3px; margin-bottom: 10px; }
+.section-title { font-size: 26px; font-weight: 700; color: var(--navy); margin-bottom: 10px; line-height: 1.25; }
+.framer { font-size: 14px; color: var(--navy); line-height: 1.65; background: var(--white); border-left: 3px solid var(--teal); border-radius: 0 8px 8px 0; padding: 14px 18px; margin-bottom: 24px; font-style: italic; }
+
+.intro-copy p { font-size: 15px; color: #1F2937; line-height: 1.75; margin-bottom: 16px; }
+.intro-copy p:first-child { font-size: 17px; font-weight: 700; color: var(--navy); }
+
+.q-card { background: var(--white); border: 1px solid var(--light-grey); border-radius: 8px; padding: 18px 20px; margin-bottom: 14px; }
+.q-card.unanswered { border-color: var(--amber); box-shadow: 0 0 0 3px rgba(245,158,11,0.12); }
+.q-num { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--teal); margin-bottom: 6px; }
+.q-text { font-size: 15px; font-weight: 700; color: var(--navy); line-height: 1.5; margin-bottom: 14px; }
+.q-caveat { font-size: 13px; color: var(--mid-grey); line-height: 1.6; background: var(--cream); border-radius: 6px; padding: 11px 13px; margin-bottom: 12px; }
+
+.opt { display: flex; align-items: flex-start; gap: 11px; padding: 11px 13px; border: 1.5px solid var(--light-grey); border-radius: 6px; margin-bottom: 8px; cursor: pointer; font-size: 13.5px; line-height: 1.45; color: #1F2937; transition: border-color 0.12s, background 0.12s; }
+.opt:hover { border-color: var(--teal); }
+.opt input { margin: 2px 0 0; accent-color: var(--navy); width: 16px; height: 16px; flex-shrink: 0; cursor: pointer; }
+.opt.sel-2 { background: #ECFDF5; border-color: var(--green); color: #047857; font-weight: 600; }
+.opt.sel-1 { background: #FFFBEB; border-color: var(--amber); color: #92600A; font-weight: 600; }
+.opt.sel-0 { background: #FEF2F2; border-color: var(--red); color: #B91C1C; font-weight: 600; }
+
+/* SLIDER (Dimension 4, Q4) */
+.slider-box { background: var(--cream); border-radius: 8px; padding: 16px 18px; }
+.slider-value { font-size: 13px; font-weight: 700; color: var(--navy); text-align: center; margin-bottom: 12px; min-height: 18px; }
+.slider-value.untouched { color: var(--mid-grey); font-weight: 600; }
+.slider-input { width: 100%; accent-color: var(--teal); height: 24px; cursor: pointer; }
+.slider-ends { display: flex; justify-content: space-between; gap: 14px; margin-top: 4px; font-size: 11.5px; font-weight: 700; color: var(--mid-grey); line-height: 1.4; }
+.slider-ends span:last-child { text-align: right; }
+.slider-ticks { display: flex; justify-content: space-between; font-size: 10px; color: var(--mid-grey); padding: 0 2px; }
+
+.detail-label { display: block; font-size: 11.5px; font-weight: 600; color: var(--mid-grey); margin: 12px 0 5px; }
+.q-notes { width: 100%; padding: 9px 11px; border: 1px solid var(--light-grey); border-radius: 6px; font-family: inherit; font-size: 13px; color: var(--navy); resize: vertical; background: var(--white); }
+.q-notes:focus { outline: none; border-color: var(--teal); }
+
+.field { display: flex; flex-direction: column; gap: 5px; margin-bottom: 16px; }
+.field label { font-size: 12.5px; font-weight: 700; color: var(--navy); }
+.field input[type=text], .field input[type=email] { border: 1.5px solid var(--light-grey); border-radius: 6px; padding: 11px 12px; font-size: 14px; color: var(--navy); font-family: inherit; background: var(--white); }
+.field input:focus { outline: none; border-color: var(--teal); }
+.consent { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: #1F2937; line-height: 1.5; background: var(--white); border: 1px solid var(--light-grey); border-radius: 8px; padding: 14px 16px; margin: 4px 0 6px; cursor: pointer; }
+.consent input { margin: 1px 0 0; width: 16px; height: 16px; accent-color: var(--navy); flex-shrink: 0; cursor: pointer; }
+.consent-note { font-size: 12px; color: var(--mid-grey); line-height: 1.6; margin-bottom: 20px; }
+
+.nav-buttons { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 26px; }
+.btn { padding: 13px 26px; border-radius: 6px; font-size: 14px; font-weight: 700; cursor: pointer; border: none; font-family: inherit; }
+.btn-primary { background: var(--teal); color: var(--navy); }
+.btn-primary:hover { background: #3DBFB6; }
+.btn-primary:disabled { opacity: 0.6; cursor: default; }
+.btn-secondary { background: transparent; color: var(--navy); border: 1.5px solid var(--light-grey); font-weight: 600; }
+.btn-secondary:hover { border-color: var(--navy); }
+.btn-lg { padding: 15px 32px; font-size: 15px; }
+.form-error { font-size: 13px; font-weight: 600; color: var(--red); margin-top: 14px; min-height: 18px; }
+
+/* RESULT */
+.result-lead { font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+.result-card { background: var(--white); border-radius: 10px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin-top: 18px; }
+.result-header { background: var(--navy); padding: 24px 28px; }
+.result-brand { color: var(--teal); font-size: 11px; font-weight: 700; letter-spacing: 2px; margin-bottom: 10px; }
+.result-client { color: rgba(255,255,255,0.55); font-size: 12px; }
+.result-client strong { color: white; font-size: 18px; display: block; margin-top: 2px; }
+.result-meta { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 12px; }
+.result-body { padding: 24px 28px 28px; }
+.wheel-box { text-align: center; margin-bottom: 6px; }
+.wheel-box svg { max-width: 100%; height: auto; }
+.wheel-caption { font-size: 11px; color: var(--mid-grey); text-align: center; margin-bottom: 22px; line-height: 1.6; }
+.narrative p { font-size: 14.5px; color: #1F2937; line-height: 1.8; margin-bottom: 14px; }
+.narrative p:first-child { font-weight: 700; color: var(--navy); }
+.quote-block { background: var(--cream); border-left: 3px solid var(--teal); border-radius: 0 8px 8px 0; padding: 16px 18px; margin-top: 20px; }
+.quote-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--mid-grey); margin-bottom: 7px; }
+.quote-q { font-size: 12.5px; font-weight: 700; color: var(--navy); line-height: 1.5; margin-bottom: 8px; }
+.quote-a { font-size: 14px; color: #1F2937; line-height: 1.7; font-style: italic; }
+.quote-note { font-size: 11.5px; color: var(--mid-grey); margin-top: 9px; line-height: 1.5; }
+.result-close { font-size: 15px; color: #1F2937; line-height: 1.8; margin-top: 22px; }
+.result-close p + p { margin-top: 14px; }
+.dim-sections-head { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--mid-grey); margin-top: 34px; margin-bottom: 16px; border-top: 1px solid var(--light-grey); padding-top: 22px; }
+.dim-section { border: 1px solid var(--light-grey); border-radius: 8px; padding: 18px 20px; margin-bottom: 16px; }
+.dim-section-head { font-size: 13px; font-weight: 700; letter-spacing: 0.5px; color: var(--navy); margin-bottom: 12px; }
+.dim-block { font-size: 13.5px; color: #1F2937; line-height: 1.75; margin-bottom: 11px; }
+.dim-block:last-child { margin-bottom: 0; }
+.dim-block strong { color: var(--navy); }
+.dim-bullets { margin: 6px 0 0 18px; padding: 0; }
+.dim-bullets li { font-size: 13.5px; color: #1F2937; line-height: 1.7; margin-bottom: 4px; }
+.action-group { margin-top: 10px; }
+.action-group:first-of-type { margin-top: 6px; }
+.action-group-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px; }
+.action-group-stop .action-group-label { color: var(--red); }
+.action-group-start .action-group-label { color: var(--amber); }
+.action-group-keep .action-group-label { color: var(--green); }
+.download-bar { margin-top: 22px; }
+.download-status { font-size: 12.5px; color: var(--mid-grey); margin-top: 10px; min-height: 17px; }
+
+@media (max-width: 620px) {
+  .header { padding: 12px 16px; }
+  .header-title { font-size: 11px; }
+  .progress-wrap { padding: 0 16px 14px; }
+  .wrap { padding: 22px 16px 48px; }
+  .section-title { font-size: 22px; }
+  .q-card { padding: 16px; }
+  .result-header, .result-body { padding-left: 18px; padding-right: 18px; }
+  .nav-buttons { flex-direction: column-reverse; align-items: stretch; }
+  .nav-buttons .btn { width: 100%; }
+}
+
+@media print {
+  .header, .progress-wrap, .download-bar, .screen:not(#screen-result) { display: none !important; }
+  .screen#screen-result { display: block !important; }
+  body { background: white; }
+  .result-card { box-shadow: none; }
+}
+</style>
+</head>
+<body>
+<!-- Hidden, static form so Netlify's build-time bot detects it and lets a
+     notification be configured against it. The real submission below posts
+     to this same form name via fetch, not this literal tag. -->
+<form name="assessment-notification" data-netlify="true" hidden>
+  <input type="text" name="name" />
+  <input type="text" name="company" />
+  <input type="email" name="email" />
+  <input type="text" name="score" />
+  <input type="text" name="band" />
+  <input type="text" name="contacted-ok" />
+</form>
+
+<div class="header">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 120" width="120" height="51" style="display:block;border-radius:4px;flex-shrink:0;">
+    <rect width="280" height="120" fill="#0D1B2A"/>
+    <path d="M 14 66 Q 68 24 120 42" stroke="#4ECDC4" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M 112 44 L 120 42 L 116 35" stroke="#4ECDC4" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="28" y="85" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="42" fill="#FFFFFF" letter-spacing="6">ARC</text>
+    <text x="30" y="103" font-family="Arial, Helvetica, sans-serif" font-weight="400" font-size="11" fill="#FFFFFF" letter-spacing="5" opacity="0.85">ADVISORY</text>
+  </svg>
+  <div class="header-title">Sales Maturity Assessment</div>
+</div>
+
+<div class="progress-wrap">
+  <div class="progress-meta">
+    <div id="progress-step">Introduction</div>
+    <div id="progress-count"><strong>0</strong> of 30 answered</div>
+  </div>
+  <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+</div>
+
+<div class="wrap">
+
+  <!-- INTRO -->
+  <div class="screen active" id="screen-intro">
+    <div class="section-tag">SELF-ASSESSMENT</div>
+    <div class="section-title">Where does your sales engine actually stand?</div>
+    <div class="intro-copy">
+      <p>Thanks for giving this a few minutes of your day.</p>
+      <p>I built this because most business owners have a feeling about where the gaps sit in their sales engine, but rarely get to see it laid out plainly. Thirty questions, six areas: forecasting, your systems, your process, your commercial foundations, where you sit in your market, and pricing.</p>
+      <p>Answer honestly. There's nothing to get right or wrong here, just what's actually true for your business.</p>
+      <p>Each question gives you three ways to answer, plus a box underneath for extra detail if you've got it. That box is optional, but the more you give, the sharper the picture you get back.</p>
+      <p>At the end you'll see the whole picture on one page, a wheel showing where you're strong and where the real pinch points sit. Take it and go, no strings either way. Hopefully it's worth the few minutes it took.</p>
+    </div>
+    <div class="nav-buttons">
+      <div></div>
+      <button class="btn btn-primary btn-lg" onclick="goTo('d1')">Start the assessment →</button>
+    </div>
+  </div>
+
+  <!-- DIMENSION SCREENS injected by JS -->
+  <div id="dimension-mount"></div>
+
+  <!-- DETAILS -->
+  <div class="screen" id="screen-details">
+    <div class="section-tag">LAST STEP</div>
+    <div class="section-title">That's all six done.</div>
+    <div class="intro-copy" style="margin-bottom:22px;">
+      <p style="font-size:15px;font-weight:400;color:#1F2937;">Pop your details in below and you'll get the full picture, the wheel, and exactly where your pinch points are.</p>
+    </div>
+    <div class="field"><label for="f-name">Name</label><input type="text" id="f-name" autocomplete="name" placeholder="Your name"></div>
+    <div class="field"><label for="f-company">Company</label><input type="text" id="f-company" autocomplete="organization" placeholder="Your business"></div>
+    <div class="field"><label for="f-email">Email</label><input type="email" id="f-email" autocomplete="email" placeholder="you@company.com"></div>
+    <label class="consent" for="f-consent">
+      <input type="checkbox" id="f-consent">
+      <span>I'm happy for ARC Advisory to get in touch about my results.</span>
+    </label>
+    <div class="consent-note">Either way, your results show on the next screen. Ticking the box is entirely up to you.</div>
+    <div class="nav-buttons">
+      <button class="btn btn-secondary" onclick="goTo('d6')">← Back</button>
+      <button class="btn btn-primary btn-lg" onclick="submitAssessment()">Show me the picture →</button>
+    </div>
+    <div class="form-error" id="details-error"></div>
+  </div>
+
+  <!-- RESULT -->
+  <div class="screen" id="screen-result">
+    <div class="result-lead">There's your picture.</div>
+    <div class="result-card" id="result-card"></div>
+    <div class="result-close">
+      <p>That's the whole picture, six areas, thirty questions, nothing hidden and nothing dressed up. Whatever it shows you, it's more useful sat next to the decisions you're already making than filed away and forgotten.</p>
+      <p>A picture like this is usually where the real conversation starts, not where it ends. I'm Nick Riggott. I built ARC Advisory to find where a commercial engine is actually losing revenue, then rebuild the system underneath it. No extra tool, no extra rep stacked on top of gaps that were already there. If anything on there raised more questions than it answered, that's the normal reaction, and it's worth talking through properly rather than guessing at it alone.</p>
+    </div>
+    <div class="download-bar">
+      <button class="btn btn-primary" id="talk-btn" onclick="talkItThrough()">Talk it through →</button>
+      <button class="btn btn-secondary" id="download-btn" onclick="downloadReport()">Download your report</button>
+      <div class="download-status" id="download-status"></div>
+    </div>
+  </div>
+
+</div>
+
+<script src="/vendor/jspdf.umd.min.js"></script>
+<script>
+/* ---------------------------------------------------------------------------
+   Public, self-serve version of the Sales Maturity Assessment.
+   Someone completes this alone, with nobody guiding them, so the wording, the
+   answer options and the screen order all differ from the facilitator-led tool
+   in sales-maturity.html. The Wheel of Motion visual is deliberately identical
+   for brand consistency; the scoring and the result narrative are not.
+--------------------------------------------------------------------------- */
+
+/* Question shapes:
+     { text, options: [top, middle, bottom] }  scored 2 / 1 / 0 in that order
+     { text, open: true, caveat }              captured, quoted back, never scored
+     { text, slider: true, ... }               1-10 slider, rescaled into 0-2   */
+const DIMENSIONS = [
+  {
+    id: 'd1', num: 1, name: 'Forecasting', short: 'Forecasting',
+    framer: "Can the business see its own number coming, or is the forecast a guess with a spreadsheet around it?",
+    q: [
+      {
+        text: "Is your annual sales target tied to a documented operating plan?",
+        options: [
+          "Yes — it's clearly tied to a documented plan",
+          "Yes, loosely — there's a plan, but the target doesn't really follow from it",
+          "No — the target isn't tied to any documented plan",
+        ],
+      },
+      {
+        text: "Do you actively forecast beyond the current quarter, into the next one as well?",
+        options: [
+          "Yes — we consistently forecast at least one quarter ahead",
+          "Yes, occasionally — but it's not a regular habit",
+          "No — we only really focus on the current quarter",
+        ],
+      },
+      {
+        text: "Do you break this quarter's number down by revenue type, rather than working from one blended figure?",
+        options: [
+          "Yes — broken down by revenue type, consistently",
+          "Sometimes — it depends who's building the number",
+          "No — it's one blended figure",
+        ],
+      },
+      {
+        text: "Do you use any weighting or factoring based on forecast category when you build the commit number?",
+        options: [
+          "Yes — weighting is applied consistently",
+          "Yes, informally — it's more gut feel than a set method",
+          "No — every category counts the same",
+        ],
+      },
+      {
+        text: "Would the same deals still be moving through your forecast from week one to week thirteen of the quarter?",
+        open: true,
+        caveat: "This one's harder to put a neat answer on. Tell us in your own words, does your forecast largely hold steady through the quarter, or does it keep changing?",
+      },
+    ],
+  },
+  {
+    id: 'd2', num: 2, name: 'Systems & Data', short: 'Systems\n&amp; Data',
+    framer: "Is there anything trustworthy behind the number, or would a Diagnostic just be forensic archaeology?",
+    q: [
+      {
+        text: "Do you have one system that holds your pipeline?",
+        options: [
+          "Yes — one system, and everyone actually uses it",
+          "Sort of — there's a main system, but people also work outside it",
+          "No — it's scattered across spreadsheets, inboxes, or several tools",
+        ],
+      },
+      {
+        text: "Could you pull accurate deal history today?",
+        options: [
+          "Yes — easily, and I'd trust what I saw",
+          "Yes, but I'd want to double-check it first",
+          "No — not with any real confidence",
+        ],
+      },
+      {
+        text: "Is keeping deals up to date mandatory?",
+        options: [
+          "Yes — it's enforced, and people actually do it",
+          "It's expected, but not really enforced",
+          "No — it's down to individual habit",
+        ],
+      },
+      {
+        text: "Does the data in your system feed anything leadership actually looks at?",
+        options: [
+          "Yes — it feeds reports or dashboards leadership regularly uses",
+          "Sort of — something gets pulled occasionally, but it's not routine",
+          "No — leadership doesn't really look at it",
+        ],
+      },
+      {
+        text: "Is the system used autonomously to drive decisions?",
+        options: [
+          "Yes — decisions are made directly from what's in the system",
+          "Partly — the system informs decisions, but people override it a lot",
+          "No — decisions really get made from conversations, not the system",
+        ],
+      },
+    ],
+  },
+  {
+    id: 'd3', num: 3, name: 'Process & Governance', short: 'Process\n&amp; Governance',
+    framer: "A CRM existing and a CRM being run are two different things.",
+    q: [
+      {
+        text: "Is there a named owner of the sales process?",
+        options: [
+          "Yes — one named person clearly owns it",
+          "Sort of — someone unofficially owns it, but it's not formalised",
+          "No — nobody really owns it",
+        ],
+      },
+      {
+        text: "Does a deal need to hit specific criteria to move stage?",
+        options: [
+          "Yes — clear criteria, consistently applied",
+          "There are guidelines, but they're not consistently followed",
+          "No — deals move stage whenever someone decides to move them",
+        ],
+      },
+      {
+        text: "Do you run a structured pipeline review, kept separate from this quarter's commit?",
+        options: [
+          "Yes — a proper, separate review happens regularly",
+          "Sort of — it gets mentioned in the commit call, not reviewed on its own",
+          "No — there's no separate review",
+        ],
+      },
+      {
+        text: "Is there a formal review for large or non-standard deals?",
+        options: [
+          "Yes — a formal review, every time",
+          "Only sometimes — it depends who notices",
+          "No — large deals go through the same process as everything else",
+        ],
+      },
+      {
+        text: "Are your sales stages and forecast categories documented and consistent across the team?",
+        options: [
+          "Yes — documented, and everyone uses the same definitions",
+          "Roughly — most people would describe them similarly",
+          "No — ask five reps and you'd get five different answers",
+        ],
+      },
+    ],
+  },
+  {
+    id: 'd4', num: 4, name: 'Commercial Foundation', short: 'Commercial\nFoundation',
+    framer: "Does a sales function actually exist, and does the business know who it's for?",
+    q: [
+      {
+        text: "Do you have a defined ideal customer profile?",
+        options: [
+          "Yes — clearly defined and written down",
+          "Sort of — there's a rough idea, but it's not written down",
+          "No — there's no real definition",
+        ],
+      },
+      {
+        text: "Does your pipeline generation actually target that same profile?",
+        options: [
+          "Yes — consistently targeted at that profile",
+          "Partly — some of it is, some isn't",
+          "No — pipeline generation isn't really aligned to it",
+        ],
+      },
+      {
+        text: "Has your existing customer base been actively assessed against that profile?",
+        options: [
+          "Yes — formally assessed",
+          "Roughly — we have a sense of it, but it's not been properly checked",
+          "No — never really looked at it",
+        ],
+      },
+      {
+        text: "Does most of your new incremental revenue come from actively targeted new prospects, or from your existing customer base?",
+        slider: true,
+        min: 1,
+        max: 10,
+        minLabel: "Mostly existing base",
+        maxLabel: "Mostly new prospects",
+      },
+      {
+        text: "Is there a dedicated team actively monitoring white space in your existing accounts?",
+        options: [
+          "Yes — a dedicated team owns this",
+          "Someone keeps half an eye on it, but it's not really owned",
+          "No — nobody's watching for it",
+        ],
+      },
+    ],
+  },
+  {
+    id: 'd5', num: 5, name: 'Market Feasibility', short: 'Market\nFeasibility',
+    framer: "Even a well-run internal engine can't outperform a dying market.",
+    q: [
+      {
+        text: "Is your market position reviewed on a set cadence, or only when performance starts to slip?",
+        options: [
+          "Yes — reviewed on a genuine, set cadence",
+          "Occasionally — but usually only prompted by something going wrong",
+          "No — we only really look at it once performance is already slipping",
+        ],
+      },
+      {
+        text: "Have you changed who you target or what you lead with in the last twelve months?",
+        options: [
+          "Yes — a deliberate, planned shift",
+          "Yes, but reactively, without much planning",
+          "No, nothing's changed",
+        ],
+      },
+      {
+        text: "Are there clear parts of your market growing while others decline?",
+        options: [
+          "Yes — tracked segment by segment",
+          "Yes, roughly, but not tracked in detail",
+          "No, we see it as one single market",
+        ],
+      },
+      {
+        text: "Is competitor loss tracked and fed into pricing, positioning, or product?",
+        options: [
+          "Yes — tracked, and it genuinely feeds decisions",
+          "We note it sometimes, but it doesn't really go anywhere",
+          "No — competitor losses aren't tracked",
+        ],
+      },
+      {
+        text: "Could you name three genuinely happy customers today?",
+        options: [
+          "Yes — comfortably, there are plenty we could point to right now",
+          "Yes, but I'd need to check with the reps first",
+          "No — not something we could do right now",
+        ],
+      },
+    ],
+  },
+  {
+    id: 'd6', num: 6, name: 'Customer & Pricing', short: 'Customer &amp;\nPricing',
+    framer: "Do they know who they win, why, and what it's worth, or is every deal bespoke?",
+    q: [
+      {
+        text: "Do you know what percentage of your revenue comes from your top 20% of customers?",
+        options: [
+          "Yes — I can tell you the number right now",
+          "Roughly — I know it's concentrated, but not the exact figure",
+          "No — not really",
+        ],
+      },
+      {
+        text: "Is there a customer you'd walk away from?",
+        options: [
+          "Yes — and we'd act on it",
+          "Yes, in theory, but we probably wouldn't",
+          "No, we'd take almost anyone's money",
+        ],
+      },
+      {
+        text: "Do you have clear criteria for deciding not to chase an opportunity?",
+        options: [
+          "Yes — clear criteria, consistently applied",
+          "There's a rough sense of it, but it's not consistent",
+          "No — we chase almost everything",
+        ],
+      },
+      {
+        text: "Does deal size or type affect how you sell or price?",
+        options: [
+          "Yes — clearly, and consistently",
+          "A bit, informally, but there's no real system to it",
+          "No — every deal's handled the same way",
+        ],
+      },
+      {
+        text: "Do you formally review wins and losses?",
+        options: [
+          "Yes — formally, every time",
+          "Occasionally, informally",
+          "No — we don't really look back at wins and losses",
+        ],
+      },
+    ],
+  },
+];
+
+const NOTE_LABEL = "Add any detail that helps explain your answer.";
+const SCORE_LABEL = { 0: 'Absent', 1: 'Informal', 2: 'Documented' };
+
+// 30 asked. Dimension 1 Q5 is excluded from scoring entirely, so 29 carry a
+// score: 28 three-option questions plus the Dimension 4 slider.
+const TOTAL_QUESTIONS = DIMENSIONS.reduce((n, d) => n + d.q.length, 0);
+const SCORED_QUESTIONS = DIMENSIONS.reduce((n, d) => n + d.q.filter(q => !q.open).length, 0);
+
+const SCREEN_ORDER = ['intro', ...DIMENSIONS.map(d => d.id), 'details', 'result'];
+const STORAGE_KEY = 'arc-public-assessment-v2';
+
+/* ---------------------------------------------------------------------------
+   State — held in this browser session only. Nothing is sent anywhere in
+   Phase 1. sessionStorage keeps answers across a refresh and clears itself
+   when the tab closes.
+--------------------------------------------------------------------------- */
+const state = {
+  answers: {},   // answers[dimId][i] = { score, note, text, slider }
+  details: { name: '', company: '', email: '', consent: false },
+};
+DIMENSIONS.forEach(d => {
+  state.answers[d.id] = d.q.map(() => ({ score: undefined, note: '', text: '', slider: undefined }));
+});
+
+function ans(dimId, i) { return state.answers[dimId][i]; }
+
+function persist() {
+  try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) { /* private browsing — carry on in memory */ }
+}
+
+function restore() {
+  let saved;
+  try { saved = JSON.parse(sessionStorage.getItem(STORAGE_KEY) || 'null'); } catch (e) { return; }
+  if (!saved) return;
+  DIMENSIONS.forEach(d => {
+    const rows = (saved.answers && saved.answers[d.id]) || [];
+    rows.forEach((row, i) => {
+      if (i >= d.q.length || !row) return;
+      const target = state.answers[d.id][i];
+      if (row.score === 0 || row.score === 1 || row.score === 2) target.score = row.score;
+      if (typeof row.note === 'string') target.note = row.note;
+      if (typeof row.text === 'string') target.text = row.text;
+      if (typeof row.slider === 'number' && row.slider >= 1 && row.slider <= 10) target.slider = row.slider;
+    });
+  });
+  if (saved.details) Object.assign(state.details, saved.details);
+}
+
+/* ------------------------------- RENDER ---------------------------------- */
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
+function renderDimensions() {
+  document.getElementById('dimension-mount').innerHTML = DIMENSIONS.map(d => `
+    <div class="screen" id="screen-${d.id}">
+      <div class="section-tag">AREA ${d.num} OF 6</div>
+      <div class="section-title">${escapeHtml(d.name)}</div>
+      <div class="framer">${escapeHtml(d.framer)}</div>
+      ${d.q.map((q, i) => renderQuestion(d, q, i)).join('')}
+      <div class="nav-buttons">
+        <button class="btn btn-secondary" onclick="goTo('${d.num === 1 ? 'intro' : 'd' + (d.num - 1)}')">← Back</button>
+        <button class="btn btn-primary" onclick="nextFrom('${d.id}')">${d.num === 6 ? 'Finish →' : 'Next area →'}</button>
+      </div>
+      <div class="form-error" id="err-${d.id}"></div>
+    </div>
+  `).join('');
+  repaintAnswers();
+}
+
+function noteField(d, i) {
+  return `<label class="detail-label" for="note-${d.id}-${i}">${escapeHtml(NOTE_LABEL)}</label>
+    <textarea class="q-notes" id="note-${d.id}-${i}" rows="2" placeholder="Optional" oninput="setNote('${d.id}',${i},this.value)"></textarea>`;
+}
+
+function renderQuestion(d, q, i) {
+  const head = `<div class="q-num">Question ${i + 1} of ${d.q.length}</div>`;
+  const text = `<div class="q-text">${escapeHtml(q.text)}</div>`;
+
+  // The open question: caveat above the box, no options, never scored.
+  if (q.open) {
+    return `<div class="q-card" id="card-${d.id}-${i}">
+      ${head}
+      <div class="q-caveat">${escapeHtml(q.caveat)}</div>
+      ${text}
+      <textarea class="q-notes" id="open-${d.id}-${i}" rows="4" placeholder="In your own words…" oninput="setOpenText('${d.id}',${i},this.value)"></textarea>
+      ${noteField(d, i)}
+    </div>`;
+  }
+
+  // The slider question: 1-10, rescaled into the wheel's 0-2 range.
+  if (q.slider) {
+    return `<div class="q-card" id="card-${d.id}-${i}">
+      ${head}
+      ${text}
+      <div class="slider-box">
+        <div class="slider-value untouched" id="sv-${d.id}-${i}">Drag the slider to answer</div>
+        <input type="range" class="slider-input" id="slider-${d.id}-${i}" min="${q.min}" max="${q.max}" step="1" value="${Math.round((q.min + q.max) / 2)}"
+               aria-label="${escapeHtml(q.text)}" oninput="setSlider('${d.id}',${i},this.value)">
+        <div class="slider-ticks">${Array.from({ length: q.max - q.min + 1 }, (_, n) => `<span>${q.min + n}</span>`).join('')}</div>
+        <div class="slider-ends"><span>${q.min} — ${escapeHtml(q.minLabel)}</span><span>${escapeHtml(q.maxLabel)} — ${q.max}</span></div>
+      </div>
+      ${noteField(d, i)}
+    </div>`;
+  }
+
+  const opts = q.options.map((label, oi) => {
+    const value = 2 - oi;   // top option scores 2, middle 1, bottom 0
+    return `<label class="opt" id="lbl-${d.id}-${i}-${value}" for="opt-${d.id}-${i}-${value}">
+      <input type="radio" name="q-${d.id}-${i}" id="opt-${d.id}-${i}-${value}" value="${value}" onchange="setScore('${d.id}',${i},${value})">
+      <span>${escapeHtml(label)}</span>
+    </label>`;
+  }).join('');
+
+  return `<div class="q-card" id="card-${d.id}-${i}">
+    ${head}
+    ${text}
+    ${opts}
+    ${noteField(d, i)}
+  </div>`;
+}
+
+// Paint anything restored from sessionStorage back into the freshly built DOM.
+function repaintAnswers() {
+  DIMENSIONS.forEach(d => d.q.forEach((q, i) => {
+    const a = ans(d.id, i);
+    const note = document.getElementById(`note-${d.id}-${i}`);
+    if (note) note.value = a.note;
+
+    if (q.open) {
+      const box = document.getElementById(`open-${d.id}-${i}`);
+      if (box) box.value = a.text;
+      return;
+    }
+    if (q.slider) {
+      if (a.slider !== undefined) {
+        const el = document.getElementById(`slider-${d.id}-${i}`);
+        if (el) el.value = a.slider;
+        paintSlider(d.id, i, a.slider);
+      }
+      return;
+    }
+    if (a.score !== undefined) {
+      const radio = document.getElementById(`opt-${d.id}-${i}-${a.score}`);
+      if (radio) radio.checked = true;
+      paintOptions(d.id, i, a.score);
+    }
+  }));
+}
+
+function paintOptions(dimId, qIndex, value) {
+  [0, 1, 2].forEach(v => {
+    const el = document.getElementById(`lbl-${dimId}-${qIndex}-${v}`);
+    if (el) el.classList.remove('sel-0', 'sel-1', 'sel-2');
+  });
+  const sel = document.getElementById(`lbl-${dimId}-${qIndex}-${value}`);
+  if (sel) sel.classList.add(`sel-${value}`);
+}
+
+function paintSlider(dimId, qIndex, value) {
+  const q = DIMENSIONS.find(d => d.id === dimId).q[qIndex];
+  const el = document.getElementById(`sv-${dimId}-${qIndex}`);
+  if (!el) return;
+  const side = value <= 4 ? q.minLabel : value >= 7 ? q.maxLabel : 'An even split of the two';
+  el.textContent = `${value} of ${q.max} — ${side.toLowerCase()}`;
+  el.classList.remove('untouched');
+}
+
+function clearCardError(dimId, qIndex) {
+  const card = document.getElementById(`card-${dimId}-${qIndex}`);
+  if (card) card.classList.remove('unanswered');
+  const err = document.getElementById(`err-${dimId}`);
+  if (err) err.textContent = '';
+}
+
+function setScore(dimId, qIndex, value) {
+  ans(dimId, qIndex).score = value;
+  paintOptions(dimId, qIndex, value);
+  clearCardError(dimId, qIndex);
+  persist();
+  updateProgress();
+}
+
+function setSlider(dimId, qIndex, value) {
+  ans(dimId, qIndex).slider = parseInt(value, 10);
+  paintSlider(dimId, qIndex, parseInt(value, 10));
+  clearCardError(dimId, qIndex);
+  persist();
+  updateProgress();
+}
+
+function setNote(dimId, qIndex, value) {
+  ans(dimId, qIndex).note = value;
+  persist();
+}
+
+function setOpenText(dimId, qIndex, value) {
+  ans(dimId, qIndex).text = value;
+  persist();
+  updateProgress();
+}
+
+/* ------------------------------ NAVIGATION -------------------------------- */
+
+let currentScreen = 'intro';
+
+function goTo(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  const el = document.getElementById('screen-' + id);
+  if (!el) return;
+  el.classList.add('active');
+  currentScreen = id;
+  updateProgress();
+  window.scrollTo({ top: 0, behavior: 'auto' });
+}
+
+// A scored question needs an answer before moving on — the wheel only means
+// anything complete. Free-text boxes, including the open question, stay optional.
+function isAnswered(d, q, i) {
+  const a = ans(d.id, i);
+  if (q.open) return true;
+  if (q.slider) return a.slider !== undefined;
+  return a.score !== undefined;
+}
+
+function nextFrom(dimId) {
+  const d = DIMENSIONS.find(x => x.id === dimId);
+  const missing = [];
+  d.q.forEach((q, i) => {
+    const card = document.getElementById(`card-${dimId}-${i}`);
+    if (!isAnswered(d, q, i)) {
+      missing.push(i);
+      if (card) card.classList.add('unanswered');
+    } else if (card) {
+      card.classList.remove('unanswered');
+    }
+  });
+
+  const err = document.getElementById(`err-${dimId}`);
+  if (missing.length) {
+    err.textContent = missing.length === 1
+      ? 'One question still needs an answer — it’s highlighted above.'
+      : `${missing.length} questions still need an answer — they’re highlighted above.`;
+    const first = document.getElementById(`card-${dimId}-${missing[0]}`);
+    if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+  err.textContent = '';
+  goTo(d.num === 6 ? 'details' : 'd' + (d.num + 1));
+}
+
+function answeredCount() {
+  let n = 0;
+  DIMENSIONS.forEach(d => d.q.forEach((q, i) => {
+    const a = ans(d.id, i);
+    if (q.open) { if ((a.text || '').trim()) n++; }
+    else if (q.slider) { if (a.slider !== undefined) n++; }
+    else if (a.score !== undefined) n++;
+  }));
+  return n;
+}
+
+function updateProgress() {
+  document.getElementById('progress-count').innerHTML =
+    `<strong>${answeredCount()}</strong> of ${TOTAL_QUESTIONS} answered`;
+  const labels = { intro: 'Introduction', details: 'Your details', result: 'Your result' };
+  DIMENSIONS.forEach(d => { labels[d.id] = `Area ${d.num} of 6 — ${d.name}`; });
+  document.getElementById('progress-step').textContent = labels[currentScreen] || '';
+  const idx = Math.max(0, SCREEN_ORDER.indexOf(currentScreen));
+  document.getElementById('progress-fill').style.width =
+    (currentScreen === 'result' ? 100 : Math.round((idx / (SCREEN_ORDER.length - 1)) * 100)) + '%';
+}
+
+/* -------------------------------- SCORING --------------------------------- */
+
+// The slider is a 1-10 feel, not a maturity grade, so it gets rescaled into the
+// same 0-2 range every other scored question uses.
+function sliderScore(value) { return Math.round(((value - 1) / 9) * 2); }
+
+function questionScore(d, q, i) {
+  if (q.open) return null;                                   // excluded entirely
+  const a = ans(d.id, i);
+  if (q.slider) return a.slider === undefined ? 0 : sliderScore(a.slider);
+  return a.score === undefined ? 0 : a.score;
+}
+
+function scoredCount(d) { return d.q.filter(q => !q.open).length; }
+
+// Dimension 1 has four scored questions (max 8) against five (max 10) elsewhere,
+// so every dimension is reported on the same 0-10 scale.
+function dimScore10(d) {
+  const max = scoredCount(d) * 2;
+  const raw = d.q.reduce((sum, q, i) => sum + (questionScore(d, q, i) || 0), 0);
+  return { raw, max, score10: (raw / max) * 10 };
+}
+
+function fmt(n) { return Number.isInteger(n) ? String(n) : n.toFixed(1); }
+
+function buildDimScores() {
+  return DIMENSIONS.map(d => {
+    const { raw, max, score10 } = dimScore10(d);
+    return { id: d.id, name: d.name, short: d.short, raw, rawMax: max, score: score10, pct: score10 * 10 };
+  });
+}
+
+function byId(dimScores, id) { return dimScores.find(d => d.id === id); }
+function sliderValue() {
+  const d4 = DIMENSIONS.find(d => d.id === 'd4');
+  const idx = d4.q.findIndex(q => q.slider);
+  return ans('d4', idx).slider;
+}
+
+function tierColor(pct) { return pct < 40 ? '#EF4444' : pct < 75 ? '#F59E0B' : '#10B981'; }
+
+/* ------------------------- WHEEL OF MOTION -------------------------------- */
+// Same radar wheel as sales-maturity.html — same geometry, rings, colours and
+// label placement — so both tools produce a visually identical chart.
+
+function buildRadarWheel(dimScores) {
+  const n = dimScores.length;
+  const cx = 290, cy = 230, R = 140;
+  const angleFor = i => -Math.PI / 2 + i * (2 * Math.PI / n);
+  const pointAt = (i, pct) => {
+    const a = angleFor(i);
+    const r = (pct / 100) * R;
+    return [cx + r * Math.cos(a), cy + r * Math.sin(a)];
+  };
+
+  const rings = [25, 50, 75, 100].map(pct => {
+    const pts = dimScores.map((_, i) => pointAt(i, pct).join(',')).join(' ');
+    return `<polygon points="${pts}" fill="none" stroke="#E5E7EB" stroke-width="1"/>`;
+  }).join('');
+
+  const spokes = dimScores.map((_, i) => {
+    const [x, y] = pointAt(i, 100);
+    return `<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="#E5E7EB" stroke-width="1"/>`;
+  }).join('');
+
+  const dataPts = dimScores.map((d, i) => pointAt(i, d.pct).join(',')).join(' ');
+  const dataPolygon = `<polygon points="${dataPts}" fill="#4ECDC4" fill-opacity="0.28" stroke="#0D1B2A" stroke-width="2"/>`;
+
+  const dots = dimScores.map((d, i) => {
+    const [x, y] = pointAt(i, d.pct);
+    return `<circle cx="${x}" cy="${y}" r="4.5" fill="${tierColor(d.pct)}" stroke="#0D1B2A" stroke-width="1"/>`;
+  }).join('');
+
+  const labels = dimScores.map((d, i) => {
+    const a = angleFor(i);
+    const lx = cx + (R + 28) * Math.cos(a);
+    const ly = cy + (R + 28) * Math.sin(a);
+    const anchor = Math.abs(Math.cos(a)) < 0.15 ? 'middle' : (Math.cos(a) > 0 ? 'start' : 'end');
+    const lines = d.short.split('\n');
+    const tspans = lines.map((l, li) => `<tspan x="${lx}" dy="${li === 0 ? 0 : 12}">${l}</tspan>`).join('');
+    const scoreTspan = `<tspan x="${lx}" dy="13" fill="${tierColor(d.pct)}" font-weight="700">${fmt(d.score)}/10</tspan>`;
+    return `<text x="${lx}" y="${ly - (lines.length - 1) * 6}" text-anchor="${anchor}" font-family="Arial" font-size="11" fill="#0D1B2A" font-weight="600">${tspans}${scoreTspan}</text>`;
+  }).join('');
+
+  return `<svg viewBox="0 0 580 470" width="580" height="470" xmlns="http://www.w3.org/2000/svg">
+    <rect width="580" height="470" fill="#FFFFFF"/>
+    ${rings}${spokes}${dataPolygon}${dots}${labels}
+  </svg>`;
+}
+
+/* --------------------------- RESULT NARRATIVE -----------------------------
+   Composed per submission from that submission's own numbers — an opening read
+   of the spread, then whichever of the three diagnostic routes applies
+   (foundation gate, cross-dimension pattern, or single-gap fallback), then a
+   closing line counted off the material-gap threshold. No fixed paragraphs.
+--------------------------------------------------------------------------- */
+
+const MATERIAL_GAP = 2.0;   // points below the six-dimension average
+const OVERALL_AVERAGE_GATE = 6.0;   // six-dimension average below this = broadly underdeveloped, regardless of whether any single dimension is a relative outlier
+
+function averageOf(list) { return list.reduce((s, d) => s + d.score, 0) / list.length; }
+
+// Step 1b — the relative-gap tests below (foundation gate, cross-diagnostic,
+// single-gap fallback) all compare one dimension against this business's OWN
+// average. That's blind to a business that's uniformly weak across the board,
+// since nothing looks like an outlier next to an equally weak average. This
+// check catches that case directly, on absolute score, not relative spread.
+function broadUnderdevelopment(dimScores) {
+  const avg = averageOf(dimScores);
+  if (avg >= OVERALL_AVERAGE_GATE) return null;
+  return `None of the six areas stands out as a single outlier, the real story is the average itself, ${fmt(round1(avg))} out of 10 across the board. That's not one weak spot to patch, it's a sales engine that hasn't been built out yet in most of the places that matter. Worth a proper look, not because one thing's broken, but because most of it hasn't been put together at all.`;
+}
+
+// Step 1 — read the spread out loud, using the real high and low.
+function openingLine(dimScores) {
+  const sorted = [...dimScores].sort((a, b) => b.score - a.score);
+  const strongest = sorted[0];
+  const weakest = sorted[sorted.length - 1];
+  const spread = strongest.score - weakest.score;
+  const avg = averageOf(dimScores);
+
+  if (spread === 0) {
+    return `All six areas came out level, at ${fmt(strongest.score)} out of 10 each. Nothing stands apart in either direction, so this reads as a consistent engine rather than one with a single obvious hole in it.`;
+  }
+  if (spread < 1.0) {
+    return `Your six areas came out within a point of each other, from ${fmt(weakest.score)} to ${fmt(strongest.score)} out of 10, averaging ${fmt(round1(avg))}. Nothing stands apart in either direction, so this reads as a consistent engine rather than one with a single obvious hole in it.`;
+  }
+
+  const others = dimScores.filter(d => d.id !== weakest.id);
+  const othersAvg = averageOf(others);
+  if (othersAvg - weakest.score >= 1.5) {
+    if (avg < OVERALL_AVERAGE_GATE) {
+      return `Five of your six areas average ${fmt(round1(othersAvg))} out of 10, and ${weakest.name} sits further back still, at ${fmt(weakest.score)}. The whole engine is working from a low base, not just one part of it.`;
+    }
+    const word = othersAvg >= 8 ? 'strongly' : othersAvg >= 6.5 ? 'well' : 'reasonably well';
+    return `You scored ${word} across five of six areas, averaging ${fmt(round1(othersAvg))} out of 10 between them. The one that stands apart is ${weakest.name}, at ${fmt(weakest.score)} out of 10, noticeably behind the rest.`;
+  }
+
+  const atOrAbove = dimScores.filter(d => d.score >= avg).length;
+  const tally = atOrAbove === 1 ? 'One of the six sits' : `${atOrAbove} of the six sit`;
+  return `Your strongest area is ${strongest.name}, at ${fmt(strongest.score)} out of 10, and your weakest is ${weakest.name}, at ${fmt(weakest.score)}. ${tally} at or above your average of ${fmt(round1(avg))}, so the gaps here are spread rather than concentrated in one place.`;
+}
+
+function round1(n) { return Math.round(n * 10) / 10; }
+
+// Step 2 — the foundation gate. Systems & Data is the floor the other five
+// stand on, so a real gap there changes what the rest of the read is worth.
+function foundationGate(dimScores) {
+  const sd = byId(dimScores, 'd2');
+  if (sd.score >= 4) return null;
+  return `Your biggest gap sits in Systems & Data, at ${fmt(sd.score)} out of 10. That's different from a gap anywhere else, it's the foundation the other five sit on. A proper diagnostic needs real data to work from. Right now there may not be enough captured to tell you much you don't already sense. Worth getting the basics in place first, a system, some real discipline around it, before a deeper look would earn its keep.`;
+}
+
+// Step 3 — cross-dimension patterns, checked in order, first match wins. Each
+// one reads two dimensions against each other rather than scoring one alone.
+function crossDiagnostic(dimScores) {
+  const f = byId(dimScores, 'd1');
+  const sd = byId(dimScores, 'd2');
+  const pg = byId(dimScores, 'd3');
+  const cf = byId(dimScores, 'd4');
+  const mf = byId(dimScores, 'd5');
+  const cp = byId(dimScores, 'd6');
+  const slider = sliderValue();
+
+  if (f.score < 5 && sd.score < 5) {
+    return `Forecasting scored ${fmt(f.score)} out of 10. Systems & Data scored ${fmt(sd.score)}. The forecasting problem may not actually be a forecasting problem, it may be that there's nowhere reliable for a forecast to come from.`;
+  }
+  if (f.score < 5 && pg.score < 5) {
+    return `Forecasting scored ${fmt(f.score)} out of 10. Process & Governance scored ${fmt(pg.score)}. Forecast inconsistency here looks like a symptom, not the disease, it's what inconsistent sales execution looks like once it reaches the number.`;
+  }
+  if (cf.score >= 7 && mf.score < 5) {
+    return `Commercial Foundation scored ${fmt(cf.score)} out of 10. Market Feasibility scored ${fmt(mf.score)}. That's a competent sales machine pointed at a market that may not be big enough, or accessible enough, to reward it.`;
+  }
+  if (mf.score >= 7 && cf.score < 5) {
+    return `Market Feasibility scored ${fmt(mf.score)} out of 10. Commercial Foundation scored ${fmt(cf.score)}. The opportunity looks real. What's missing is the commercial architecture to actually go and capture it.`;
+  }
+  if (cp.score < 5 && slider !== undefined && slider >= 7) {
+    return `Customer & Pricing scored ${fmt(cp.score)} out of 10, while most new revenue is coming from new prospects rather than the existing base. This may be a business that's good at winning customers and quietly losing the value of them afterwards, through retention, expansion, or pricing discipline.`;
+  }
+  return null;
+}
+
+// Step 4 — fallback when no pattern fired: name the weakest area, and grade the
+// language by how far below the other five it actually sits.
+function singleGapFallback(dimScores) {
+  const weakest = [...dimScores].sort((a, b) => a.score - b.score)[0];
+  const othersAvg = averageOf(dimScores.filter(d => d.id !== weakest.id));
+  const gap = othersAvg - weakest.score;
+  if (gap < 1.0) return null;
+  const distance = gap >= 2.0 ? 'well behind the rest' : 'slightly behind the rest';
+  return `Your biggest gap sits in ${weakest.name}, at ${fmt(weakest.score)} out of 10, ${distance}.`;
+}
+
+// Step 5 — closing line, counted off dimensions a full MATERIAL_GAP below the
+// six-dimension average.
+function closingLine(dimScores) {
+  const avg = averageOf(dimScores);
+  if (avg < OVERALL_AVERAGE_GATE) {
+    return `There's a genuine case for a proper look here, across most of the picture, not just one corner of it.`;
+  }
+  const count = dimScores.filter(d => avg - d.score >= MATERIAL_GAP).length;
+  if (count === 0) {
+    return `Nothing here points to a material gap worth chasing right now. Your sales engine looks reasonably well-controlled. That's a genuinely good outcome, not every business needs a deeper look, and this one might not right now.`;
+  }
+  if (count === 1) return `One area stands out as worth a proper look.`;
+  return `There's real ground to make up across ${count} of the six areas.`;
+}
+
+function buildNarrative(dimScores) {
+  const parts = [openingLine(dimScores)];
+
+  const gate = foundationGate(dimScores);
+  if (gate) {
+    parts.push(gate);                       // gate fires: everything else is skipped
+  } else {
+    const broad = broadUnderdevelopment(dimScores);
+    if (broad) {
+      parts.push(broad);                    // uniformly weak: this is the real story, skip the relative checks below
+    } else {
+      const pattern = crossDiagnostic(dimScores);
+      if (pattern) {
+        parts.push(pattern);                // pattern fires: used instead of step 4
+      } else {
+        const fallback = singleGapFallback(dimScores);
+        if (fallback) parts.push(fallback); // may be skipped if no material gap
+      }
+    }
+  }
+
+  parts.push(closingLine(dimScores));
+  return parts;
+}
+
+
+/* --------------------------- SECTION TEMPLATES -----------------------------
+   The four-part canonical section shape, locked as the standard: what good
+   looks like (fixed), what your answers show (hedged, assembled from the
+   real tiered answer given to each question), worth knowing (a synthesis
+   line), worth doing (bullets, included only where that specific answer was
+   weak). Built once per dimension from that submission's real answers, never
+   picked from a shelf.
+--------------------------------------------------------------------------- */
+
+const WHAT_GOOD_LOOKS_LIKE = {
+  d1: "the target ties back to a real annual operating plan, the business forecasts at least one quarter ahead as standard, the number breaks down by revenue type rather than sitting as one blended figure, and the deals in the forecast in week one are recognisably the same deals still there in week thirteen.",
+  d2: "one system holding the pipeline that people actually use rather than work around, deal history pullable with real confidence, and a system trusted enough to drive decisions on its own rather than consulted then overridden.",
+  d3: "one named person owning the sales process, deals moving stage against criteria consistently applied, and stage definitions meaning the same thing to everyone, not five different things depending who's asked.",
+  d4: "a written, specific definition of who you win. Pipeline generation built to point at that definition on purpose. A regular, real check of whether the customers you've actually got still match it. And someone who owns going back into the existing base for what it's worth, not as a fallback when new logos are slow, but as a deliberate motion running alongside them.",
+  d5: "market position reviewed on a real, set cadence rather than only after something's gone wrong, targeting deliberately revisited as the market shifts, growth and decline tracked segment by segment, and competitor losses that actually feed back into pricing, positioning, or product.",
+  d6: "knowing precisely what share of revenue sits with the top slice of customers, real willingness to walk away from the wrong ones, clear and consistent criteria for what's worth chasing, pricing that flexes deliberately by deal size or type, and a formal habit of reviewing wins and losses.",
+};
+
+// Per question, per tier (0=worst .. 2=best), a hedged fragment for the
+// "what your answers show" paragraph. null entries are questions handled
+// outside this fragment system (the slider, the open-text quote).
+const ANSWER_FRAGMENTS = {
+  d1: [
+    ["the target doesn't look tied to any documented plan", "the target appears loosely tied to a plan, more attached than following from it", "the target does look genuinely tied to a documented plan"],
+    ["forecasting doesn't look like it extends past the current quarter", "forecasting looks occasional beyond the current quarter, not yet a habit", "forecasting does look like it consistently extends at least one quarter ahead"],
+    ["the number looks tracked as one blended figure rather than broken out by revenue type", "revenue-type breakdown looks inconsistent, depending who's building the number", "the number does look broken down by revenue type consistently"],
+    ["weighting by forecast category doesn't look applied", "weighting by forecast category looks informal, more gut feel than method", "weighting by forecast category does look applied consistently"],
+    null,
+  ],
+  d2: [
+    ["the pipeline doesn't look held in one trusted system", "there's a main system, but people also appear to work outside it", "the pipeline does look held in one system that's genuinely used"],
+    ["deal history doesn't look pullable with real confidence today", "deal history looks pullable, but probably needs double-checking first", "deal history does look pullable with real confidence"],
+    ["keeping deals current doesn't look enforced", "keeping deals current looks expected but not really enforced", "keeping deals current does look genuinely enforced"],
+    ["the data doesn't look like it feeds anything leadership looks at", "the data looks pulled occasionally rather than routinely", "the data does look like it feeds reports leadership regularly uses"],
+    ["the system doesn't look like it drives decisions", "the system looks like it informs decisions, with people overriding it often", "the system does look used autonomously to drive decisions"],
+  ],
+  d3: [
+    ["ownership of the sales process doesn't look clearly named", "ownership looks informal, unofficial, not formalised", "there does look to be a clearly named owner of the sales process"],
+    ["deals don't look like they move stage against consistent criteria", "there look to be guidelines, but they don't look consistently followed", "deals do look like they move stage against clear, consistently applied criteria"],
+    ["there doesn't look to be a pipeline review kept separate from the commit call", "a separate review looks folded into the commit call rather than run on its own", "a proper, separate pipeline review does look like it happens regularly"],
+    ["large or non-standard deals don't look like they get a formal review", "large or non-standard deals look reviewed only sometimes, depending who notices", "large or non-standard deals do look like they get a formal review every time"],
+    ["stage and forecast definitions don't look consistent across the team", "stage and forecast definitions look roughly, rather than exactly, shared", "stage and forecast definitions do look documented and consistent across the team"],
+  ],
+  d4: [
+    ["there doesn't look to be a written ideal customer profile", "there's a rough sense of the ideal customer, but it doesn't look written down", "there does look to be a clearly defined, written ideal customer profile"],
+    ["pipeline generation doesn't look targeted at that profile", "pipeline generation only partly looks aligned to that profile", "pipeline generation does look consistently targeted at that profile"],
+    ["the existing customer base doesn't look checked against that profile", "there's a rough sense of fit, but it doesn't look properly checked", "the existing customer base does look formally assessed against that profile"],
+    null,
+    ["nobody looks like they own monitoring white space in existing accounts", "someone appears to keep half an eye on it, but it doesn't look properly owned", "a dedicated team does look like it owns monitoring white space"],
+  ],
+  d5: [
+    ["market position doesn't look reviewed until performance is already slipping", "market review looks occasional, usually prompted by something going wrong", "market position does look reviewed on a genuine, set cadence"],
+    ["targeting doesn't look like it's changed in the last twelve months", "targeting looks like it's changed, but reactively, without much planning", "targeting does look like it's changed deliberately in the last twelve months"],
+    ["growth and decline across the market don't look tracked by segment", "there's a rough sense of segment movement, though not tracked in detail", "growth and decline do look tracked segment by segment"],
+    ["competitor losses don't look tracked", "competitor losses look noted sometimes, but don't look like they go anywhere", "competitor losses do look tracked and genuinely fed into decisions"],
+    ["naming genuinely happy customers doesn't look straightforward", "naming happy customers looks possible, but would need checking with the team first", "naming genuinely happy customers does look like a real strength"],
+  ],
+  d6: [
+    ["revenue concentration in the top customer segment doesn't look known", "revenue concentration looks roughly known, not precisely", "revenue concentration does look precisely known"],
+    ["there doesn't look to be a customer that would genuinely be walked away from", "there looks to be a customer that would be walked away from in theory, but probably wouldn't be in practice", "there does look to be a customer that would genuinely be walked away from, and acted on"],
+    ["criteria for what's worth chasing don't look consistent", "there's a rough sense of what's worth chasing, but it doesn't look consistent", "criteria for what's worth chasing do look clear and consistently applied"],
+    ["deal size or type doesn't look like it affects selling or pricing", "deal size or type looks like it affects selling or pricing a little, informally", "deal size or type does look like it clearly and consistently affects selling and pricing"],
+    ["wins and losses don't look formally reviewed", "wins and losses look reviewed occasionally, informally", "wins and losses do look formally reviewed every time"],
+  ],
+};
+
+// Slider fragment for Dimension 4, Q4 — handled separately since it's not a
+// tiered 0/1/2 answer, it's a 1–10 read on where revenue is actually coming from.
+function sliderFragment() {
+  const v = sliderValue();
+  if (v === undefined) return null;
+  if (v <= 3) return "when asked where new revenue is actually coming from, the answer sits close to the existing-base end of the scale, suggesting most of it isn't coming from targeted new prospects";
+  if (v <= 7) return "when asked where new revenue is actually coming from, the answer sits somewhere in the middle, a genuine mix of new prospects and the existing base rather than a clear lean either way";
+  return "when asked where new revenue is actually coming from, the answer sits close to the new-prospects end of the scale, suggesting the existing base may be under-mined by comparison";
+}
+
+// Per-question action bullet, included only when that answer scored below
+// the top tier (i.e. there's something real to act on).
+const ACTION_BULLETS = {
+  d1: [
+    "Tie the annual target explicitly back to the plan it's meant to come from",
+    "Forecast at least one quarter ahead as a standing habit, not just the current one",
+    "Split the number by revenue type instead of one blended figure",
+    "Bring the informal weighting into a documented method",
+    null,
+  ],
+  d2: [
+    "Get pipeline data into one system people actually use, not work around",
+    "Build confidence in deal history with a regular audit and clean-up",
+    "Make keeping deals current genuinely enforced, not just expected",
+    "Get the data feeding routine reports leadership actually reviews",
+    "Push decisions to rely on the system first, with overrides logged as the exception",
+  ],
+  d3: [
+    "Name one actual owner of the sales process",
+    "Require evidence in the CRM before a deal moves stage, not just a verbal call",
+    "Add a pipeline review kept separate from the commit conversation",
+    "Set a fixed trigger for a large-deal review, rather than leaving it to who notices",
+    "Get the whole team using the same stage and forecast definitions",
+  ],
+  d4: [
+    "Write the ideal customer profile down, specific enough two people would describe the same target the same way",
+    "Point pipeline generation directly at that profile",
+    "Check the current customer base against the profile and flag the mismatches",
+    "Set a real target split between new-logo and existing-base revenue, so growth isn't quietly running on one leg",
+    "Name an actual owner for expansion inside existing accounts, separate from whoever's chasing new logos",
+  ],
+  d5: [
+    "Put a real cadence on market review, not triggered only by a bad quarter",
+    "Revisit targeting deliberately at least once a year against what's actually moved",
+    "Track growth and decline by segment, not as one blended read",
+    "Build a simple habit for feeding competitor-loss information back into pricing or positioning",
+    "Confirm which customers count as genuinely happy with the wider team, not just top-of-mind",
+  ],
+  d6: [
+    "Get an exact, not rough, figure for revenue concentration in the top customer segment",
+    "Turn the theoretical willingness to walk away into an actual, applied rule",
+    "Write down what \"not worth chasing\" actually means, so it's consistent rather than a feeling",
+    "Build a real system for how deal size or type affects pricing",
+    "Formalise win/loss review as a standing habit, not an occasional one",
+  ],
+};
+
+// "Keep doing" bullets, the reinforcement half of Worth Doing, first pass by
+// Claude, not yet reviewed by Nick. Fires when a question scores full marks,
+// reusing the existing top-tier option as the grounding fact and turning it
+// into an instruction to protect it. null slots match ACTION_BULLETS, the
+// open question and the slider don't score 0/1/2, so neither gets a fixed
+// continue line here.
+const CONTINUE_BULLETS = {
+  d1: [
+    "Keep the annual target tied to the plan it's meant to follow from",
+    "Keep forecasting at least one quarter ahead as standing practice",
+    "Keep breaking the number down by revenue type rather than one blended figure",
+    "Keep the forecast-category weighting applied consistently",
+    null,
+  ],
+  d2: [
+    "Keep the pipeline in one system that people actually use",
+    "Keep deal history reliable enough to pull with real confidence",
+    "Keep enforcing that deals stay current, not just expecting it",
+    "Keep the data feeding the reports leadership actually looks at",
+    "Keep decisions running off the system first, not overridden by default",
+  ],
+  d3: [
+    "Keep the sales process under one named owner",
+    "Keep deals moving stage against criteria that's consistently applied",
+    "Keep the pipeline review separate from the commit call",
+    "Keep the formal review running on every large or non-standard deal",
+    "Keep stage and forecast definitions consistent across the team",
+  ],
+  d4: [
+    "Keep the ideal customer profile written down and specific",
+    "Keep pipeline generation pointed at that same profile",
+    "Keep formally checking the existing base against the profile",
+    null,
+    "Keep a dedicated owner on white space in existing accounts",
+  ],
+  d5: [
+    "Keep reviewing market position on a genuine, set cadence",
+    "Keep revisiting targeting deliberately, not just reactively",
+    "Keep tracking growth and decline segment by segment",
+    "Keep feeding competitor losses back into pricing or positioning",
+    "Keep the wider team able to name genuinely happy customers, not just top of mind",
+  ],
+  d6: [
+    "Keep an exact figure on revenue concentration in the top customer segment",
+    "Keep the willingness to walk away from the wrong customer real, not just theoretical",
+    "Keep the criteria for what's worth chasing clear and consistently applied",
+    "Keep pricing and selling flexed deliberately by deal size or type",
+    "Keep the formal win and loss review running every time",
+  ],
+};
+
+// "Stop" bullets, deliberately sparse. Populated only where the bottom-tier
+// option itself describes an active, counterproductive behaviour rather than
+// a plain absence of something not yet built. Compare "no documented plan
+// exists", that's a Start gap, against "deals move stage whenever someone
+// decides to", that's a live habit worth naming and stopping. First pass by
+// Claude, grounded only in the existing option text, flagged for Nick's
+// review rather than treated as settled, this is a judgement call about
+// tone and every other slot stays null until there's a considered reason to
+// add one, not a guess at one for every question.
+const STOP_BULLETS = {
+  d1: [null, null, null, null, null],
+  d2: [null, null, null, null,
+    "Stop letting decisions get made in conversation while the system sits there unused",
+  ],
+  d3: [null,
+    "Stop letting deals move stage on someone's say so instead of against real criteria",
+    null, null, null,
+  ],
+  d4: [null, null, null, null, null],
+  d5: [
+    "Stop waiting for performance to slip before market position gets a proper look",
+    null, null, null, null,
+  ],
+  d6: [null,
+    "Stop taking every customer's money regardless of fit",
+    "Stop chasing every opportunity that comes in, whether or not it's worth having",
+    null, null,
+  ],
+};
+
+// Worth Knowing, now conditional the same way sectionActionBullets already
+// is: [low, mid, high] per dimension, keyed off that dimension's own score,
+// not a fixed string handed out regardless of what was answered. The mid
+// entry in every dimension is the original, already-approved copy, carried
+// over unchanged. Low and high are a first pass by Claude, not yet reviewed
+// by Nick, written to sit either side of the existing line rather than
+// replace it. Tier boundaries reuse tierColor's existing 40/75 split so this
+// stays consistent with the red/amber/green language already on the wheel.
+const WORTH_KNOWING = {
+  d1: [
+    "A forecast that reshuffles through the quarter isn't forecasting at all, it's a diary of whatever's already closed, written up after the fact. At this level the number being reported and the number actually happening in the business may barely be in the same conversation.",
+    "A forecast that reshuffles through the quarter isn't really forecasting, it's a running commentary on whatever's happened to close so far. Where weighting is a strength but the horizon and the plan aren't, that's discipline applied to the wrong stretch of the process.",
+    "This is close to what a forecast is meant to do, hold its shape through the quarter rather than reassemble itself around whatever's already closing. Worth protecting, this is usually the first discipline that slips when growth gets messy.",
+  ],
+  d2: [
+    "Scattered systems and unenforced discipline usually means there's no single trustworthy record of what's actually happening in the pipeline at all. Every other number in this report, including this one, is only as good as what's been typed in somewhere.",
+    "A CRM only kept current when a deal looks winnable is built for optics, not truth, silently filtered before anyone looks at it. That's a different problem to data simply being missing, it means what's there may already be the flattering half of the picture.",
+    "One system, genuinely used, genuinely trusted enough to drive decisions without people quietly working around it, that's rarer than it should be. Worth protecting as the business scales, since this is exactly the discipline that erodes first under growth pressure.",
+  ],
+  d3: [
+    "Without a named owner or consistently applied criteria, stage movement stops meaning anything, a deal's stage says more about who's updating it than where it actually sits. That's the kind of gap that quietly corrupts every number built on top of it.",
+    "A process several people use for different reasons isn't really one process, it's several informal ones sharing a CRM. That tends to surface downstream in forecasting and data quality too, since nobody's enforcing the same gate the same way twice.",
+    "One owner, criteria that actually get applied, definitions the whole team shares, that's a genuinely governed process rather than a shared habit. Worth protecting, it's what makes the rest of this report trustworthy.",
+  ],
+  d4: [
+    "Without a written target and pipeline built to point at it, growth isn't really being aimed anywhere, it's being taken wherever it shows up. That works until it doesn't, usually right when the easy wins run out.",
+    "The strongest businesses point everything, targeting, pipeline, incentives, at a customer chosen on purpose. What's showing here reads closer to reactive than intentional, revenue looks like it's coming from wherever it's easiest to get, rather than from a chosen target being pursued deliberately. That's not automatically a crisis. It suggests growth right now may be running on what's already been won, not on a repeatable motion for winning more of the right kind on purpose.",
+    "Everything pointed at a customer chosen on purpose, and someone actively working the value already sitting in the existing base, that's a genuinely intentional commercial engine. Worth protecting, most businesses lose this discipline the moment growth gets easy.",
+  ],
+  d5: [
+    "Reviewing the market only once something's already gone wrong means the business finds out about a shift after it's already cost something. In a market moving unevenly, that's not a minor gap, it's the difference between adjusting and reacting.",
+    "A market only looked at when something's already wrong means finding out after the fact, not ahead of it. Unchanged targeting in a market that may be moving in different directions in different places is worth a second look on its own.",
+    "A genuine, set cadence on market review, targeting revisited deliberately rather than reactively, that's rarer than it sounds. Worth protecting, it's usually the first thing to slip once the internal numbers look fine.",
+  ],
+  d6: [
+    "Chasing almost everything and pricing every deal the same way usually means margin and effort are being spent on customers that were never worth the same amount. That's not a pricing problem so much as a discipline problem showing up in the numbers.",
+    "The gap between a willingness to walk away \"in theory\" and doing it in practice is worth sitting with, it suggests the business may already know where its bad-fit customers are, and just hasn't built the discipline to act on that yet.",
+    "Knowing exactly where revenue concentrates, walking away from the wrong customers in practice not just in theory, that's genuine commercial discipline. Worth protecting, it's an easy thing to let slip once the pipeline's full.",
+  ],
+};
+
+// Same 40/75 split tierColor already uses for the wheel dots, applied here so
+// a dimension's Worth Knowing tier always agrees with its own colour on the
+// chart above it.
+function worthKnowingTier(score10) { return score10 < 4 ? 0 : score10 < 7.5 ? 1 : 2; }
+function worthKnowingText(dim, dimScore) { return WORTH_KNOWING[dim.id][worthKnowingTier(dimScore.score)]; }
+
+function tierWord(score) { return score >= 1.5 ? 2 : score >= 0.5 ? 1 : 0; }
+
+// Assemble "what your answers show" from this dimension's actual tiered
+// answers, in order, joined into a short paragraph. Skips slider/open
+// questions, which get their own handling.
+function whatAnswersShow(dim, dimIdx) {
+  const fragments = ANSWER_FRAGMENTS[dim.id];
+  const sentences = [];
+  dim.q.forEach((q, i) => {
+    if (fragments[i] === null) return;   // slider or open question, handled separately
+    const a = ans(dim.id, i);
+    if (a.score === undefined) return;
+    sentences.push(fragments[i][a.score]);
+  });
+  const slider = dim.id === 'd4' ? sliderFragment() : null;
+  let text = sentences.map(capitalise).join('. ') + '.';
+  if (slider) text += ' And ' + slider + '.';
+  return text;
+}
+
+function capitalise(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+
+// Worth Doing, now three groups instead of one flat list: Stop (an active
+// habit worth naming and ending), Start (real room to act, the original
+// behaviour), and Keep doing (full marks, worth protecting rather than
+// silently ignored). A question lands in exactly one group, never two, so
+// nothing gets said about the same answer twice.
+function sectionActionBullets(dim) {
+  const startList = ACTION_BULLETS[dim.id];
+  const stopList = STOP_BULLETS[dim.id];
+  const keepList = CONTINUE_BULLETS[dim.id];
+  const stop = [], start = [], keep = [];
+  dim.q.forEach((q, i) => {
+    const a = ans(dim.id, i);
+    if (a.score === undefined) return;
+    if (a.score === 2) {
+      if (keepList[i]) keep.push(keepList[i]);
+    } else if (a.score === 0 && stopList[i]) {
+      stop.push(stopList[i]);
+    } else if (startList[i]) {
+      start.push(startList[i]);   // covers score 1 always, and score 0 where there's no Stop line for it yet
+    }
+  });
+  if (dim.id === 'd4') {
+    const v = sliderValue();
+    if (v !== undefined && v <= 7) start.push(startList[3]);   // the split-target bullet, unless already strongly new-prospect-led
+  }
+  return { stop, start, keep };
+}
+
+function buildSectionHtml(dim, dimScore) {
+  const answers = whatAnswersShow(dim);
+  const worthKnowing = worthKnowingText(dim, dimScore);
+  const b = sectionActionBullets(dim);
+  const group = (cls, label, items) => items.length
+    ? `<div class="action-group action-group-${cls}"><div class="action-group-label">${escapeHtml(label)}</div><ul class="dim-bullets">${items.map(x => `<li>${escapeHtml(x)}</li>`).join('')}</ul></div>`
+    : '';
+  const doingBlock = (b.stop.length || b.start.length || b.keep.length)
+    ? `<div class="dim-block"><strong>Worth doing:</strong>${group('stop', 'Stop', b.stop)}${group('start', 'Start', b.start)}${group('keep', 'Keep doing', b.keep)}</div>`
+    : '';
+  return `<div class="dim-section">
+    <div class="dim-section-head">${escapeHtml(dim.name.toUpperCase())} — ${fmt(dimScore.score)}/10</div>
+    <div class="dim-block"><strong>What good looks like:</strong> ${escapeHtml(WHAT_GOOD_LOOKS_LIKE[dim.id])}</div>
+    <div class="dim-block"><strong>What your answers show:</strong> ${escapeHtml(answers)}</div>
+    <div class="dim-block"><strong>Worth knowing:</strong> ${escapeHtml(worthKnowing)}</div>
+    ${doingBlock}
+  </div>`;
+}
+
+function buildAllSectionsHtml(dimScores) {
+  return DIMENSIONS.map((dim, i) => buildSectionHtml(dim, dimScores[i])).join('');
+}
+
+/* ------------------------------ RESULT SCREEN ----------------------------- */
+
+// Every place someone's own words got captured: the dedicated Forecasting
+// open question, plus the optional detail box under every scored question
+// across all six dimensions. Used to be hardcoded to Forecasting only, so the
+// report's one genuinely personal moment only fired when Forecasting
+// happened to be the story worth telling. Now it's a real search across
+// everything written, not a fixed slot.
+function forecastingOpenCandidate() {
+  const d = DIMENSIONS[0];
+  const idx = d.q.findIndex(q => q.open);
+  if (idx < 0) return null;
+  const a = ans(d.id, idx);
+  const text = (a.text || '').trim();
+  if (!text) return null;
+  return { question: d.q[idx].text, answer: text, note: (a.note || '').trim(), dimName: d.name, isOpen: true, words: text.split(/\s+/).length };
+}
+
+function allQuoteCandidates() {
+  const candidates = [];
+  const openCandidate = forecastingOpenCandidate();
+  if (openCandidate) candidates.push(openCandidate);
+  DIMENSIONS.forEach(d => {
+    d.q.forEach((q, i) => {
+      if (q.open) return;   // the dedicated open question is handled above, not as a note
+      const note = (ans(d.id, i).note || '').trim();
+      if (!note) return;
+      candidates.push({ question: q.text, answer: note, note: '', dimName: d.name, isOpen: false, words: note.split(/\s+/).length });
+    });
+  });
+  return candidates;
+}
+
+// Ranked by length as the honest proxy available without sending anything to
+// a paid model: more written usually means more actually said. Not a true
+// quality read, flagged as such, see the session notes. Ties prefer the
+// Forecasting question, since it's the one purpose-built to invite this.
+function findBestQuote() {
+  const candidates = allQuoteCandidates();
+  if (!candidates.length) return null;
+  candidates.sort((a, b) => (b.words - a.words) || ((b.isOpen ? 1 : 0) - (a.isOpen ? 1 : 0)));
+  return candidates[0];
+}
+
+function quoteHtml() {
+  const q = findBestQuote();
+  if (!q) {
+    const d = DIMENSIONS[0];
+    const idx = d.q.findIndex(x => x.open);
+    return `<div class="quote-block">
+      <div class="quote-label">In your own words</div>
+      <div class="quote-q">${escapeHtml(d.q[idx].text)}</div>
+      <div class="quote-a" style="font-style:normal;color:var(--mid-grey);">You skipped this one. It's the question that usually tells the most, so it's worth coming back to.</div>
+      <div class="quote-note">Not scored, and deliberately kept off the wheel — forecast stability is a judgement, not a number.</div>
+    </div>`;
+  }
+  const footer = q.isOpen
+    ? `Not scored, and deliberately kept off the wheel — forecast stability is a judgement, not a number.`
+    : `The sharpest line in your answers, from ${escapeHtml(q.dimName)}. Added detail, not scored on its own, worth more than the tick box next to it.`;
+  return `<div class="quote-block">
+    <div class="quote-label">In your own words</div>
+    <div class="quote-q">${escapeHtml(q.question)}</div>
+    <div class="quote-a">“${escapeHtml(q.answer)}”</div>
+    ${q.isOpen && q.note ? `<div class="quote-note">You added: ${escapeHtml(q.note)}</div>` : ''}
+    <div class="quote-note">${footer}</div>
+  </div>`;
+}
+
+let lastResult = null;   // { dimScores, narrative, wheelSvg, date } for the report
+
+function renderResult() {
+  const dimScores = buildDimScores();
+  const narrative = buildNarrative(dimScores);
+  const wheelSvg = buildRadarWheel(dimScores);
+  const date = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+  lastResult = { dimScores, narrative, wheelSvg, date };
+
+  const company = state.details.company.trim() || 'Your business';
+  const name = state.details.name.trim();
+
+  document.getElementById('result-card').innerHTML = `
+    <div class="result-header">
+      <div class="result-brand">ARC ADVISORY — SALES MATURITY ASSESSMENT</div>
+      <div class="result-client">Assessed<strong>${escapeHtml(company)}</strong></div>
+      <div class="result-meta">${name ? escapeHtml(name) + ' · ' : ''}${date}</div>
+    </div>
+    <div class="result-body">
+      <div class="wheel-box">${wheelSvg}</div>
+      <div class="wheel-caption">Wheel of Motion — each of the six areas scored out of 10</div>
+      <div class="narrative">${narrative.map(p => `<p>${escapeHtml(p)}</p>`).join('')}</div>
+      ${quoteHtml()}
+      <div class="dim-sections-head">YOUR SIX AREAS, ONE AT A TIME</div>
+      ${buildAllSectionsHtml(dimScores)}
+    </div>
+  `;
+}
+
+/* ------------------------------ SUBMISSION -------------------------------- */
+
+// Everything captured, in one object: used by the report, and the shape Phase 2
+// would send onward.
+function collectSubmission() {
+  const dimScores = buildDimScores();
+  return {
+    type: 'public_sales_maturity',
+    submittedAt: new Date().toISOString(),
+    contact: { ...state.details },
+    summary: {
+      scoredQuestions: SCORED_QUESTIONS,
+      averageOutOf10: round1(averageOf(dimScores)),
+      dimensionScores: dimScores.map(d => ({ name: d.name, outOf10: round1(d.score), raw: d.raw, rawMax: d.rawMax })),
+    },
+    narrative: buildNarrative(dimScores),
+    dimensions: DIMENSIONS.map(d => ({
+      name: d.name,
+      outOf10: round1(dimScore10(d).score10),
+      answers: d.q.map((q, i) => {
+        const a = ans(d.id, i);
+        return {
+          question: q.text,
+          kind: q.open ? 'open' : q.slider ? 'slider' : 'choice',
+          answer: answerText(d, q, i),
+          score: q.open ? null : questionScore(d, q, i),
+          scoreLabel: q.open || q.slider ? null : SCORE_LABEL[questionScore(d, q, i)],
+          sliderValue: q.slider ? a.slider : null,
+          note: a.note || '',
+        };
+      }),
+    })),
+  };
+}
+
+// What the person actually chose, in words, for the result object and the report.
+function answerText(d, q, i) {
+  const a = ans(d.id, i);
+  if (q.open) return (a.text || '').trim() || 'Not answered';
+  if (q.slider) {
+    return a.slider === undefined
+      ? 'Not answered'
+      : `${a.slider} of ${q.max} on the scale from "${q.minLabel}" (1) to "${q.maxLabel}" (${q.max}) — scores ${sliderScore(a.slider)}/2`;
+  }
+  if (a.score === undefined) return 'Not answered';
+  return q.options[2 - a.score];
+}
+
+function submitAssessment() {
+  const errEl = document.getElementById('details-error');
+  state.details.name = document.getElementById('f-name').value.trim();
+  state.details.company = document.getElementById('f-company').value.trim();
+  state.details.email = document.getElementById('f-email').value.trim();
+  // Consent is recorded, and deliberately has no bearing on seeing the result.
+  state.details.consent = document.getElementById('f-consent').checked;
+  persist();
+
+  const missing = [];
+  if (!state.details.name) missing.push('name');
+  if (!state.details.company) missing.push('company');
+  if (!state.details.email) missing.push('email');
+  if (missing.length) {
+    errEl.textContent = 'Just need your ' + missing.join(', ').replace(/, ([^,]*)$/, ' and $1') + ' to finish.';
+    return;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(state.details.email)) {
+    errEl.textContent = 'That email doesn’t look right — mind checking it?';
+    return;
+  }
+
+  const unfinished = DIMENSIONS.filter(d => d.q.some((q, i) => !isAnswered(d, q, i)));
+  if (unfinished.length) {
+    errEl.textContent = 'A few questions are still unanswered in: ' + unfinished.map(d => d.name).join(', ') + '.';
+    return;
+  }
+  errEl.textContent = '';
+
+  const submission = collectSubmission();
+  const dimScores = buildDimScores();
+
+  // Phase 2, live: Airtable capture (same base, same function, same tables the
+  // facilitator tool already writes to) and Netlify's own form-handling for the
+  // email notification. Both are best-effort — neither should ever be able to
+  // stop someone seeing their own result if either call fails or is slow.
+  notifyAndSave(submission, dimScores);
+
+  renderResult();
+  goTo('result');
+}
+
+// The real total score, in the same raw-points-out-of-raw-max shape the
+// facilitator tool already uses (e.g. "57 out of 58"), not an invented scale.
+function totalRawScore(dimScores) {
+  return {
+    raw: dimScores.reduce((s, d) => s + d.raw, 0),
+    max: dimScores.reduce((s, d) => s + d.rawMax, 0),
+  };
+}
+
+// Maps the composed-narrative outcome onto the Band values the existing
+// Airtable Company-status logic already understands (save-session.js sets
+// Status to "FILTER Ready" only when Band === "FILTER-Ready").
+function outcomeBand(dimScores) {
+  const sd = byId(dimScores, 'd2');
+  if (sd.score < 4) return 'Foundation Gap';
+  const avg = averageOf(dimScores);
+  if (avg < OVERALL_AVERAGE_GATE) return 'FILTER-Ready';
+  const count = dimScores.filter(d => avg - d.score >= MATERIAL_GAP).length;
+  return count > 0 ? 'FILTER-Ready' : 'Well-Controlled';
+}
+
+function notifyAndSave(submission, dimScores) {
+  const { raw, max } = totalRawScore(dimScores);
+  const band = outcomeBand(dimScores);
+
+  // Netlify's built-in form handling — fires the email notification configured
+  // in this site's own Notifications settings. No third-party service, no API key.
+  try {
+    const body = new URLSearchParams({
+      'form-name': 'assessment-notification',
+      name: submission.contact.name,
+      company: submission.contact.company,
+      email: submission.contact.email,
+      score: `${raw}/${max}`,
+      band,
+      'contacted-ok': submission.contact.consent ? 'Yes' : 'No',
+    });
+    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body.toString() })
+      .catch(() => {});
+  } catch (e) { /* best-effort — never blocks the result screen */ }
+
+  // Same Airtable base, same tables, same function the facilitator tool
+  // already uses — one system of record for a company, not two.
+  try {
+    fetch('/.netlify/functions/save-session', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        type: 'sales_maturity',
+        company: submission.contact.company,
+        summary: {
+          'Total Score': raw,
+          'Maturity %': Math.round((raw / max) * 100),
+          'Band': band,
+          'Assessed By': 'Self-serve (public tool)',
+          'Contact Name': submission.contact.name,
+        },
+        data: submission,
+      }),
+    }).catch(() => {});
+  } catch (e) { /* best-effort — never blocks the result screen */ }
+}
+
+/* --------------------------- DOWNLOADABLE REPORT --------------------------
+   Built entirely in the browser from data already in the session: no server
+   round-trip, no email, nothing leaves the page. jsPDF is served from this
+   site rather than a CDN so the page makes no third-party requests.
+--------------------------------------------------------------------------- */
+
+// jsPDF's built-in fonts are WinAnsi, so fold the typographic characters in the
+// copy down to their ASCII equivalents rather than risk dropped glyphs.
+function pdfSafe(s) {
+  return String(s)
+    .replace(/[‘’]/g, "'")
+    .replace(/[“”]/g, '"')
+    .replace(/[–—]/g, '-')
+    .replace(/…/g, '...')
+    .replace(/·/g, '-')
+    .replace(/ /g, ' ')
+    .replace(/&amp;/g, '&');
+}
+
+// Rasterise the wheel so the PDF carries the same chart the screen shows.
+function wheelToPng(svg, scale) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => {
+      try {
+        const canvas = document.createElement('canvas');
+        canvas.width = 580 * scale;
+        canvas.height = 470 * scale;
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        resolve(canvas.toDataURL('image/png'));
+      } catch (e) { reject(e); }
+    };
+    img.onerror = () => reject(new Error('wheel image failed to load'));
+    img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+  });
+}
+
+// The CTA, mailto rather than a booking link, matching the pattern already
+// used on the FILTER Diagnostic tool's "Book a Diagnostic Call" button. No
+// FILTER name, no price, no Recoverable Revenue figure, this is the free
+// front door, not the pitch. It names the weakest dimension because that
+// gives Nick something real to open the reply with, not because it's trying
+// to make the ask sound more official than it is.
+function talkItThrough() {
+  if (!lastResult) return;
+  const company = state.details.company.trim() || 'my business';
+  const weakest = [...lastResult.dimScores].sort((a, b) => a.score - b.score)[0];
+  const subject = encodeURIComponent(`Sales Maturity Assessment — ${company}`);
+  const body = encodeURIComponent(
+    `Hi Nick,\n\nI've just run ${company} through the Sales Maturity Assessment. ${weakest.name} came out as the area with the most room to move, at ${fmt(round1(weakest.score))} out of 10.\n\nI'd like to talk it through, when's a good time?\n\n`
+  );
+  window.location.href = `mailto:nick@arc-advisory.co.uk?subject=${subject}&body=${body}`;
+}
+
+async function downloadReport() {
+  const btn = document.getElementById('download-btn');
+  const status = document.getElementById('download-status');
+  if (!lastResult) return;
+  if (!(window.jspdf && window.jspdf.jsPDF)) {
+    status.textContent = 'The report builder didn’t load. A page refresh usually fixes it — your answers are still here.';
+    status.style.color = 'var(--red)';
+    return;
+  }
+
+  btn.disabled = true;
+  const originalLabel = btn.textContent;
+  btn.textContent = 'Building your report…';
+  status.textContent = '';
+  status.style.color = 'var(--mid-grey)';
+
+  try {
+    let wheelPng = null;
+    try {
+      wheelPng = await wheelToPng(lastResult.wheelSvg, 2);
+    } catch (e) {
+      wheelPng = null;   // fall back to a plain score table below
+    }
+    buildPdf(wheelPng).save(reportFilename());
+    status.textContent = wheelPng
+      ? 'Downloaded. It’s yours to keep — nothing was sent anywhere.'
+      : 'Downloaded. The wheel wouldn’t render in this browser, so your scores are listed instead.';
+  } catch (err) {
+    status.textContent = 'Couldn’t build the report — ' + err.message + '. Your results are still on screen.';
+    status.style.color = 'var(--red)';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = originalLabel;
+  }
+}
+
+function reportFilename() {
+  const slug = (state.details.company || 'sales-maturity').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  return `arc-sales-maturity-${slug || 'report'}.pdf`;
+}
+
+function buildPdf(wheelPng) {
+  const doc = new window.jspdf.jsPDF({ unit: 'pt', format: 'a4' });
+  const PAGE_W = doc.internal.pageSize.getWidth();
+  const PAGE_H = doc.internal.pageSize.getHeight();
+  const M = 46;                       // page margin
+  const COL = PAGE_W - M * 2;
+  const NAVY = [13, 27, 42], TEAL = [78, 205, 196], GREY = [107, 114, 128], INK = [31, 41, 55];
+  let y = 0;
+
+  function newPage() {
+    doc.addPage();
+    y = M;
+  }
+  function room(h) { if (y + h > PAGE_H - M) newPage(); }
+  function text(str, opts) {
+    const o = opts || {};
+    const size = o.size || 10.5;
+    const lead = o.lead || size * 1.45;
+    doc.setFont('helvetica', o.style || 'normal');
+    doc.setFontSize(size);
+    doc.setTextColor.apply(doc, o.color || INK);
+    const lines = doc.splitTextToSize(pdfSafe(str), o.width || COL);
+    lines.forEach(line => {
+      room(lead);
+      doc.text(line, o.x || M, y + size * 0.85);
+      y += lead;
+    });
+    if (o.after) y += o.after;
+  }
+
+  // --- Branded header band, in the same navy/teal as the screen ---
+  doc.setFillColor.apply(doc, NAVY);
+  doc.rect(0, 0, PAGE_W, 108, 'F');
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(26);
+  doc.setTextColor(255, 255, 255);
+  doc.text('ARC', M, 48, { charSpace: 4 });
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(8);
+  doc.text('ADVISORY', M + 2, 62, { charSpace: 3 });
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(9);
+  doc.setTextColor.apply(doc, TEAL);
+  doc.text('SALES MATURITY ASSESSMENT', PAGE_W - M, 48, { align: 'right', charSpace: 1.5 });
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(9);
+  doc.setTextColor(255, 255, 255);
+  const who = [state.details.company, state.details.name].filter(Boolean).join(' - ');
+  doc.text(pdfSafe(who), PAGE_W - M, 64, { align: 'right' });
+  doc.text(pdfSafe(lastResult.date), PAGE_W - M, 78, { align: 'right' });
+
+  y = 138;
+  text('There’s your picture.', { size: 17, style: 'bold', color: NAVY, after: 8 });
+
+  // --- The wheel, or its scores in plain text if rasterising failed ---
+  if (wheelPng) {
+    const w = COL, h = (470 / 580) * COL;
+    room(h + 10);
+    doc.addImage(wheelPng, 'PNG', M, y, w, h);
+    y += h + 4;
+    text('Wheel of Motion - each of the six areas scored out of 10', { size: 8, color: GREY, after: 12 });
+  } else {
+    text('Your six areas, scored out of 10', { size: 11, style: 'bold', color: NAVY, after: 4 });
+    lastResult.dimScores.forEach(d => {
+      text(`${d.name}: ${fmt(round1(d.score))} out of 10`, { size: 10.5, after: 0 });
+    });
+    y += 10;
+  }
+
+  // --- The composed narrative, verbatim from the result screen ---
+  lastResult.narrative.forEach((p, i) => {
+    text(p, { size: 11, style: i === 0 ? 'bold' : 'normal', color: i === 0 ? NAVY : INK, lead: 15.5, after: 8 });
+  });
+
+  // --- The strongest quote found anywhere, as on screen, not just Forecasting ---
+  const quote = findBestQuote();
+  if (quote) {
+    room(60);
+    y += 4;
+    text('IN YOUR OWN WORDS', { size: 8, style: 'bold', color: GREY, after: 3 });
+    text(quote.question, { size: 10, style: 'bold', color: NAVY, after: 3 });
+    text('"' + quote.answer + '"', { size: 10.5, style: 'italic', after: 2 });
+    if (quote.isOpen && quote.note) text('You added: ' + quote.note, { size: 9, color: GREY, after: 2 });
+    const footer = quote.isOpen
+      ? 'Not scored, and deliberately kept off the wheel.'
+      : `The sharpest line in your answers, from ${quote.dimName}.`;
+    text(footer, { size: 8.5, color: GREY, after: 10 });
+  } else {
+    const d1 = DIMENSIONS[0];
+    const idx = d1.q.findIndex(x => x.open);
+    room(60);
+    y += 4;
+    text('IN YOUR OWN WORDS', { size: 8, style: 'bold', color: GREY, after: 3 });
+    text(d1.q[idx].text, { size: 10, style: 'bold', color: NAVY, after: 3 });
+    text('Not answered.', { size: 10.5, style: 'italic', after: 2 });
+    text('Not scored, and deliberately kept off the wheel.', { size: 8.5, color: GREY, after: 10 });
+  }
+
+  // --- Every question, with the answer actually given ---
+  newPage();
+  text('YOUR ANSWERS IN FULL', { size: 9, style: 'bold', color: TEAL, after: 4 });
+  text('All thirty questions, and what you said to each.', { size: 10, color: GREY, after: 14 });
+
+  DIMENSIONS.forEach(d => {
+    const s = lastResult.dimScores.find(x => x.id === d.id);
+    room(46);
+    text(`${d.name.toUpperCase()} - ${fmt(round1(s.score))}/10`, { size: 10.5, style: 'bold', color: NAVY, after: 2 });
+    doc.setDrawColor(229, 231, 235);
+    doc.line(M, y, M + COL, y);
+    y += 8;
+    d.q.forEach((q, i) => {
+      room(40);
+      text(`${i + 1}. ${q.text}`, { size: 10, style: 'bold', color: INK, lead: 13.5, after: 1 });
+      const sc = q.open ? null : questionScore(d, q, i);
+      const scoreTag = q.open ? ' (not scored)' : ` (${sc}/2)`;
+      text(answerText(d, q, i) + scoreTag, { size: 10, color: GREY, lead: 13.5, after: 1 });
+      const note = ans(d.id, i).note.trim();
+      if (note) text('Their detail: ' + note, { size: 9.5, style: 'italic', color: GREY, lead: 13, after: 1 });
+      y += 5;
+    });
+    y += 8;
+  });
+
+  // --- Closing summary and CTA, matching the on-screen result-close block ---
+  room(90);
+  y += 6;
+  text("That's the whole picture, six areas, thirty questions, nothing hidden and nothing dressed up. Whatever it shows you, it's more useful sat next to the decisions you're already making than filed away and forgotten.", { size: 10.5, lead: 15, after: 8 });
+  text("A picture like this is usually where the real conversation starts, not where it ends. I'm Nick Riggott. I built ARC Advisory to find where a commercial engine is actually losing revenue, then rebuild the system underneath it. No extra tool, no extra rep stacked on top of gaps that were already there. If anything on there raised more questions than it answered, that's the normal reaction, and it's worth talking through properly rather than guessing at it alone.", { size: 10.5, lead: 15, after: 10 });
+  text('TALK IT THROUGH', { size: 8, style: 'bold', color: TEAL, after: 3 });
+  text('nick@arc-advisory.co.uk', { size: 10.5, style: 'bold', color: NAVY, after: 12 });
+
+  // --- Footer on every page ---
+  const pages = doc.internal.getNumberOfPages();
+  for (let p = 1; p <= pages; p++) {
+    doc.setPage(p);
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(8);
+    doc.setTextColor.apply(doc, GREY);
+    doc.text('ARC Advisory - Sales Maturity Assessment', M, PAGE_H - 24);
+    doc.text(`${p} of ${pages}`, PAGE_W - M, PAGE_H - 24, { align: 'right' });
+  }
+  return doc;
+}
+
+/* --------------------------------- BOOT ----------------------------------- */
+
+restore();
+renderDimensions();
+['name', 'company', 'email'].forEach(k => {
+  const el = document.getElementById('f-' + k);
+  el.value = state.details[k] || '';
+  el.addEventListener('input', () => { state.details[k] = el.value; persist(); });
+});
+document.getElementById('f-consent').checked = !!state.details.consent;
+document.getElementById('f-consent').addEventListener('change', e => { state.details.consent = e.target.checked; persist(); });
+updateProgress();
+</script>
+</body>
+</html>
