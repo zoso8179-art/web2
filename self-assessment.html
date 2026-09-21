@@ -224,8 +224,8 @@ body { font-family: Arial, Helvetica, sans-serif; background: var(--cream); colo
     <div class="result-lead">There's your picture.</div>
     <div class="result-card" id="result-card"></div>
     <div class="result-close">
-      <p>That's the whole picture, six areas, thirty questions, nothing hidden and nothing dressed up. Whatever it shows you, it's more useful sat next to the decisions you're already making than filed away and forgotten.</p>
-      <p>A picture like this is usually where the real conversation starts, not where it ends. I'm Nick Riggott. I built ARC Advisory to find where a commercial engine is actually losing revenue, then rebuild the system underneath it. No extra tool, no extra rep stacked on top of gaps that were already there. If anything on there raised more questions than it answered, that's the normal reaction, and it's worth talking through properly rather than guessing at it alone.</p>
+      <p>That's the whole picture. Six areas, thirty questions, all your own answers. Sit it next to a decision you're actually making this month, that's what it's for.</p>
+      <p id="result-close-verdict"></p>
     </div>
     <div class="download-bar">
       <button class="btn btn-primary" id="talk-btn" onclick="talkItThrough()">Talk it through →</button>
@@ -1428,6 +1428,21 @@ function quoteHtml() {
 
 let lastResult = null;   // { dimScores, narrative, wheelSvg, date } for the report
 
+// The honest answer to "would this business benefit from a FILTER
+// Diagnostic, and why or why not", reusing the same band logic that
+// already drives the Airtable Company Status field, not a separate
+// judgement invented for this paragraph. Written once per band, not
+// per person, same discipline as the rest of Worth Knowing.
+const CLOSING_VERDICT = {
+  'Foundation Gap': "Your systems and data came out the weakest area here, and that changes the honest answer on what to do next. A FILTER Diagnostic works from real pipeline and deal history. If that data can't be trusted yet, a diagnostic doesn't have solid ground to stand on. Worth fixing that first. Talk to me about how, that's a real conversation before spending on anything deeper.",
+  'FILTER-Ready': "What's showing here looks like real, fixable ground, not noise. That's exactly what a FILTER Diagnostic is built for, digging into it properly, with evidence, over two to three weeks. Worth talking about.",
+  'Well-Controlled': "Nothing here points to a gap worth paying to dig into right now, and that's a genuinely good place to be. Keep this. If a number here starts moving the wrong way later, that's when it's worth another look.",
+};
+function closingVerdict(dimScores) {
+  const band = outcomeBand(dimScores);
+  return `I'm Nick Riggott. I built ARC Advisory to find where a commercial engine is actually losing revenue, then fix the system underneath it. ${CLOSING_VERDICT[band]}`;
+}
+
 function renderResult() {
   const dimScores = buildDimScores();
   const narrative = buildNarrative(dimScores);
@@ -1437,6 +1452,8 @@ function renderResult() {
 
   const company = state.details.company.trim() || 'Your business';
   const name = state.details.name.trim();
+
+  document.getElementById('result-close-verdict').textContent = closingVerdict(dimScores);
 
   document.getElementById('result-card').innerHTML = `
     <div class="result-header">
@@ -1822,8 +1839,8 @@ function buildPdf(wheelPng) {
   // --- Closing summary and CTA, matching the on-screen result-close block ---
   room(90);
   y += 6;
-  text("That's the whole picture, six areas, thirty questions, nothing hidden and nothing dressed up. Whatever it shows you, it's more useful sat next to the decisions you're already making than filed away and forgotten.", { size: 10.5, lead: 15, after: 8 });
-  text("A picture like this is usually where the real conversation starts, not where it ends. I'm Nick Riggott. I built ARC Advisory to find where a commercial engine is actually losing revenue, then rebuild the system underneath it. No extra tool, no extra rep stacked on top of gaps that were already there. If anything on there raised more questions than it answered, that's the normal reaction, and it's worth talking through properly rather than guessing at it alone.", { size: 10.5, lead: 15, after: 10 });
+  text("That's the whole picture. Six areas, thirty questions, all your own answers. Sit it next to a decision you're actually making this month, that's what it's for.", { size: 10.5, lead: 15, after: 8 });
+  text(closingVerdict(lastResult.dimScores), { size: 10.5, lead: 15, after: 10 });
   text('TALK IT THROUGH', { size: 8, style: 'bold', color: TEAL, after: 3 });
   text('nick@arc-advisory.co.uk', { size: 10.5, style: 'bold', color: NAVY, after: 12 });
 
