@@ -1428,19 +1428,42 @@ function quoteHtml() {
 
 let lastResult = null;   // { dimScores, narrative, wheelSvg, date } for the report
 
-// The honest answer to "would this business benefit from a FILTER
-// Diagnostic, and why or why not", reusing the same band logic that
-// already drives the Airtable Company Status field, not a separate
-// judgement invented for this paragraph. Written once per band, not
-// per person, same discipline as the rest of Worth Knowing.
-const CLOSING_VERDICT = {
-  'Foundation Gap': "Your systems and data came out the weakest area here, and that changes the honest answer on what to do next. A FILTER Diagnostic works from real pipeline and deal history. If that data can't be trusted yet, a diagnostic doesn't have solid ground to stand on. Worth fixing that first. Talk to me about how, that's a real conversation before spending on anything deeper.",
-  'FILTER-Ready': "What's showing here looks like real, fixable ground, not noise. That's exactly what a FILTER Diagnostic is built for, digging into it properly, with evidence, over two to three weeks. Worth talking about.",
-  'Well-Controlled': "Nothing here points to a gap worth paying to dig into right now, and that's a genuinely good place to be. Keep this. If a number here starts moving the wrong way later, that's when it's worth another look.",
+// Two stars and a wish, the actual structure of the closing summary now,
+// not a fixed paragraph. Built from the real ranked scores every time, and
+// deliberately checked against ties before it claims a "second star" or a
+// single "wish" — naming one of five tied dimensions as uniquely strong or
+// uniquely weak would be the same dishonesty this session already found
+// and fixed once in Worth Knowing. Written as a human would write a short
+// assessment summary, not as software branching on a condition.
+function joinNatural(names) {
+  if (names.length <= 1) return names[0] || '';
+  if (names.length === 2) return names[0] + ' and ' + names[1];
+  return names.slice(0, -1).join(', ') + ' and ' + names[names.length - 1];
+}
+
+const BAND_CLOSE = {
+  'Foundation Gap': "Before anything more formal, that's worth talking through on its own. A proper diagnostic needs data it can actually trust, and that's the thing worth building first.",
+  'FILTER-Ready': "A FILTER Diagnostic exists for exactly this kind of picture, a proper, evidence-led look at what's actually happening there. No pressure either way, just worth knowing it's there if it would help.",
+  'Well-Controlled': "Nothing urgent in that. Worth knowing about, not worth acting on yet.",
 };
+
 function closingVerdict(dimScores) {
+  const sorted = [...dimScores].sort((a, b) => b.score - a.score);
+  const first = sorted[0], second = sorted[1], third = sorted[2];
+  const last = sorted[sorted.length - 1], secondLast = sorted[sorted.length - 2];
+  const hasSecondStar = second.score > third.score;
+  const hasSingleWish = last.score < secondLast.score;
+
+  const starsPara = hasSecondStar
+    ? `Two areas came through as real strengths: ${first.name} and ${second.name}. Worth holding onto as things get busier, strengths like these tend to erode quietly if nobody's watching them.`
+    : `One area came through clearly as a strength: ${first.name}. Worth holding onto as things get busier. Nothing else stood out on its own, the rest of the picture sits close together, which is its own kind of signal, less a set of separate strengths and weaknesses than a system that hasn't been built out much anywhere yet.`;
+
+  const wishPara = hasSingleWish
+    ? `The one area that asked the most of you to answer honestly was ${last.name}. That's not unusual, most businesses carry exactly one area like this, and it's usually the one worth the most attention.`
+    : `More than one area asked the most of you to answer honestly: ${joinNatural(sorted.filter(d => d.score === last.score).map(d => d.name))}. That's less one broken thing and more a sign the system hasn't been built out much yet, across the board.`;
+
   const band = outcomeBand(dimScores);
-  return `I'm Nick Riggott. I built ARC Advisory to find where a commercial engine is actually losing revenue, then fix the system underneath it. ${CLOSING_VERDICT[band]}`;
+  return `${starsPara} ${wishPara} ${BAND_CLOSE[band]}`;
 }
 
 function renderResult() {
