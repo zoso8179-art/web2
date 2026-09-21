@@ -100,6 +100,9 @@ body { font-family: Arial, Helvetica, sans-serif; background: var(--cream); colo
 .narrative p { font-size: 14.5px; color: #1F2937; line-height: 1.8; margin-bottom: 14px; }
 .narrative p:first-child { font-weight: 700; color: var(--navy); }
 .quote-block { background: var(--cream); border-left: 3px solid var(--teal); border-radius: 0 8px 8px 0; padding: 16px 18px; margin-top: 20px; }
+.bottleneck-block { background: var(--cream); border-left: 3px solid var(--amber); border-radius: 0 8px 8px 0; padding: 16px 18px; margin-top: 20px; }
+.bottleneck-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--amber); margin-bottom: 6px; }
+.bottleneck-text { font-size: 14.5px; color: #1F2937; line-height: 1.7; }
 .quote-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--mid-grey); margin-bottom: 7px; }
 .quote-q { font-size: 12.5px; font-weight: 700; color: var(--navy); line-height: 1.5; margin-bottom: 8px; }
 .quote-a { font-size: 14px; color: #1F2937; line-height: 1.7; font-style: italic; }
@@ -804,12 +807,32 @@ function updateProgress() {
 
 // The slider is a 1-10 feel, not a maturity grade, so it gets rescaled into the
 // same 0-2 range every other scored question uses.
-function sliderScore(value) { return Math.round(((value - 1) / 9) * 2); }
+//
+// An existing-base-heavy answer here used to score a flat 0/2 regardless of
+// context, treating "expansion-led" itself as a maturity failure. It isn't
+// one on its own, growing mainly through existing accounts can be a real,
+// deliberate strategy. The signal that tells a deliberate strategy apart
+// from just not having a new-logo engine sits right next to it, Commercial
+// Foundation question 5, whether a dedicated team actually owns white
+// space. Scored full marks there, an existing-base-heavy slider now reads
+// as an intentional operating model, not a gap. Scored anything less, the
+// same slider position still reads as what it more likely is, revenue
+// landing in the existing base by default rather than by design, and the
+// original score stands.
+function sliderScore(value, hasIntentionalExpansionModel) {
+  const base = Math.round(((value - 1) / 9) * 2);
+  if (hasIntentionalExpansionModel && value <= 5) return 2;
+  return base;
+}
 
 function questionScore(d, q, i) {
   if (q.open) return null;                                   // excluded entirely
   const a = ans(d.id, i);
-  if (q.slider) return a.slider === undefined ? 0 : sliderScore(a.slider);
+  if (q.slider) {
+    if (a.slider === undefined) return 0;
+    const whiteSpaceOwnedDeliberately = d.id === 'd4' && ans('d4', 4).score === 2;
+    return sliderScore(a.slider, whiteSpaceOwnedDeliberately);
+  }
   return a.score === undefined ? 0 : a.score;
 }
 
@@ -1466,6 +1489,38 @@ function closingVerdict(dimScores) {
   return `${starsPara} ${wishPara} ${BAND_CLOSE[band]}`;
 }
 
+// The symptom, not the fix. Six of these, one per dimension, written to
+// describe what it typically looks like from the outside when that
+// dimension is the single lowest score, not what to do about it, that's
+// what the conversation is for. First pass, worth checking each of these
+// against real patterns actually seen in the room before treating them
+// as settled, this is closer to real judgement than anything else drafted
+// tonight and deserves the same scrutiny.
+const BOTTLENECK_SYMPTOM = {
+  d1: "When Forecasting is the lowest score, the number usually isn't wrong because of the maths. It's wrong because it was set from above rather than built from what's actually moving through the pipeline, and that gap only shows itself late in the quarter, when there's little time left to close it.",
+  d2: "Everything else in this report leans on Systems & Data being right. When it's the lowest score, forecasting, pipeline reviews, even the other numbers here, are only as good as whatever's been typed in somewhere. Usually nobody's lying about the numbers, they're just each trusting a slightly different version of them.",
+  d3: "When Process & Governance is the lowest score, deals tend to move stage on a feeling rather than a criteria, and the same stage name ends up meaning different things to different people. Month to month it doesn't look serious. It shows up as small, unexplained swings in the forecast that never quite trace back to a cause.",
+  d4: "Growth doesn't stop when Commercial Foundation is the lowest score, it just stops being deliberate. Revenue keeps coming from wherever it's easiest to find, rather than from a customer chosen on purpose, and that holds up fine right until the easy accounts run out and there's no repeatable way to go and find more of the right kind.",
+  d5: "A business can keep executing well while Market Feasibility quietly becomes the lowest score. The numbers hold up for a while because nobody's checking whether the ground underneath the plan has already started to move, and by the time it's obvious, it's not a small correction anymore.",
+  d6: "When Customer & Pricing is the lowest score, the effort tends to be spread evenly across customers who were never worth the same amount. From the inside it rarely looks like a pricing problem. It looks like a lot of hard work for a number that doesn't grow the way the pipeline suggests it should.",
+};
+
+// Only names a single bottleneck when there genuinely is one. If the
+// lowest score is shared by more than one dimension, naming one of them
+// as "the" bottleneck would be the same dishonesty already found and
+// fixed twice tonight elsewhere in this report, so this renders nothing
+// and the existing top narrative, which already handles a spread result
+// honestly, carries that case instead.
+function bottleneckHtml(dimScores) {
+  const sorted = [...dimScores].sort((a, b) => a.score - b.score);
+  if (sorted[0].score === sorted[1].score) return '';
+  const lowest = sorted[0];
+  return `<div class="bottleneck-block">
+    <div class="bottleneck-label">Where this is dragging most</div>
+    <div class="bottleneck-text">${escapeHtml(BOTTLENECK_SYMPTOM[lowest.id])}</div>
+  </div>`;
+}
+
 function renderResult() {
   const dimScores = buildDimScores();
   const narrative = buildNarrative(dimScores);
@@ -1488,6 +1543,7 @@ function renderResult() {
       <div class="wheel-box">${wheelSvg}</div>
       <div class="wheel-caption">Wheel of Motion — each of the six areas scored out of 10</div>
       <div class="narrative">${narrative.map(p => `<p>${escapeHtml(p)}</p>`).join('')}</div>
+      ${bottleneckHtml(dimScores)}
       ${quoteHtml()}
       <div class="dim-sections-head">YOUR SIX AREAS, ONE AT A TIME</div>
       ${buildAllSectionsHtml(dimScores)}
@@ -1742,7 +1798,7 @@ function buildPdf(wheelPng) {
   const PAGE_H = doc.internal.pageSize.getHeight();
   const M = 46;                       // page margin
   const COL = PAGE_W - M * 2;
-  const NAVY = [13, 27, 42], TEAL = [78, 205, 196], GREY = [107, 114, 128], INK = [31, 41, 55];
+  const NAVY = [13, 27, 42], TEAL = [78, 205, 196], GREY = [107, 114, 128], INK = [31, 41, 55], AMBER = [245, 158, 11];
   let y = 0;
 
   function newPage() {
@@ -1809,6 +1865,18 @@ function buildPdf(wheelPng) {
   lastResult.narrative.forEach((p, i) => {
     text(p, { size: 11, style: i === 0 ? 'bold' : 'normal', color: i === 0 ? NAVY : INK, lead: 15.5, after: 8 });
   });
+
+  // --- Where this is dragging most, same tie check as the screen: only
+  // names a single bottleneck when there genuinely is one ---
+  {
+    const sortedForBottleneck = [...lastResult.dimScores].sort((a, b) => a.score - b.score);
+    if (sortedForBottleneck[0].score !== sortedForBottleneck[1].score) {
+      room(50);
+      y += 4;
+      text('WHERE THIS IS DRAGGING MOST', { size: 8, style: 'bold', color: AMBER, after: 3 });
+      text(BOTTLENECK_SYMPTOM[sortedForBottleneck[0].id], { size: 10.5, lead: 15, after: 10 });
+    }
+  }
 
   // --- The strongest quote found anywhere, as on screen, not just Forecasting ---
   const quote = findBestQuote();
