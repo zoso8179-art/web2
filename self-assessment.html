@@ -923,7 +923,49 @@ function buildRadarWheel(dimScores) {
 const MATERIAL_GAP = 2.0;   // points below the six-dimension average
 const OVERALL_AVERAGE_GATE = 6.0;   // six-dimension average below this = broadly underdeveloped, regardless of whether any single dimension is a relative outlier
 
+// Real, concrete room to act, counted the same way the Worth Doing bullets
+// already count it on screen, Start plus Stop, across every dimension. A
+// business can clear the average gate and show no single dimension as a
+// relative outlier while still carrying a genuinely long list of partial,
+// informal answers spread across the whole picture. That's exactly the
+// pattern a real assessment surfaced on 22 Sep 2026 (Bobby, bigspuds): no
+// dimension gapped 2+ points below the average, the average itself cleared
+// the gate, and the report still told a business with 20 of 29 scoreable
+// questions short of full marks that there was "nothing here worth chasing
+// right now". There was.
+const BROAD_ACTION_THRESHOLD = 10;   // roughly a third of the 29 scoreable questions
+function actionableGapCount() {
+  return DIMENSIONS.reduce((total, d) => {
+    const b = sectionActionBullets(d);
+    return total + b.stop.length + b.start.length;
+  }, 0);
+}
+
+// The one place "is there a material gap worth a proper look" gets decided,
+// now. closingLine() and outcomeBand() both call this rather than each
+// keeping their own copy of the same threshold check, which is exactly how
+// this went unnoticed as long as it did, two independent copies that
+// happened to agree with each other, both wrong the same way, on a real
+// prospect, this morning.
+function hasMaterialGap(dimScores) {
+  const avg = averageOf(dimScores);
+  const outlierCount = dimScores.filter(d => avg - d.score >= MATERIAL_GAP).length;
+  if (outlierCount > 0) return true;
+  return actionableGapCount() >= BROAD_ACTION_THRESHOLD;
+}
+
 function averageOf(list) { return list.reduce((s, d) => s + d.score, 0) / list.length; }
+
+// Single, shared definition of "the weakest dimension". A genuine tie was
+// getting named as two different dimensions in two different sentences of
+// the same report, confirmed in a real session (Bobby, bigspuds, 22 Sep
+// 2026): Commercial Foundation and Customer & Pricing tied at 5, and a
+// stable sort taken from opposite ends picked a different one of the two
+// depending on which direction it was sorted from. Every call site below
+// uses this instead of sorting independently.
+function weakestOf(dimScores) {
+  return [...dimScores].sort((a, b) => a.score - b.score)[0];
+}
 
 // Step 1b — the relative-gap tests below (foundation gate, cross-diagnostic,
 // single-gap fallback) all compare one dimension against this business's OWN
@@ -940,7 +982,7 @@ function broadUnderdevelopment(dimScores) {
 function openingLine(dimScores) {
   const sorted = [...dimScores].sort((a, b) => b.score - a.score);
   const strongest = sorted[0];
-  const weakest = sorted[sorted.length - 1];
+  const weakest = weakestOf(dimScores);
   const spread = strongest.score - weakest.score;
   const avg = averageOf(dimScores);
 
@@ -1008,7 +1050,7 @@ function crossDiagnostic(dimScores) {
 // Step 4 — fallback when no pattern fired: name the weakest area, and grade the
 // language by how far below the other five it actually sits.
 function singleGapFallback(dimScores) {
-  const weakest = [...dimScores].sort((a, b) => a.score - b.score)[0];
+  const weakest = weakestOf(dimScores);
   const othersAvg = averageOf(dimScores.filter(d => d.id !== weakest.id));
   const gap = othersAvg - weakest.score;
   if (gap < 1.0) return null;
@@ -1017,18 +1059,20 @@ function singleGapFallback(dimScores) {
 }
 
 // Step 5 — closing line, counted off dimensions a full MATERIAL_GAP below the
-// six-dimension average.
+// six-dimension average, or a broad spread of partial answers with no single
+// outlier (see hasMaterialGap).
 function closingLine(dimScores) {
   const avg = averageOf(dimScores);
   if (avg < OVERALL_AVERAGE_GATE) {
     return `There's a genuine case for a proper look here, across most of the picture, not just one corner of it.`;
   }
-  const count = dimScores.filter(d => avg - d.score >= MATERIAL_GAP).length;
-  if (count === 0) {
+  if (!hasMaterialGap(dimScores)) {
     return `Nothing here points to a material gap worth chasing right now. Your sales engine looks reasonably well-controlled. That's a genuinely good outcome, not every business needs a deeper look, and this one might not right now.`;
   }
-  if (count === 1) return `One area stands out as worth a proper look.`;
-  return `There's real ground to make up across ${count} of the six areas.`;
+  const outlierCount = dimScores.filter(d => avg - d.score >= MATERIAL_GAP).length;
+  if (outlierCount === 1) return `One area stands out as worth a proper look.`;
+  if (outlierCount > 1) return `There's real ground to make up across ${outlierCount} of the six areas.`;
+  return `Nothing here is a single stand-out problem, but there's real, specific ground to make up, spread across most of the picture rather than sitting in one place. Worth a proper look at what's actually addressable.`;
 }
 
 function buildNarrative(dimScores) {
@@ -1658,8 +1702,7 @@ function outcomeBand(dimScores) {
   if (sd.score < 4) return 'Foundation Gap';
   const avg = averageOf(dimScores);
   if (avg < OVERALL_AVERAGE_GATE) return 'FILTER-Ready';
-  const count = dimScores.filter(d => avg - d.score >= MATERIAL_GAP).length;
-  return count > 0 ? 'FILTER-Ready' : 'Well-Controlled';
+  return hasMaterialGap(dimScores) ? 'FILTER-Ready' : 'Well-Controlled';
 }
 
 function notifyAndSave(submission, dimScores) {
@@ -1743,7 +1786,7 @@ function wheelToPng(svg, scale) {
 function talkItThrough() {
   if (!lastResult) return;
   const company = state.details.company.trim() || 'my business';
-  const weakest = [...lastResult.dimScores].sort((a, b) => a.score - b.score)[0];
+  const weakest = weakestOf(lastResult.dimScores);
   const subject = encodeURIComponent(`Sales Maturity Assessment — ${company}`);
   const body = encodeURIComponent(
     `Hi Nick,\n\nI've just run ${company} through the Sales Maturity Assessment. ${weakest.name} came out as the area with the most room to move, at ${fmt(round1(weakest.score))} out of 10.\n\nI'd like to talk it through, when's a good time?\n\n`
