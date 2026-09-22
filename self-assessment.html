@@ -1510,7 +1510,7 @@ function joinNatural(names) {
 
 const BAND_CLOSE = {
   'Foundation Gap': "Before anything more formal, that's worth talking through on its own. A proper diagnostic needs data it can actually trust, and that's the thing worth building first.",
-  'FILTER-Ready': "A FILTER Diagnostic exists for exactly this kind of picture, a proper, evidence-led look at what's actually happening there. No pressure either way, just worth knowing it's there if it would help.",
+  'FILTER-Ready': "A strong score on paper shows your structure is built. But if reps still find systems painful, and deals slide at the start of every quarter, that's costing you real velocity, and real time spent managing it. If you want to review where that friction is sitting in your pipeline and what it's costing you, drop me a note directly: nick@arc-advisory.co.uk",
   'Well-Controlled': "Nothing urgent in that. Worth knowing about, not worth acting on yet.",
 };
 
@@ -1974,9 +1974,12 @@ function buildPdf(wheelPng) {
   room(90);
   y += 6;
   text("That's the whole picture. Six areas, thirty questions, all your own answers. Sit it next to a decision you're actually making this month, that's what it's for.", { size: 10.5, lead: 15, after: 8 });
-  text(closingVerdict(lastResult.dimScores), { size: 10.5, lead: 15, after: 10 });
-  text('TALK IT THROUGH', { size: 8, style: 'bold', color: TEAL, after: 3 });
-  text('nick@arc-advisory.co.uk', { size: 10.5, style: 'bold', color: NAVY, after: 12 });
+  const verdictText = closingVerdict(lastResult.dimScores);
+  text(verdictText, { size: 10.5, lead: 15, after: 10 });
+  if (!verdictText.includes('nick@arc-advisory.co.uk')) {
+    text('TALK IT THROUGH', { size: 8, style: 'bold', color: TEAL, after: 3 });
+    text('nick@arc-advisory.co.uk', { size: 10.5, style: 'bold', color: NAVY, after: 12 });
+  }
 
   // --- Footer on every page ---
   const pages = doc.internal.getNumberOfPages();
