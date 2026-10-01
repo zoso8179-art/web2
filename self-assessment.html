@@ -1733,6 +1733,8 @@ function notifyAndSave(submission, dimScores) {
           'Band': band,
           'Assessed By': 'Self-serve (public tool)',
           'Contact Name': submission.contact.name,
+          'Email': submission.contact.email,
+'Consent to Contact': submission.contact.consent,
         },
         data: submission,
       }),
