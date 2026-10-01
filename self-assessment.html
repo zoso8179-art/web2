@@ -1796,7 +1796,7 @@ function talkItThrough() {
   const body = encodeURIComponent(
     `Hi Nick,\n\nI've just run ${company} through the Sales Maturity Assessment. ${weakest.name} came out as the area with the most room to move, at ${fmt(round1(weakest.score))} out of 10.\n\nI'd like to talk it through, when's a good time?\n\n`
   );
-  window.location.href = `mailto:nick@arc-advisory.co.uk?subject=${subject}&body=${body}`;
+  window.open('https://meetings-eu1.hubspot.com/nick-riggott', '_blank', 'noopener');
 }
 
 async function downloadReport() {
