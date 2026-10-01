@@ -307,15 +307,17 @@ const DIMENSIONS = [
       {
         text: "Do you have one system that holds your pipeline?",
         options: [
-         "deal history and win and loss reasons don't look like they exist in a form you could pull", "deal history and win and loss reasons look roughly pullable, but with caveats you'd want to check first", "deal history and win and loss reasons do look pullable and trusted"
+          "Yes — one system, and everyone actually uses it",
+          "Sort of — there's a main system, but people also work outside it",
+          "No — it's scattered across spreadsheets, inboxes, or several tools",
         ],
       },
       {
-        "Could you pull twenty-four months of deal history and twelve months of win and loss reasons today? Would you trust either of them?",
-options: [
-  "Yes — both, and I'd trust them",
-  "Something rough — I'd need caveats before I'd rely on it",
-  "No — it doesn't really exist",
+        text: "Could you pull twenty-four months of deal history and twelve months of win and loss reasons today? Would you trust either of them?",
+        options: [
+          "Yes — both, and I'd trust them",
+          "Something rough — I'd need caveats before I'd rely on it",
+          "No — it doesn't really exist",
         ],
       },
       {
@@ -1133,7 +1135,7 @@ const ANSWER_FRAGMENTS = {
   ],
   d2: [
     ["the pipeline doesn't look held in one trusted system", "there's a main system, but people also appear to work outside it", "the pipeline does look held in one system that's genuinely used"],
-    ["deal history doesn't look pullable with real confidence today", "deal history looks pullable, but probably needs double-checking first", "deal history does look pullable with real confidence"],
+    ["deal history and win and loss reasons don't look like they exist in a form you could pull", "deal history and win and loss reasons look roughly pullable, but with caveats you'd want to check first", "deal history and win and loss reasons do look pullable and trusted"],
     ["keeping deals current doesn't look enforced", "keeping deals current looks expected but not really enforced", "keeping deals current does look genuinely enforced"],
     ["the data doesn't look like it feeds anything leadership looks at", "the data looks pulled occasionally rather than routinely", "the data does look like it feeds reports leadership regularly uses"],
     ["the system doesn't look like it drives decisions", "the system looks like it informs decisions, with people overriding it often", "the system does look used autonomously to drive decisions"],
