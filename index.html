@@ -327,6 +327,28 @@ footer a:hover{color:var(--teal-bright)}
 .rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
 .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion: reduce){.rv{opacity:1;transform:none}}
+
+/* WHAT I DO */
+.whatido{background:var(--white);border-bottom:1px solid var(--line);padding:104px 0}
+.whatido h2{font-size:clamp(30px,3.6vw,44px);max-width:20ch;margin-bottom:32px}
+.whatido-intro{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;margin-bottom:56px}
+.whatido-intro .body p{color:var(--ink-soft);margin-bottom:18px;font-size:16.5px}
+.whatido-intro .body p strong{color:var(--ink)}
+.whatido-cards{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line)}
+.whatido-card{padding:32px 30px 36px;border-right:1px solid var(--line);background:var(--white)}
+.whatido-card:last-child{border-right:none}
+.whatido-card .stage{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--teal);font-weight:600;display:block}
+.whatido-card h3{font-size:22px;margin-top:14px}
+.whatido-card p{font-size:14.5px;color:var(--ink-soft);margin-top:14px}
+.whatido-cta{margin-top:44px;display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.whatido-cta .fit{font-size:14.5px;color:var(--ink-soft);max-width:60ch}
+@media(max-width:900px){
+  .whatido{padding:72px 0}
+  .whatido-intro{grid-template-columns:1fr;gap:8px;margin-bottom:40px}
+  .whatido-cards{grid-template-columns:1fr}
+  .whatido-card{border-right:none;border-bottom:1px solid var(--line)}
+  .whatido-card:last-child{border-bottom:none}
+}
 </style>
 </head>
 <body>
@@ -345,6 +367,7 @@ footer a:hover{color:var(--teal-bright)}
       </svg>
     </a>
     <nav class="links" aria-label="Primary">
+      <a href="#what-i-do">What I Do</a>
       <a href="#problem">The Problem</a>
       <div class="nav-dd">
         <button type="button" class="nav-dd-trigger" id="hwwTrigger" aria-expanded="false" aria-controls="hwwMenu">How We Work<span class="nav-dd-caret" aria-hidden="true"></span></button>
@@ -367,6 +390,7 @@ footer a:hover{color:var(--teal-bright)}
 
 <div class="mobile-nav" id="mobileNav">
   <nav aria-label="Mobile">
+    <a href="#what-i-do">What I Do</a>
     <a href="#problem">The Problem</a>
     <a href="#estimator">Potential Recoverable Revenue?</a>
     <a href="#engagements">The ARC Approach</a>
@@ -403,6 +427,43 @@ footer a:hover{color:var(--teal-bright)}
     </div>
 
     <p class="posline" style="color:#fff">ARC isn't just a revenue architecture system. <em>It's how to win, predictably, at scale.</em></p>
+  </div>
+</section>
+
+<!-- WHAT I DO -->
+<section class="whatido" id="what-i-do">
+  <div class="wrap">
+    <div class="section-head rv"><p class="eyebrow">What I Do</p></div>
+    <div class="whatido-intro rv">
+      <h2>I do the job of a Sales Director for businesses that can't afford to get that hire wrong.</h2>
+      <div class="body">
+        <p>You built the business by selling it yourself. Now every deal that matters still comes through you, and the team can't quite do it without you.</p>
+        <p>The obvious fix is a senior sales hire. It's also a big bet: recruiter fees, a salary, and six months before you know whether it's working.</p>
+        <p><strong>I come in for three months and do that job first.</strong> I look at how you actually sell today, then put in place what I've learned over twenty years of building and running sales teams. The aim is simple: something more predictable from your team and your numbers.</p>
+        <p>When you do hire a full time sales leader, they walk into something that works.</p>
+      </div>
+    </div>
+    <div class="whatido-cards rv">
+      <article class="whatido-card">
+        <span class="stage">One</span>
+        <h3>How you sell, written down</h3>
+        <p>The stages a deal goes through, what each one means, and who owns it. Everyone on the team works from the same page.</p>
+      </article>
+      <article class="whatido-card">
+        <span class="stage">Two</span>
+        <h3>A pipeline you can trust</h3>
+        <p>Which deals are real, which to drop, and a weekly review that runs without you in the room.</p>
+      </article>
+      <article class="whatido-card">
+        <span class="stage">Three</span>
+        <h3>A forecast and a hiring number</h3>
+        <p>A forecast built from the deals that are real, and what the next salesperson should deliver before you pay them.</p>
+      </article>
+    </div>
+    <div class="whatido-cta rv">
+      <a class="btn btn-primary" href="#contact">Book a conversation</a>
+      <p class="fit">For founder led businesses turning over roughly &pound;5m to &pound;50m. Based in Derby, working across Derby, Leicester, Nottingham and South Yorkshire.</p>
+    </div>
   </div>
 </section>
 
