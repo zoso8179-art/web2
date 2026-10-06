@@ -562,7 +562,7 @@ const SCORE_LABEL = { 0: 'Absent', 1: 'Informal', 2: 'Documented' };
 // 30 asked. Dimension 1 Q5 is excluded from scoring entirely, so 29 carry a
 // score: 28 three-option questions plus the Dimension 4 slider.
 const TOTAL_QUESTIONS = DIMENSIONS.reduce((n, d) => n + d.q.length, 0);
-const SCORED_QUESTIONS = DIMENSIONS.reduce((n, d) => n + d.q.filter(q => !q.open).length, 0);
+const SCORED_QUESTIONS = DIMENSIONS.reduce((n, d) => n + d.q.filter(q => !q.open && !q.slider).length, 0);
 
 const SCREEN_ORDER = ['intro', ...DIMENSIONS.map(d => d.id), 'review', 'details', 'result'];
 const STORAGE_KEY = 'arc-public-assessment-v2';
@@ -766,6 +766,48 @@ let currentScreen = 'intro';
 // Notes review. The tidy fixes layout only: filler sounds, capitals, full
 // stops. It can't repair a misheard word, so the person checks every note on
 // the review screen and what they leave in the box is what prints and saves.
+// Rule two. A full mark whose note carries a hedge word ("not quite sure",
+// "I think", "but") gets flagged as a caveat in the person's own words. Strong
+// markers are the clear hedges; weak ones ("but", "however") flag less
+// firmly. This reads words, not meaning, so it only ever says "looks like".
+const HEDGE_STRONG = [/\bnot (?:quite )?sure\b/i, /\bnot quite\b/i, /\bnot really\b/i, /\bnot always\b/i, /\bi think\b/i, /\bi guess\b/i, /\bhopefully\b/i, /\bmight\b/i, /\bmaybe\b/i, /\bsort of\b/i, /\bkind of\b/i, /\bdepends\b/i, /\bvaries\b/i, /\bvary\b/i];
+const HEDGE_WEAK = [/\bbut\b(?! also)/i, /\bhowever\b/i, /\balthough\b/i, /\bexcept\b/i];
+function noteHedge(note) {
+  const t = String(note || '');
+  if (HEDGE_STRONG.some(r => r.test(t))) return 2;
+  if (HEDGE_WEAK.some(r => r.test(t))) return 1;
+  return 0;
+}
+
+// The one note per section that says the most: first any full mark whose note
+// hedges (strongest hedge, then earliest question), otherwise the note on the
+// lowest scoring question (ties go to the longer note).
+function sectionNoteCallout(d) {
+  const items = [];
+  d.q.forEach((q, i) => {
+    if (q.open) return;
+    const note = (ans(d.id, i).note || '').trim();
+    if (!note) return;
+    items.push({ i, note, score: questionScore(d, q, i), hedge: noteHedge(note) });
+  });
+  if (!items.length) return null;
+  const pulls = items.filter(x => x.score === 2 && x.hedge === 2)
+    .sort((a, b) => (b.hedge - a.hedge) || (a.i - b.i));
+  const pick = pulls.length ? pulls[0]
+    : items.sort((a, b) => (a.score - b.score) || (b.note.length - a.note.length))[0];
+  const words = pick.note.split(/\s+/);
+  let quote = pick.note;
+  if (words.length > 75) {
+    const cut = words.slice(0, 75).join(' ');
+    const lastStop = Math.max(cut.lastIndexOf('. '), cut.lastIndexOf('? '), cut.lastIndexOf('! '));
+    quote = (lastStop > 60 ? cut.slice(0, lastStop + 1) : cut) + ' ...';
+  }
+  const lead = pulls.length
+    ? `On question ${pick.i + 1} you scored full marks, and in your own words: "${quote}" That looks like a caveat to the score, worth talking through.`
+    : `The note that says the most in this area is on question ${pick.i + 1}: "${quote}" Worth talking through alongside the score.`;
+  return lead;
+}
+
 function tidyNote(str) {
   if (!str) return str;
   let t = String(str).replace(/\s+/g, ' ').trim();
@@ -909,16 +951,15 @@ function sliderScore(value, hasIntentionalExpansionModel) {
 
 function questionScore(d, q, i) {
   if (q.open) return null;                                   // excluded entirely
+  // The new versus existing revenue slider is context, never a score. A lean
+  // either way is normal for some businesses (decided by Nick, 6 Oct 2026),
+  // so it is shown and framed but contributes nothing to the wheel.
+  if (q.slider) return null;
   const a = ans(d.id, i);
-  if (q.slider) {
-    if (a.slider === undefined) return 0;
-    const whiteSpaceOwnedDeliberately = d.id === 'd4' && ans('d4', 4).score === 2;
-    return sliderScore(a.slider, whiteSpaceOwnedDeliberately);
-  }
   return a.score === undefined ? 0 : a.score;
 }
 
-function scoredCount(d) { return d.q.filter(q => !q.open).length; }
+function scoredCount(d) { return d.q.filter(q => !q.open && !q.slider).length; }
 
 // Dimension 1 has four scored questions (max 8) against five (max 10) elsewhere,
 // so every dimension is reported on the same 0-10 scale.
@@ -1260,9 +1301,9 @@ const ANSWER_FRAGMENTS = {
 function sliderFragment() {
   const v = sliderValue();
   if (v === undefined) return null;
-  if (v <= 3) return "when asked where new revenue is actually coming from, the answer sits close to the existing-base end of the scale, suggesting most of it isn't coming from targeted new prospects";
-  if (v <= 7) return "when asked where new revenue is actually coming from, the answer sits somewhere in the middle, a genuine mix of new prospects and the existing base rather than a clear lean either way";
-  return "when asked where new revenue is actually coming from, the answer sits close to the new-prospects end of the scale, suggesting the existing base may be under-mined by comparison";
+  if (v <= 3) return "when asked where new revenue is actually coming from, the answer sits close to the existing-base end of the scale, so most of it looks to come from customers you already have, which is noted here as context and doesn't count towards the score";
+  if (v <= 7) return "when asked where new revenue is actually coming from, the answer sits somewhere in the middle, a mix of new prospects and the existing base, which is noted here as context and doesn't count towards the score";
+  return "when asked where new revenue is actually coming from, the answer sits close to the new-prospects end of the scale, so most of it looks to come from new customers, which is noted here as context and doesn't count towards the score";
 }
 
 // Per-question action bullet, included only when that answer scored below
@@ -1483,10 +1524,6 @@ function sectionActionBullets(dim) {
       start.push(startList[i]);   // covers score 1 always, and score 0 where there's no Stop line for it yet
     }
   });
-  if (dim.id === 'd4') {
-    const v = sliderValue();
-    if (v !== undefined && v <= 7) start.push(startList[3]);   // the split-target bullet, unless already strongly new-prospect-led
-  }
   return { stop, start, keep };
 }
 
@@ -1603,7 +1640,7 @@ function ctaCopy(company) {
   return {
     head: "Let's go through it together.",
     p1: "What this doesn't show is why it looks like this, and that's the useful part. More important is the impact small, incremental changes might have on " + company + ".",
-    p2: "Book time with me and we'll go through the two areas at the top of your list, how they actually run today, and I'll tell you straight where I'd start.",
+    p2: "Book time with me and we'll go through the two areas at the top of your metaphorical list, how they actually run today, and I'll tell you straight where I'd start.",
     link: 'meetings-eu1.hubspot.com/nick-riggott',
     email: 'nick@arc-advisory.co.uk',
   };
@@ -1738,7 +1775,7 @@ function answerText(d, q, i) {
   if (q.slider) {
     return a.slider === undefined
       ? 'Not answered'
-      : `${a.slider} of ${q.max} on the scale from "${q.minLabel}" (1) to "${q.maxLabel}" (${q.max}) — scores ${sliderScore(a.slider)}/2`;
+      : `${a.slider} of ${q.max} on the scale from "${q.minLabel}" (1) to "${q.maxLabel}" (${q.max})`;
   }
   if (a.score === undefined) return 'Not answered';
   return q.options[2 - a.score];
@@ -1806,7 +1843,10 @@ function outcomeBand(dimScores) {
   // threshold after the first 20 real completions.
   const sd = [0, 1, 2, 3].reduce((t, i) => t + (ans('d2', i).score || 0), 0);
   const pg = [0, 1, 2].reduce((t, i) => t + (ans('d3', i).score || 0), 0);
-  const dealHistory = ans('d2', 1).score || 0;
+  let dealHistory = ans('d2', 1).score || 0;
+  // A full 2 whose own note hedges ("I'm not quite sure...") counts as 1 for
+  // routing only. The score itself is untouched.
+  if (dealHistory === 2 && noteHedge(ans('d2', 1).note) === 2) dealHistory = 1;
   return (sd + pg >= 11 && dealHistory === 2) ? 'FILTER-Ready' : 'Foundation Gap';
 }
 
@@ -2064,16 +2104,29 @@ function buildPdf(wheelPng) {
     doc.setDrawColor(229, 231, 235);
     doc.line(M, y, M + COL, y);
     y += 8;
+    if (d.id === 'd4') {
+      const sf = sliderFragment();
+      if (sf) { room(50); text(sf.charAt(0).toUpperCase() + sf.slice(1) + '.', { size: 10, color: INK, lead: 14, after: 6 }); }
+    }
+    const callout = sectionNoteCallout(d);
+    if (callout) {
+      room(60);
+      text(callout, { size: 10, color: INK, lead: 14, after: 6 });
+      y += 4;
+    }
     d.q.forEach((q, i) => {
       room(40);
       text(`${i + 1}. ${q.text}`, { size: 10, style: 'bold', color: INK, lead: 13.5, after: 1 });
       const sc = q.open ? null : questionScore(d, q, i);
-      const scoreTag = q.open ? ' (not scored)' : ` (${sc}/2)`;
+      const scoreTag = (q.open || q.slider) ? ' (context, not scored)' : ` (${sc}/2)`;
       text(answerText(d, q, i) + scoreTag, { size: 10, color: GREY, lead: 13.5, after: 1 });
       const note = ans(d.id, i).note.trim();
       if (note) {
         text('Your detail: ' + note, { size: 9.5, style: 'italic', color: GREY, lead: 13, after: 1 });
-        if (!q.open) text('Your note adds context beyond the score.', { size: 9, color: NAVY, lead: 12, after: 1 });
+        if (!q.open) {
+          const caveat = sc === 2 && noteHedge(note) === 2;
+          text(caveat ? 'Full marks, with a caveat in your own words.' : 'Your note adds context beyond the score.', { size: 9, color: NAVY, lead: 12, after: 1 });
+        }
       }
       y += 5;
     });
@@ -2123,5 +2176,6 @@ document.getElementById('f-consent').checked = !!state.details.consent;
 document.getElementById('f-consent').addEventListener('change', e => { state.details.consent = e.target.checked; persist(); });
 updateProgress();
 </script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "a2869ad2bb754f94a98a46fb5b1e43f4"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
