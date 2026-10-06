@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sales Maturity Assessment — ARC Advisory</title>
-<meta name="description" content="A thirty-question self-assessment of your sales engine across six areas. A few minutes, one page of picture at the end.">
+<meta name="description" content="A thirty-question self-assessment of your sales engine across six areas. Up to half an hour, and your full report at the end.">
 <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAFJklEQVR4nO1VW2xURRj+/5mz9+6e3d6ALm2XLS3QG4iAaDDlUoQQoOEihRCgAiqEYKKBkKgRQqg+gEWBGE0IkIAa8RKfQDE0AQMpShApUFKqUJCyLZbezp6ze86Z+X3YIiBq4gMPBibzMjP//32Z77+hP6cYHuZiDxX9McGjQaD8J2tEBETA+28JAICIgAgAAPtv+gkQ/2L+ICogMgIiS9iWSbYNRCkuoDtQDJlDYS4XkgQJwPoxiejffoCMAYCdTMqEyRTFkxn0DspyZ2c6gn7mcSucSwJhWUIzkre7jJsdRqwzb+bk1m+OS9NK+cI/SYSMEZGpaQwwkD84feRwb34OObjVG090dsd/77LjhrQtQFRcLsXvc+cOUkcVcykGVIwnl7Nl31fOoJ+E/BsCRCREs09THI6cp0dnjB0pFOy5fLXjUL3e1iH0JEpChogMEAGIiEBKIiCE4S9V377a2nP1Onc7QfaLh4FwyV10zi3dQCEHTRg7sGJMvLO77VhDb/MVNAVzORW3iyvKHW2BSAohEVNhBcYQOTe7eznn6HFLIe6LATIkScnb3RklRXlVU/u6u07s2EvXYv6sdKfbAx4EACORSMZ1kBKIAJG53f40H0kCIMaYrhvJPg0YAwCnlF6vR8o7EiFjlpFQGBtRM8+Vn9P85WHe2r557cq225379n/uBEAAwzDGjC6fMXWSz+dVFG4YiaPHT9QfO+lxeZBhPK4XFkaWLZo/NBq50Rbbe+DgT40Xg4GAEALU3DJvejTnyYkTttcVrXjZn10EPGvNhk1ElEgmCkdXuLOLMiKjwBd+7fXNRHTsZMOhI/Vnz50nolWvbuDBIe7sonGTq3r7tNZrv+3Z9/HZxiYiml39ghKKBnPLwJcxNFI5e8LO97PGTfSk5YXyy3kw8vP5i3sPfNbU3LKxdht4crKio8E3eM26tyzLcmVEARwAvuaWX0+e+hH8eahGvq3/Ptbe4R1QBDyLh4Zs3fHRgiWrnKGoOrhUYYqid/Y01u2xuzV3ZrrWp5WVFpcXD58+d8mKpQuXLpxbu3VXSk0AUBTlldXLY+23gumhgmjk04NfgyR/wPdEWfF39cf0Xi07kmsmzfVv1DocDq/PK6VU0KHoN2KMcyXNiyQtw5hfNR0QF1fPKYhGCguio0aWXmi6DIwREQC8WLPI5XblhcN1uz7csm2XGlIt2yYizjHVKiSR0+XqbxsADIiY0wEcSUrbli6fZ86saS2/XJlRWREemK3rxrzZ0ww9jowBom2LqVWLhwwf33jhUnlpiWWanHNd0xp+OP1c5aRQVmbHlevxuL5/9/a1q2q0Po1zDoFwSWqH8spZIH9W9XIimjxzAfAMgMCeAwdNK5kZKQd3zro3a4moZNwU8ISfnfY8EW3ZtpOpQ3wDhpU+NaUt1h5rv3Xgky/ONzULYc9aUONILwjmlt2tZCJyKIqwxca33z1zrikUDieT5nsf7L4Za1cDal9X76lTZza9U9fV3eMPqQ2nz6xcuz4zIyPN52GcN7e0PlM5d+miOSOGFR4+crR62eqLl1pUNSCEuL+SEXXDsBLJQFBNHU3TMjTNFwgoDiWRSCR1I00NMETGWHdPL0ipqioBMcaSpmn0aiAlMHT5fB6PW0pJRPcRABFjjDFuCxsAgBAZcMZsIVIHzpktRCraClcAUAgbAAgAGXJkAIAIUkhJ1N8qiO6ZDgBCSnEnKQGIJPyZo0RS3n0C27bvdSRBNkh4YP3/Z/JjgkeA4A8fg218L015kwAAAABJRU5ErkJggg==">
 <style>
 :root {
@@ -112,6 +112,10 @@ body { font-family: Arial, Helvetica, sans-serif; background: var(--cream); colo
 .quote-note { font-size: 11.5px; color: var(--mid-grey); margin-top: 9px; line-height: 1.5; }
 .result-close { font-size: 15px; color: #1F2937; line-height: 1.8; margin-top: 22px; }
 .result-close p + p { margin-top: 14px; }
+.result-cta { margin-top: 26px; font-size: 15px; color: #1F2937; line-height: 1.8; }
+.result-cta .cta-head { font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+.result-cta p + p { margin-top: 12px; }
+.cta-contact { margin-top: 12px; font-size: 13px; color: var(--mid-grey); line-height: 1.7; }
 .dim-sections-head { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--mid-grey); margin-top: 34px; margin-bottom: 16px; border-top: 1px solid var(--light-grey); padding-top: 22px; }
 .dim-section { border: 1px solid var(--light-grey); border-radius: 8px; padding: 18px 20px; margin-bottom: 16px; }
 .dim-section-head { font-size: 13px; font-weight: 700; letter-spacing: 0.5px; color: var(--navy); margin-bottom: 12px; }
@@ -188,11 +192,11 @@ body { font-family: Arial, Helvetica, sans-serif; background: var(--cream); colo
     <div class="section-tag">SELF-ASSESSMENT</div>
     <div class="section-title">Where does your sales engine actually stand?</div>
     <div class="intro-copy">
-      <p>Thanks for giving this a few minutes of your day.</p>
+      <p>Thanks for giving this some of your day. Set aside up to half an hour.</p>
       <p>I built this because most business owners have a feeling about where the gaps sit in their sales engine, but rarely get to see it laid out plainly. Thirty questions, six areas: forecasting, your systems, your process, your commercial foundations, where you sit in your market, and pricing.</p>
       <p>Answer honestly. There's nothing to get right or wrong here, just what's actually true for your business.</p>
-      <p>Each question gives you three ways to answer, plus a box underneath for extra detail if you've got it. That box is optional, but the more you give, the sharper the picture you get back.</p>
-      <p>At the end you'll see the whole picture on one page, a wheel showing where you're strong and where the real pinch points sit. Take it and go, no strings either way. Hopefully it's worth the few minutes it took.</p>
+      <p>Each question gives you three ways to answer, plus a box underneath for extra detail if you've got it. That box is optional, but the more you give, the sharper the picture you get back. The quickest way to fill it is to talk rather than type: use the microphone on your keyboard, and give it a quick read afterwards.</p>
+      <p>At the end you'll see the whole picture in one place, a wheel showing where you're strong and where the real pinch points sit. Take it and go, no strings either way. Hopefully it's worth the time it took.</p>
     </div>
     <div class="nav-buttons">
       <div></div>
@@ -218,6 +222,7 @@ body { font-family: Arial, Helvetica, sans-serif; background: var(--cream); colo
       <span>I'm happy for ARC Advisory to get in touch about my results.</span>
     </label>
     <div class="consent-note">Either way, your results show on the next screen. Ticking the box is entirely up to you.</div>
+    <div class="consent-note" style="margin-top:-10px;">I keep your answers and details so I can send you your results and, only if you've ticked the box, get in touch. I don't pass them on to anyone else. To have them deleted, email nick@arc-advisory.co.uk.</div>
     <div class="nav-buttons">
       <button class="btn btn-secondary" onclick="goTo('d6')">← Back</button>
       <button class="btn btn-primary btn-lg" onclick="submitAssessment()">Show me the picture →</button>
@@ -233,11 +238,13 @@ body { font-family: Arial, Helvetica, sans-serif; background: var(--cream); colo
       <p>That's the whole picture. Six areas, thirty questions, all your own answers. Sit it next to a decision you're actually making this month, that's what it's for.</p>
       <p id="result-close-verdict"></p>
     </div>
+    <div class="result-cta" id="result-cta"></div>
     <div class="download-bar">
-      <button class="btn btn-primary" id="talk-btn" onclick="talkItThrough()">Talk it through →</button>
+      <button class="btn btn-primary" id="talk-btn" onclick="talkItThrough()">Book time with me</button>
       <button class="btn btn-secondary" id="download-btn" onclick="downloadReport()">Download your report</button>
       <div class="download-status" id="download-status"></div>
     </div>
+    <div class="cta-contact" id="cta-contact"></div>
   </div>
 
 </div>
@@ -486,7 +493,7 @@ const DIMENSIONS = [
   },
   {
     id: 'd6', num: 6, name: 'Customer & Pricing', short: 'Customer &amp;\nPricing',
-    framer: "Do they know who they win, why, and what it's worth, or is every deal bespoke?",
+    framer: "Do you know who you win, why, and what it's worth, or is every deal bespoke?",
     q: [
       {
         text: "Do you know what percentage of your revenue comes from your top 20% of customers?",
@@ -1045,7 +1052,7 @@ function crossDiagnostic(dimScores) {
     return `Market Feasibility scored ${fmt(mf.score)} out of 10. Commercial Foundation scored ${fmt(cf.score)}. The opportunity looks real. What's missing is the commercial architecture to actually go and capture it.`;
   }
   if (cp.score < 5 && slider !== undefined && slider >= 7) {
-    return `Customer & Pricing scored ${fmt(cp.score)} out of 10, while most new revenue is coming from new prospects rather than the existing base. This may be a business that's good at winning customers and quietly losing the value of them afterwards, through retention, expansion, or pricing discipline.`;
+    return `Customer & Pricing scored ${fmt(cp.score)} out of 10, while most new revenue is coming from new prospects rather than the existing base. This may mean you're good at winning customers and quietly losing the value of them afterwards, through retention, expansion, or pricing discipline.`;
   }
   return null;
 }
@@ -1511,11 +1518,18 @@ function joinNatural(names) {
   return names.slice(0, -1).join(', ') + ' and ' + names[names.length - 1];
 }
 
-const BAND_CLOSE = {
-  'Foundation Gap': "Before anything more formal, that's worth talking through on its own. A proper diagnostic needs data it can actually trust, and that's the thing worth building first.",
-  'FILTER-Ready': "A strong score on paper shows your structure is built. But if reps still find systems painful, and deals slide at the start of every quarter, that's costing you real velocity, and real time spent managing it. If you want to review where that friction is sitting in your pipeline and what it's costing you, drop me a note directly: nick@arc-advisory.co.uk",
-  'Well-Controlled': "Nothing urgent in that. Worth knowing about, not worth acting on yet.",
-};
+
+// Closing call to action, wording from ARC_SMA_Action_Page_Draft.md.
+// No FILTER, no price, no "free".
+function ctaCopy(company) {
+  return {
+    head: "Let's go through it together.",
+    p1: "What this doesn't show is why it looks like this, and that's the useful part. More important is the impact small, incremental changes might have on " + company + ".",
+    p2: "Book time with me and we'll go through the two areas at the top of your list, how they actually run today, and I'll tell you straight where I'd start.",
+    link: 'meetings-eu1.hubspot.com/nick-riggott',
+    email: 'nick@arc-advisory.co.uk',
+  };
+}
 
 function closingVerdict(dimScores) {
   const sorted = [...dimScores].sort((a, b) => b.score - a.score);
@@ -1532,8 +1546,7 @@ function closingVerdict(dimScores) {
     ? `The one area that asked the most of you to answer honestly was ${last.name}. That's not unusual, most businesses carry exactly one area like this, and it's usually the one worth the most attention.`
     : `More than one area asked the most of you to answer honestly: ${joinNatural(sorted.filter(d => d.score === last.score).map(d => d.name))}. That's less one broken thing and more a sign the system hasn't been built out much yet, across the board.`;
 
-  const band = outcomeBand(dimScores);
-  return `${starsPara} ${wishPara} ${BAND_CLOSE[band]}`;
+  return `${starsPara} ${wishPara}`;
 }
 
 // The symptom, not the fix. Six of these, one per dimension, written to
@@ -1579,6 +1592,13 @@ function renderResult() {
   const name = state.details.name.trim();
 
   document.getElementById('result-close-verdict').textContent = closingVerdict(dimScores);
+  const cta = ctaCopy(company === 'Your business' ? 'your business' : company);
+  const ctaEl = document.getElementById('result-cta');
+  ctaEl.textContent = '';
+  [['cta-head', 'div', cta.head], [null, 'p', cta.p1], [null, 'p', cta.p2]].forEach(([cls, tag, str]) => {
+    const el = document.createElement(tag); if (cls) el.className = cls; el.textContent = str; ctaEl.appendChild(el);
+  });
+  document.getElementById('cta-contact').textContent = cta.link + '  ·  ' + cta.email;
 
   document.getElementById('result-card').innerHTML = `
     <div class="result-header">
@@ -1701,11 +1721,15 @@ function totalRawScore(dimScores) {
 // Airtable Company-status logic already understands (save-session.js sets
 // Status to "FILTER Ready" only when Band === "FILTER-Ready").
 function outcomeBand(dimScores) {
-  const sd = byId(dimScores, 'd2');
-  if (sd.score < 4) return 'Foundation Gap';
-  const avg = averageOf(dimScores);
-  if (avg < OVERALL_AVERAGE_GATE) return 'FILTER-Ready';
-  return hasMaterialGap(dimScores) ? 'FILTER-Ready' : 'Well-Controlled';
+  // Two outcomes only, both lead to ARC. Seven questions scored 0 to 2:
+  // Systems & Data Q1 to Q4 and Process & Governance Q1 to Q3. Looks FILTER
+  // ready only at 11 or more out of 14 AND a full 2 on deal history
+  // (Systems & Data Q2). Anything else routes data first. Revisit the
+  // threshold after the first 20 real completions.
+  const sd = [0, 1, 2, 3].reduce((t, i) => t + (ans('d2', i).score || 0), 0);
+  const pg = [0, 1, 2].reduce((t, i) => t + (ans('d3', i).score || 0), 0);
+  const dealHistory = ans('d2', 1).score || 0;
+  return (sd + pg >= 11 && dealHistory === 2) ? 'FILTER-Ready' : 'Foundation Gap';
 }
 
 function notifyAndSave(submission, dimScores) {
@@ -1969,7 +1993,7 @@ function buildPdf(wheelPng) {
       const scoreTag = q.open ? ' (not scored)' : ` (${sc}/2)`;
       text(answerText(d, q, i) + scoreTag, { size: 10, color: GREY, lead: 13.5, after: 1 });
       const note = ans(d.id, i).note.trim();
-      if (note) text('Their detail: ' + note, { size: 9.5, style: 'italic', color: GREY, lead: 13, after: 1 });
+      if (note) text('Your detail: ' + note, { size: 9.5, style: 'italic', color: GREY, lead: 13, after: 1 });
       y += 5;
     });
     y += 8;
@@ -1981,9 +2005,15 @@ function buildPdf(wheelPng) {
   text("That's the whole picture. Six areas, thirty questions, all your own answers. Sit it next to a decision you're actually making this month, that's what it's for.", { size: 10.5, lead: 15, after: 8 });
   const verdictText = closingVerdict(lastResult.dimScores);
   text(verdictText, { size: 10.5, lead: 15, after: 10 });
-  if (!verdictText.includes('nick@arc-advisory.co.uk')) {
-    text('TALK IT THROUGH', { size: 8, style: 'bold', color: TEAL, after: 3 });
-    text('nick@arc-advisory.co.uk', { size: 10.5, style: 'bold', color: NAVY, after: 12 });
+  {
+    const cta = ctaCopy(state.details.company.trim() || 'your business');
+    room(150);
+    text(cta.head, { size: 13, style: 'bold', color: NAVY, after: 6 });
+    text(cta.p1, { size: 10.5, lead: 15, after: 8 });
+    text(cta.p2, { size: 10.5, lead: 15, after: 10 });
+    text('BOOK TIME WITH ME', { size: 8, style: 'bold', color: TEAL, after: 3 });
+    text(cta.link, { size: 10.5, style: 'bold', color: NAVY, after: 3 });
+    text(cta.email, { size: 10.5, style: 'bold', color: NAVY, after: 12 });
   }
 
   // --- Footer on every page ---
