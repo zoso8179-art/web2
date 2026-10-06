@@ -76,6 +76,9 @@ body { font-family: Arial, Helvetica, sans-serif; background: var(--cream); colo
 .field input:focus { outline: none; border-color: var(--teal); }
 .consent { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: #1F2937; line-height: 1.5; background: var(--white); border: 1px solid var(--light-grey); border-radius: 8px; padding: 14px 16px; margin: 4px 0 6px; cursor: pointer; }
 .consent input { margin: 1px 0 0; width: 16px; height: 16px; accent-color: var(--navy); flex-shrink: 0; cursor: pointer; }
+.review-card { background: var(--white); border: 1px solid var(--light-grey); border-radius: 8px; padding: 14px 16px; margin-bottom: 14px; }
+.review-q { font-size: 13px; font-weight: 600; color: #1F2937; line-height: 1.5; margin-bottom: 8px; }
+.review-card textarea { width: 100%; box-sizing: border-box; font: inherit; font-size: 14px; line-height: 1.5; padding: 10px 12px; border: 1px solid var(--light-grey); border-radius: 6px; resize: vertical; }
 .consent-note { font-size: 12px; color: var(--mid-grey); line-height: 1.6; margin-bottom: 20px; }
 
 .nav-buttons { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 26px; }
@@ -207,6 +210,20 @@ body { font-family: Arial, Helvetica, sans-serif; background: var(--cream); colo
   <!-- DIMENSION SCREENS injected by JS -->
   <div id="dimension-mount"></div>
 
+  <!-- REVIEW NOTES -->
+  <div class="screen" id="screen-review">
+    <div class="section-tag">BEFORE YOUR RESULT</div>
+    <div class="section-title">Check your notes.</div>
+    <div class="intro-copy" style="margin-bottom:22px;">
+      <p style="font-size:15px;font-weight:400;color:#1F2937;">Here are the notes you added, in one place. I've tidied the capital letters and full stops, but I can't know what you meant if something was misheard, especially names. Fix anything that needs it. What's in these boxes is what goes in your report.</p>
+    </div>
+    <div id="review-mount"></div>
+    <div class="nav-buttons">
+      <button class="btn btn-secondary" onclick="goTo('d6')">← Back</button>
+      <button class="btn btn-primary btn-lg" onclick="goTo('details')">Looks right, continue →</button>
+    </div>
+  </div>
+
   <!-- DETAILS -->
   <div class="screen" id="screen-details">
     <div class="section-tag">LAST STEP</div>
@@ -224,7 +241,7 @@ body { font-family: Arial, Helvetica, sans-serif; background: var(--cream); colo
     <div class="consent-note">Either way, your results show on the next screen. Ticking the box is entirely up to you.</div>
     <div class="consent-note" style="margin-top:-10px;">I keep your answers and details so I can send you your results and, only if you've ticked the box, get in touch. I don't pass them on to anyone else. To have them deleted, email nick@arc-advisory.co.uk.</div>
     <div class="nav-buttons">
-      <button class="btn btn-secondary" onclick="goTo('d6')">← Back</button>
+      <button class="btn btn-secondary" onclick="backFromDetails()">← Back</button>
       <button class="btn btn-primary btn-lg" onclick="submitAssessment()">Show me the picture →</button>
     </div>
     <div class="form-error" id="details-error"></div>
@@ -547,7 +564,7 @@ const SCORE_LABEL = { 0: 'Absent', 1: 'Informal', 2: 'Documented' };
 const TOTAL_QUESTIONS = DIMENSIONS.reduce((n, d) => n + d.q.length, 0);
 const SCORED_QUESTIONS = DIMENSIONS.reduce((n, d) => n + d.q.filter(q => !q.open).length, 0);
 
-const SCREEN_ORDER = ['intro', ...DIMENSIONS.map(d => d.id), 'details', 'result'];
+const SCREEN_ORDER = ['intro', ...DIMENSIONS.map(d => d.id), 'review', 'details', 'result'];
 const STORAGE_KEY = 'arc-public-assessment-v2';
 
 /* ---------------------------------------------------------------------------
@@ -746,12 +763,67 @@ function setOpenText(dimId, qIndex, value) {
 
 let currentScreen = 'intro';
 
+// Notes review. The tidy fixes layout only: filler sounds, capitals, full
+// stops. It can't repair a misheard word, so the person checks every note on
+// the review screen and what they leave in the box is what prints and saves.
+function tidyNote(str) {
+  if (!str) return str;
+  let t = String(str).replace(/\s+/g, ' ').trim();
+  t = t.replace(/(^|[\s,.;])(?:um+|uh+|erm+|er|ah+)(?=[\s,.;!?]|$)[,.]?/gi, '$1');
+  t = t.replace(/\s+,/g, ',').replace(/,\s*,/g, ',').replace(/^[\s,]+/, '').replace(/\s{2,}/g, ' ').trim();
+  t = t.replace(/(^|\s)i(?=[\s',.!?]|$)/g, '$1I');
+  t = t.replace(/(^|[.!?]\s+)([a-z])/g, (m, a, b) => a + b.toUpperCase());
+  if (t && !/[.!?…"”)]$/.test(t)) t += '.';
+  return t;
+}
+
+function reviewItems() {
+  const items = [];
+  DIMENSIONS.forEach(d => d.q.forEach((q, i) => {
+    const a = ans(d.id, i);
+    if (q.open) {
+      if ((a.text || '').trim()) items.push({ d, q, i, field: 'text' });
+      if ((a.note || '').trim()) items.push({ d, q, i, field: 'note' });
+    } else if ((a.note || '').trim()) {
+      items.push({ d, q, i, field: 'note' });
+    }
+  }));
+  return items;
+}
+
+function hasAnyNotes() { return reviewItems().length > 0; }
+
+function backFromDetails() { goTo(hasAnyNotes() ? 'review' : 'd6'); }
+
+function renderReview() {
+  const mount = document.getElementById('review-mount');
+  mount.innerHTML = '';
+  reviewItems().forEach(it => {
+    const a = ans(it.d.id, it.i);
+    a[it.field] = tidyNote(a[it.field]);
+    const boxId = it.field === 'text' ? `open-${it.d.id}-${it.i}` : `note-${it.d.id}-${it.i}`;
+    const orig = document.getElementById(boxId);
+    if (orig) orig.value = a[it.field];
+    const card = document.createElement('div'); card.className = 'review-card';
+    const q = document.createElement('div'); q.className = 'review-q'; q.textContent = it.d.name + ': ' + it.q.text;
+    const ta = document.createElement('textarea'); ta.rows = 3; ta.value = a[it.field];
+    ta.addEventListener('input', () => {
+      a[it.field] = ta.value;
+      if (orig) orig.value = ta.value;
+      persist();
+    });
+    card.appendChild(q); card.appendChild(ta); mount.appendChild(card);
+  });
+  persist();
+}
+
 function goTo(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   const el = document.getElementById('screen-' + id);
   if (!el) return;
   el.classList.add('active');
   currentScreen = id;
+  if (id === 'review') renderReview();
   updateProgress();
   window.scrollTo({ top: 0, behavior: 'auto' });
 }
@@ -788,7 +860,7 @@ function nextFrom(dimId) {
     return;
   }
   err.textContent = '';
-  goTo(d.num === 6 ? 'details' : 'd' + (d.num + 1));
+  goTo(d.num === 6 ? (hasAnyNotes() ? 'review' : 'details') : 'd' + (d.num + 1));
 }
 
 function answeredCount() {
@@ -805,7 +877,7 @@ function answeredCount() {
 function updateProgress() {
   document.getElementById('progress-count').innerHTML =
     `<strong>${answeredCount()}</strong> of ${TOTAL_QUESTIONS} answered`;
-  const labels = { intro: 'Introduction', details: 'Your details', result: 'Your result' };
+  const labels = { intro: 'Introduction', review: 'Check your notes', details: 'Your details', result: 'Your result' };
   DIMENSIONS.forEach(d => { labels[d.id] = `Area ${d.num} of 6 — ${d.name}`; });
   document.getElementById('progress-step').textContent = labels[currentScreen] || '';
   const idx = Math.max(0, SCREEN_ORDER.indexOf(currentScreen));
@@ -1993,7 +2065,10 @@ function buildPdf(wheelPng) {
       const scoreTag = q.open ? ' (not scored)' : ` (${sc}/2)`;
       text(answerText(d, q, i) + scoreTag, { size: 10, color: GREY, lead: 13.5, after: 1 });
       const note = ans(d.id, i).note.trim();
-      if (note) text('Your detail: ' + note, { size: 9.5, style: 'italic', color: GREY, lead: 13, after: 1 });
+      if (note) {
+        text('Your detail: ' + note, { size: 9.5, style: 'italic', color: GREY, lead: 13, after: 1 });
+        if (!q.open) text('Your note adds context beyond the score.', { size: 9, color: NAVY, lead: 12, after: 1 });
+      }
       y += 5;
     });
     y += 8;
