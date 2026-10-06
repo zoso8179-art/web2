@@ -1154,6 +1154,12 @@ function closingLine(dimScores) {
   const outlierCount = dimScores.filter(d => avg - d.score >= MATERIAL_GAP).length;
   if (outlierCount === 1) return `One area stands out as worth a proper look.`;
   if (outlierCount > 1) return `There's real ground to make up across ${outlierCount} of the six areas.`;
+  const sortedAsc = [...dimScores].sort((a, b) => a.score - b.score);
+  const othersAvgForClose = averageOf(sortedAsc.slice(1));
+  if (othersAvgForClose - sortedAsc[0].score >= 1.5) {
+    // The opening line has already named one area standing apart, so don't say there isn't one.
+    return `Alongside that, there's real, specific ground to make up elsewhere, spread across most of the picture. Worth a proper look at what's actually addressable.`;
+  }
   return `Nothing here is a single stand-out problem, but there's real, specific ground to make up, spread across most of the picture rather than sitting in one place. Worth a proper look at what's actually addressable.`;
 }
 
@@ -1172,8 +1178,8 @@ function buildNarrative(dimScores) {
       if (pattern) {
         parts.push(pattern);                // pattern fires: used instead of step 4
       } else {
-        const fallback = singleGapFallback(dimScores);
-        if (fallback) parts.push(fallback); // may be skipped if no material gap
+        // singleGapFallback() used to run here and repeated the weakest area the
+        // opening line had already named. Removed to avoid saying it twice.
       }
     }
   }
