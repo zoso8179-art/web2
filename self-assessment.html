@@ -6,6 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <title>Sales Maturity Assessment — ARC Advisory</title>
 <meta name="description" content="A thirty-question self-assessment of your sales engine across six areas. Up to half an hour, and your full report at the end.">
 <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAFJklEQVR4nO1VW2xURRj+/5mz9+6e3d6ALm2XLS3QG4iAaDDlUoQQoOEihRCgAiqEYKKBkKgRQqg+gEWBGE0IkIAa8RKfQDE0AQMpShApUFKqUJCyLZbezp6ze86Z+X3YIiBq4gMPBibzMjP//32Z77+hP6cYHuZiDxX9McGjQaD8J2tEBETA+28JAICIgAgAAPtv+gkQ/2L+ICogMgIiS9iWSbYNRCkuoDtQDJlDYS4XkgQJwPoxiejffoCMAYCdTMqEyRTFkxn0DspyZ2c6gn7mcSucSwJhWUIzkre7jJsdRqwzb+bk1m+OS9NK+cI/SYSMEZGpaQwwkD84feRwb34OObjVG090dsd/77LjhrQtQFRcLsXvc+cOUkcVcykGVIwnl7Nl31fOoJ+E/BsCRCREs09THI6cp0dnjB0pFOy5fLXjUL3e1iH0JEpChogMEAGIiEBKIiCE4S9V377a2nP1Onc7QfaLh4FwyV10zi3dQCEHTRg7sGJMvLO77VhDb/MVNAVzORW3iyvKHW2BSAohEVNhBcYQOTe7eznn6HFLIe6LATIkScnb3RklRXlVU/u6u07s2EvXYv6sdKfbAx4EACORSMZ1kBKIAJG53f40H0kCIMaYrhvJPg0YAwCnlF6vR8o7EiFjlpFQGBtRM8+Vn9P85WHe2r557cq225379n/uBEAAwzDGjC6fMXWSz+dVFG4YiaPHT9QfO+lxeZBhPK4XFkaWLZo/NBq50Rbbe+DgT40Xg4GAEALU3DJvejTnyYkTttcVrXjZn10EPGvNhk1ElEgmCkdXuLOLMiKjwBd+7fXNRHTsZMOhI/Vnz50nolWvbuDBIe7sonGTq3r7tNZrv+3Z9/HZxiYiml39ghKKBnPLwJcxNFI5e8LO97PGTfSk5YXyy3kw8vP5i3sPfNbU3LKxdht4crKio8E3eM26tyzLcmVEARwAvuaWX0+e+hH8eahGvq3/Ptbe4R1QBDyLh4Zs3fHRgiWrnKGoOrhUYYqid/Y01u2xuzV3ZrrWp5WVFpcXD58+d8mKpQuXLpxbu3VXSk0AUBTlldXLY+23gumhgmjk04NfgyR/wPdEWfF39cf0Xi07kmsmzfVv1DocDq/PK6VU0KHoN2KMcyXNiyQtw5hfNR0QF1fPKYhGCguio0aWXmi6DIwREQC8WLPI5XblhcN1uz7csm2XGlIt2yYizjHVKiSR0+XqbxsADIiY0wEcSUrbli6fZ86saS2/XJlRWREemK3rxrzZ0ww9jowBom2LqVWLhwwf33jhUnlpiWWanHNd0xp+OP1c5aRQVmbHlevxuL5/9/a1q2q0Po1zDoFwSWqH8spZIH9W9XIimjxzAfAMgMCeAwdNK5kZKQd3zro3a4moZNwU8ISfnfY8EW3ZtpOpQ3wDhpU+NaUt1h5rv3Xgky/ONzULYc9aUONILwjmlt2tZCJyKIqwxca33z1zrikUDieT5nsf7L4Za1cDal9X76lTZza9U9fV3eMPqQ2nz6xcuz4zIyPN52GcN7e0PlM5d+miOSOGFR4+crR62eqLl1pUNSCEuL+SEXXDsBLJQFBNHU3TMjTNFwgoDiWRSCR1I00NMETGWHdPL0ipqioBMcaSpmn0aiAlMHT5fB6PW0pJRPcRABFjjDFuCxsAgBAZcMZsIVIHzpktRCraClcAUAgbAAgAGXJkAIAIUkhJ1N8qiO6ZDgBCSnEnKQGIJPyZo0RS3n0C27bvdSRBNkh4YP3/Z/JjgkeA4A8fg218L015kwAAAABJRU5ErkJggg==">
@@ -154,6 +157,21 @@ body { font-family: Arial, Helvetica, sans-serif; background: var(--cream); colo
   body { background: white; }
   .result-card { box-shadow: none; }
 }
+
+/* v8 type and colour, matching the homepage. Typography and colour only, no logic touched. */
+:root{--navy:#152740;--teal:#3fb3ba;--cream:#eef1f3}
+body{font-family:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Arial,sans-serif}
+.header-title{font-size:15px;letter-spacing:.01em;text-transform:none}
+.progress-meta{font-size:13px;letter-spacing:.01em;text-transform:none}
+.section-tag{font-size:13px;letter-spacing:.02em;padding:5px 14px;border-radius:999px;text-transform:lowercase}
+.section-tag::first-letter{text-transform:uppercase}
+.section-title{letter-spacing:-.02em;line-height:1.2}
+.q-num{font-size:13px;letter-spacing:.02em;text-transform:none}
+.bottleneck-label,.quote-label,.action-group-label{font-size:12.5px;letter-spacing:.02em;text-transform:none}
+.dim-sections-head{font-size:13.5px;letter-spacing:.01em;text-transform:none}
+.result-brand{font-size:13px;letter-spacing:.04em}
+.framer,.quote-a{font-style:normal}
+.wheel-box svg text{font-family:'Plus Jakarta Sans',Arial,sans-serif}
 </style>
 </head>
 <body>
