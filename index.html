@@ -137,7 +137,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.12;letter-spacin
 header{position:sticky;top:2px;z-index:50;background:rgba(247,248,249,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:20px;height:68px}
 .logo{display:flex;align-items:center;gap:14px;text-decoration:none}
-.logo svg{display:block;height:52px;width:auto}
+.logo svg{display:block;height:56px;width:auto}
 nav.links{display:flex;gap:18px;align-items:center;justify-content:center}
 nav.links a{text-decoration:none;font-size:13px;font-weight:500;color:var(--ink-soft);transition:color .15s;white-space:nowrap}
 nav.links a:hover,nav.links a:focus-visible{color:var(--navy)}
@@ -368,7 +368,7 @@ footer .row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;a
 footer .fm{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
 footer a{color:#c3cddb;text-decoration:none}
 footer a:hover{color:var(--teal-bright)}
-footer .legal{margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.08);font-size:12px;line-height:1.6;color:#8fa1b8}
+footer .legal{text-align:center;margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.08);font-size:12px;line-height:1.6;color:#8fa1b8}
 
 /* reveal */
 .rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
@@ -622,12 +622,11 @@ footer .fm{font-size:12px;letter-spacing:.06em}
 <header>
   <div class="wrap nav">
     <a class="logo" href="/" aria-label="ARC Advisory home">
-      <svg viewBox="0 0 280 120" width="140" height="60" role="img" aria-label="ARC Advisory">
-        <rect width="280" height="120" fill="#0D1B2A"/>
-        <path d="M 14 66 Q 68 24 120 42" stroke="#4ECDC4" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-        <path d="M 112 44 L 120 42 L 116 35" stroke="#4ECDC4" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        <text x="28" y="85" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="42" fill="#FFFFFF" letter-spacing="6">ARC</text>
-        <text x="30" y="103" font-family="Arial, Helvetica, sans-serif" font-weight="400" font-size="11" fill="#FFFFFF" letter-spacing="5" opacity="0.85">ADVISORY</text>
+      <svg viewBox="10 20 170 90" width="150" height="80" role="img" aria-label="ARC Advisory">
+        <path d="M 14 66 Q 68 24 120 42" stroke="#2BA59C" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M 112 44 L 120 42 L 116 35" stroke="#2BA59C" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="26" y="88" font-family="Plus Jakarta Sans, Arial, sans-serif" font-weight="800" font-size="44" fill="#0D1B2A" letter-spacing="5">ARC</text>
+        <text x="28" y="106" font-family="Plus Jakarta Sans, Arial, sans-serif" font-weight="600" font-size="13" fill="#0D1B2A" letter-spacing="4.2">ADVISORY</text>
       </svg>
     </a>
     <nav class="links" aria-label="Primary">
