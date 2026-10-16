@@ -57,13 +57,49 @@
       "sameAs": [
         "https://www.linkedin.com/company/arc-advisory-uk/",
         "https://find-and-update.company-information.service.gov.uk/company/17407501"
-      ]
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Ways I can work with you",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Fractional CSO",
+              "url": "https://arc-advisory.co.uk/#fractional-cso",
+              "description": "A repeatable sales process, built and run with your team until it sticks.",
+              "areaServed": "GB"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Board level commercial adviser",
+              "url": "https://arc-advisory.co.uk/#board-level-commercial-adviser",
+              "description": "Clear, experienced challenge on revenue decisions at the board table.",
+              "areaServed": "GB"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Project",
+              "url": "https://arc-advisory.co.uk/#project",
+              "description": "A focused piece of work, from understanding how you sell to improving the part that matters most.",
+              "areaServed": "GB"
+            }
+          }
+        ]
+      }
     },
     {
       "@type": "Person",
       "@id": "https://arc-advisory.co.uk/#nick-riggott",
       "name": "Nick Riggott",
-      "jobTitle": "Founder",
+      "jobTitle": "Founder of ARC Advisory",
       "url": "https://arc-advisory.co.uk/",
       "image": "https://arc-advisory.co.uk/nick-riggott.jpg",
       "worksFor": {
@@ -75,7 +111,10 @@
       "knowsAbout": [
         "Revenue architecture",
         "B2B sales operations",
-        "Go-to-market strategy"
+        "Go-to-market strategy",
+        "Fractional CSO",
+        "Board level commercial advice",
+        "Sales forecasting"
       ]
     },
     {
@@ -610,6 +649,15 @@ footer .fm{font-size:12px;letter-spacing:.06em}
 .sma-img{margin-top:6px}
 @media(max-width:860px){.sma-img{margin-top:0}}
 .portrait .cap .r{font-size:14px;letter-spacing:.02em;text-transform:none}
+
+/* ---------- ways I work ---------- */
+.ways{margin-top:56px}
+.ways-head{font-size:clamp(22px,2.6vw,28px);margin-bottom:22px}
+.ways-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.ways-card{border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:12px;background:#fff;padding:24px 26px;box-shadow:0 1px 2px rgba(21,39,64,.05),0 10px 26px -16px rgba(21,39,64,.20)}
+.ways-card h4{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--navy);line-height:1.25}
+.ways-card p{font-size:14.5px;color:var(--ink-soft);margin-top:10px}
+@media(max-width:860px){.ways-grid{grid-template-columns:1fr}}
 </style>
 <!-- Start of HubSpot Embed Code -->
 <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/148438023.js"></script>
@@ -706,6 +754,23 @@ footer .fm{font-size:12px;letter-spacing:.06em}
     </div>
     <div class="whatido-base rv">
       <h3>Predictable sales foundations</h3>
+    </div>
+    <div class="ways rv" id="ways-i-work">
+      <h3 class="ways-head">Ways I can work with you</h3>
+      <div class="ways-grid">
+        <article class="ways-card" id="fractional-cso">
+          <h4>Fractional CSO</h4>
+          <p>A repeatable sales process, built and run with your team until it sticks.</p>
+        </article>
+        <article class="ways-card" id="board-level-commercial-adviser">
+          <h4>Board level commercial adviser</h4>
+          <p>Clear, experienced challenge on revenue decisions at the board table.</p>
+        </article>
+        <article class="ways-card" id="project">
+          <h4>Project</h4>
+          <p>A focused piece of work, from understanding how you sell to improving the part that matters most.</p>
+        </article>
+      </div>
     </div>
     <div class="whatido-cta rv">
       <a class="btn btn-primary" href="#contact">Book a conversation</a>
