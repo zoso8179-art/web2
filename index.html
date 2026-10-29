@@ -719,6 +719,17 @@ footer .fm{font-size:12px;letter-spacing:.06em}
 .ways-card h4{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--navy);line-height:1.25}
 .ways-card p{font-size:14.5px;color:var(--ink-soft);margin-top:10px}
 @media(max-width:860px){.ways-grid{grid-template-columns:1fr}}
+.posts{background:var(--paper-2);border-top:1px solid var(--line);padding:88px 0}
+.posts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
+.post-card{display:flex;flex-direction:column;text-decoration:none;color:inherit;border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:12px;background:#fff;padding:24px 26px;box-shadow:0 1px 2px rgba(21,39,64,.05),0 10px 26px -16px rgba(21,39,64,.20);transition:transform .15s,box-shadow .15s}
+.post-card:hover,.post-card:focus-visible{transform:translateY(-2px);box-shadow:0 2px 4px rgba(21,39,64,.06),0 14px 30px -14px rgba(21,39,64,.28)}
+.post-card .k{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#1f7a80}
+.post-card h3{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--navy);line-height:1.25;margin-top:10px}
+.post-card p{font-size:14.5px;color:var(--ink-soft);margin-top:10px;flex:1}
+.post-card .go{margin-top:16px;font-size:14px;font-weight:600;color:var(--teal)}
+.posts-more{margin-top:22px;font-size:14.5px;color:var(--ink-soft)}
+.posts-more a{color:var(--teal);font-weight:600}
+@media(max-width:860px){.posts-grid{grid-template-columns:1fr}.posts{padding:64px 0}}
 </style>
 <!-- Start of HubSpot Embed Code -->
 <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/148438023.js"></script>
@@ -906,6 +917,34 @@ footer .fm{font-size:12px;letter-spacing:.06em}
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- LINKEDIN POSTS -->
+<section class="posts" id="linkedin">
+  <div class="wrap">
+    <div class="section-head rv"><p class="eyebrow">From my LinkedIn</p></div>
+    <div class="posts-grid rv">
+      <a class="post-card" href="https://www.linkedin.com/feed/update/urn:li:activity:7513906309621248001/" target="_blank" rel="noopener">
+        <span class="k">On keeping it simple</span>
+        <h3>I've massively overcooked this.</h3>
+        <p>I help founders of growing B2B businesses find out why their sales are unpredictable, and then I help fix it. That's it.</p>
+        <span class="go">Read on LinkedIn &rarr;</span>
+      </a>
+      <a class="post-card" href="https://www.linkedin.com/feed/update/urn:li:activity:7516133979872198656/" target="_blank" rel="noopener">
+        <span class="k">On pipeline</span>
+        <h3>Zombie deals.</h3>
+        <p>If a deal's close date has been pushed twice and nothing new has happened in 30 days, take it out of the active pipeline.</p>
+        <span class="go">Read on LinkedIn &rarr;</span>
+      </a>
+      <a class="post-card" href="https://www.linkedin.com/feed/update/urn:li:activity:7508183502992019457/" target="_blank" rel="noopener">
+        <span class="k">On forecasting</span>
+        <h3>Forecast or Wishcast?</h3>
+        <p>Rep optimism is great for selling, but it's dangerous for forecasting. Two practical questions to separate pipeline truth from wishful thinking.</p>
+        <span class="go">Read on LinkedIn &rarr;</span>
+      </a>
+    </div>
+    <p class="posts-more rv">More on <a href="https://www.linkedin.com/in/nickriggott/" target="_blank" rel="noopener">LinkedIn</a>.</p>
   </div>
 </section>
 
