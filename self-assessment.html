@@ -161,6 +161,10 @@ body { font-family: Arial, Helvetica, sans-serif; background: var(--cream); colo
 .dim-block { font-size: 13.5px; color: #1F2937; line-height: 1.75; margin-bottom: 11px; }
 .dim-block:last-child { margin-bottom: 0; }
 .dim-block strong { color: var(--navy); }
+.note-flag { background: var(--cream); border-left: 3px solid var(--amber); border-radius: 0 8px 8px 0; padding: 10px 14px; }
+.note-flag p { margin: 0; }
+.note-flag p + p { margin-top: 8px; }
+.note-flag .flag-line { color: var(--navy); font-weight: 600; }
 .dim-bullets { margin: 6px 0 0 18px; padding: 0; }
 .dim-bullets li { font-size: 13.5px; color: #1F2937; line-height: 1.7; margin-bottom: 4px; }
 .action-group { margin-top: 10px; }
@@ -838,6 +842,35 @@ function noteHedge(note) {
   return 0;
 }
 
+// Rule three. A note that pulls against the answer it sits under. Only
+// checked on a top answer (2 of 2), because "less settled than your answer"
+// only means something when the answer picked was the most settled option.
+// Returns 2 when the note contradicts the answer ("mandatory but not
+// followed"), 1 when it softens it ("less easy to trust", "could be more
+// consistent"), 0 otherwise. Like noteHedge it reads words, not meaning, so
+// it adds a flag and never touches the score.
+const NOTE_FLAG_LINE = 'Your note suggests this is less settled than your answer.';
+const NOTE_CONTRADICT = [
+  /\b(?:but|however|though|although|except)\b[^.!?]{0,40}?(?:\bnot\b|\bnever\b|\bno one\b|\bnobody\b|\brarely\b|n't\b)/i,
+  /\bnot (?:really |always |consistently |properly )?(?:followed|enforced|trusted|trust|reliable|accurate|used|done|kept)\b/i,
+  /n't (?:really |always |consistently |properly )?(?:followed|enforced|trusted|trust|reliable|accurate|used|done|kept|happen)\b/i,
+  /\bin theory\b/i, /\bon paper\b/i,
+];
+const NOTE_SOFTEN = [
+  /\bless (?:easy|reliable|consistent|trusted|accurate|confident|robust|mature)\b/i,
+  /\b(?:could|should) be (?:more|better)\b/i, /\broom (?:to|for) improve/i,
+  /\bnot (?:always|quite|fully|entirely|completely|yet)\b/i,
+  /\bmostly\b/i, /\bpartly\b/i, /\bsometimes\b/i, /\bwork in progress\b/i,
+];
+function noteFlag(note, score) {
+  if (score !== 2) return 0;
+  const t = String(note || '').trim();
+  if (!t) return 0;
+  if (NOTE_CONTRADICT.some(r => r.test(t))) return 2;
+  if (NOTE_SOFTEN.some(r => r.test(t)) || noteHedge(t) === 2) return 1;
+  return 0;
+}
+
 // The one note per section that says the most: first any full mark whose note
 // hedges (strongest hedge, then earliest question), otherwise the note on the
 // lowest scoring question (ties go to the longer note).
@@ -847,11 +880,12 @@ function sectionNoteCallout(d) {
     if (q.open) return;
     const note = (ans(d.id, i).note || '').trim();
     if (!note) return;
-    items.push({ i, note, score: questionScore(d, q, i), hedge: noteHedge(note) });
+    const score = questionScore(d, q, i);
+    items.push({ i, note, score, hedge: noteHedge(note), flag: q.slider ? 0 : noteFlag(note, score) });
   });
   if (!items.length) return null;
-  const pulls = items.filter(x => x.score === 2 && x.hedge === 2)
-    .sort((a, b) => (b.hedge - a.hedge) || (a.i - b.i));
+  const pulls = items.filter(x => x.flag > 0)
+    .sort((a, b) => (b.flag - a.flag) || (a.i - b.i));
   const pick = pulls.length ? pulls[0]
     : items.sort((a, b) => (a.score - b.score) || (b.note.length - a.note.length))[0];
   const words = pick.note.split(/\s+/);
@@ -1576,7 +1610,9 @@ function sectionActionBullets(dim) {
     const a = ans(dim.id, i);
     if (a.score === undefined) return;
     if (a.score === 2) {
-      if (keepList[i]) keep.push(keepList[i]);
+      // A full mark the person's own note pulls against isn't one to tell
+      // them to keep doing; the note flag carries it instead.
+      if (keepList[i] && !(q.slider || q.open) && !noteFlag(a.note, 2)) keep.push(keepList[i]);
     } else if (a.score === 0 && stopList[i]) {
       stop.push(stopList[i]);
     } else if (startList[i]) {
@@ -1586,8 +1622,25 @@ function sectionActionBullets(dim) {
   return { stop, start, keep };
 }
 
+// Every scored question in this area whose note pulls against the answer.
+function sectionNoteFlags(dim) {
+  const out = [];
+  dim.q.forEach((q, i) => {
+    if (q.open || q.slider) return;
+    const a = ans(dim.id, i);
+    const note = (a.note || '').trim();
+    const level = noteFlag(note, a.score);
+    if (level) out.push({ i, level, answer: answerText(dim, q, i), note });
+  });
+  return out;
+}
+
 function buildSectionHtml(dim, dimScore) {
   const answers = whatAnswersShow(dim);
+  const flags = sectionNoteFlags(dim);
+  const flagBlock = flags.length
+    ? `<div class="dim-block note-flag">${flags.map(f => `<p>You picked “${escapeHtml(f.answer)}” and wrote “${escapeHtml(f.note)}” <span class="flag-line">${escapeHtml(NOTE_FLAG_LINE)}</span></p>`).join('')}</div>`
+    : '';
   const worthKnowing = worthKnowingText(dim, dimScore);
   const b = sectionActionBullets(dim);
   const group = (cls, label, items) => items.length
@@ -1600,6 +1653,7 @@ function buildSectionHtml(dim, dimScore) {
     <div class="dim-section-head">${escapeHtml(dim.name.toUpperCase())} — ${fmt(dimScore.score)}/10</div>
     <div class="dim-block"><strong>What good looks like:</strong> ${escapeHtml(WHAT_GOOD_LOOKS_LIKE[dim.id])}</div>
     <div class="dim-block"><strong>What your answers show:</strong> ${escapeHtml(answers)}</div>
+    ${flagBlock}
     <div class="dim-block"><strong>Worth knowing:</strong> ${escapeHtml(worthKnowing)}</div>
     ${doingBlock}
   </div>`;
@@ -2152,7 +2206,17 @@ function buildPdf(wheelPng) {
   }
 
   // --- Every question, with the answer actually given ---
-  newPage();
+  // Starts on the same page when there's real room left (a short quote used
+  // to leave page 2 mostly blank). Needs space for the heading and the first
+  // area's opening questions, otherwise it takes a fresh page.
+  if (y + 220 > PAGE_H - M) {
+    newPage();
+  } else {
+    y += 14;
+    doc.setDrawColor(229, 231, 235);
+    doc.line(M, y, M + COL, y);
+    y += 20;
+  }
   text('YOUR ANSWERS IN FULL', { size: 9, style: 'bold', color: TEAL, after: 4 });
   text('All thirty questions, and what you said to each.', { size: 10, color: GREY, after: 14 });
 
@@ -2183,8 +2247,9 @@ function buildPdf(wheelPng) {
       if (note) {
         text('Your detail: ' + note, { size: 9.5, style: 'italic', color: GREY, lead: 13, after: 1 });
         if (!q.open) {
-          const caveat = sc === 2 && noteHedge(note) === 2;
-          text(caveat ? 'Full marks, with a caveat in your own words.' : 'Your note adds context beyond the score.', { size: 9, color: NAVY, lead: 12, after: 1 });
+          const flagged = !q.slider && noteFlag(note, sc) > 0;
+          if (flagged) text(NOTE_FLAG_LINE, { size: 9, style: 'bold', color: [180, 83, 9], lead: 12, after: 1 });
+          else text('Your note adds context beyond the score.', { size: 9, color: NAVY, lead: 12, after: 1 });
         }
       }
       y += 5;
