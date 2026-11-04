@@ -2,7 +2,7 @@
 
 > Helping businesses make sales revenue more predictable. 20+ years of complex B2B sales experience, applied to give you more confidence in your sales.
 
-ARC Advisory is the trading name of ARC Commercial Advisory Ltd (Companies House company number 17407501). It is run by Nick Riggott, founder, based in Derby. It works with UK B2B companies with revenue between £5m and £50m.
+ARC Advisory is the trading name of ARC Commercial Advisory Ltd (Companies House company number 17407501). It is run by Nick Riggott, founder, based in Derby. Nick has over 20 years in B2B sales, most of it in B2B technology, including 11 years at Mitel running the UK and Ireland sales business. It works with UK B2B companies with revenue between £5m and £50m.
 
 Nick starts by understanding how a business really sells today: how a deal gets from first conversation to signed, who decides what, and where things go quiet. From there he works out what is getting in the way and what to fix first. If the business already has a sales leader, he works with them, not around them.
 
@@ -13,6 +13,7 @@ The work centres on three foundations of predictable sales: how you sell, docume
 ## Pages
 
 - [Home](https://arc-advisory.co.uk/): What I do, the common reasons behind unpredictable revenue, and how to book a conversation.
+- [Fractional sales director](https://arc-advisory.co.uk/fractional-sales-director.html): What working with Nick as a fractional sales director involves, who it suits, how it starts, and common questions.
 - [Sales Maturity Self-Assessment](https://arc-advisory.co.uk/self-assessment.html): A thirty-question self-assessment of your sales engine across six areas. Up to half an hour, and your full report at the end.
 - [Privacy](https://arc-advisory.co.uk/privacy.html): What information ARC Advisory collects and how it is used.
 
