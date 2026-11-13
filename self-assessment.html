@@ -211,6 +211,23 @@ body{font-family:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Arial,sa
 .wheel-box svg text{font-family:'Plus Jakarta Sans',Arial,sans-serif}
 .site-legal{background:var(--navy);color:#8fa1b8;font-family:inherit;font-size:12px;line-height:1.6;padding:28px 20px;margin-top:48px}
 .site-legal p{max-width:820px;margin:0 auto;text-align:center}
+/* Result screen, brought into line with the ARC letterhead and the emailed report. */
+.result-lead{font-size:16px;font-weight:600;line-height:1.6;margin-bottom:0}
+.download-bar{margin-top:6px;font-size:13.5px}
+.link-btn{background:none;border:0;padding:0;font:inherit;color:var(--navy);text-decoration:underline;cursor:pointer}
+.link-btn:disabled{opacity:.5;cursor:default}
+.download-status{display:inline;margin-left:10px;font-size:13px;min-height:0}
+.result-header{text-align:center;padding:22px 28px 20px}
+.result-logo svg{display:block;height:74px;width:auto;margin:0 auto}
+.result-brand{margin:6px 0 12px}
+.result-client strong{margin-top:4px}
+.dim-section-head{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.dim-section-head span:last-child{color:var(--teal);white-space:nowrap}
+.dim-block strong{display:block;margin-bottom:2px}
+@media (min-width:720px){
+  .narrative p,.bottleneck-text,.dim-block,.result-close p,.result-cta p{text-align:justify;hyphens:auto}
+  .dim-bullets li,.note-flag p,.dim-block strong{text-align:left}
+}
 </style>
 <!-- Start of HubSpot Embed Code -->
 <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/148438023.js"></script>
@@ -231,12 +248,7 @@ body{font-family:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Arial,sa
 
 <div class="header">
   <a href="/" aria-label="ARC Advisory home" style="display:block;line-height:0;flex-shrink:0;">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="10 20 170 90" width="104" height="55" style="display:block;flex-shrink:0;" role="img" aria-label="ARC Advisory">
-    <path d="M 14 66 Q 68 24 120 42" stroke="#4ECDC4" stroke-width="3" fill="none" stroke-linecap="round"/>
-    <path d="M 112 44 L 120 42 L 116 35" stroke="#4ECDC4" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <text x="26" y="88" font-family="Plus Jakarta Sans, Arial, sans-serif" font-weight="800" font-size="44" fill="#FFFFFF" letter-spacing="5">ARC</text>
-    <text x="28" y="106" font-family="Plus Jakarta Sans, Arial, sans-serif" font-weight="600" font-size="13" fill="#FFFFFF" letter-spacing="4.2">ADVISORY</text>
-  </svg>
+  <svg id="arc-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 522 240" width="131" height="60" style="display:block;flex-shrink:0;" role="img" aria-label="ARC Advisory"><path d="M80 96 Q 250 4 410 30" fill="none" stroke="#4ECDC4" stroke-width="7" stroke-linecap="round"/><path d="M398 8 L 412 30 L 389 37" fill="none" stroke="#4ECDC4" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M194.568359375 170.0 186.8779296875 147.8515625H153.83984375L146.1494140625 170.0H128.0L159.623046875 83.3134765625H181.033203125L212.533203125 170.0ZM170.328125 96.6640625 169.958984375 98.017578125Q169.34375 100.232421875 168.482421875 103.0625Q167.62109375 105.892578125 157.900390625 134.193359375H182.8173828125L174.265625 109.2763671875L171.6201171875 100.9091796875ZM305.64111328125 170.0 285.52294921875 137.0849609375H264.23583984375V170.0H246.08642578125V83.3134765625H289.39892578125Q304.90283203125 83.3134765625 313.33154296875 89.98876953125Q321.76025390625 96.6640625 321.76025390625 109.1533203125Q321.76025390625 118.2587890625 316.59228515625 124.87255859375Q311.42431640625 131.486328125 302.62646484375 133.578125L326.06689453125 170.0ZM303.48779296875 109.8916015625Q303.48779296875 97.40234375 287.49169921875 97.40234375H264.23583984375V122.99609375H287.98388671875Q295.61279296875 122.99609375 299.55029296875 119.55078125Q303.48779296875 116.10546875 303.48779296875 109.8916015625ZM403.36328125 156.95703125Q419.7900390625 156.95703125 426.1884765625 140.46875L442.0 146.4365234375Q436.8935546875 158.9873046875 427.01904296875 165.10888671875Q417.14453125 171.23046875 403.36328125 171.23046875Q382.4453125 171.23046875 371.03271484375 159.38720703125Q359.6201171875 147.5439453125 359.6201171875 126.2568359375Q359.6201171875 104.908203125 370.6328125 93.46484375Q381.6455078125 82.021484375 402.5634765625 82.021484375Q417.8212890625 82.021484375 427.4189453125 88.14306640625Q437.0166015625 94.2646484375 440.892578125 106.138671875L424.896484375 110.5068359375Q422.8662109375 103.9853515625 416.92919921875 100.14013671875Q410.9921875 96.294921875 402.9326171875 96.294921875Q390.6279296875 96.294921875 384.26025390625 103.923828125Q377.892578125 111.552734375 377.892578125 126.2568359375Q377.892578125 141.20703125 384.44482421875 149.08203125Q390.9970703125 156.95703125 403.36328125 156.95703125Z" fill="#FFFFFF"/><path d="M151.171875 228.0 148.65625 221.5625H138.625L136.09375 228.0H133.0L141.984375 205.984375H145.375L154.21875 228.0ZM143.640625 208.234375 143.5 208.671875Q143.109375 209.96875 142.34375 212.0L139.53125 219.234375H147.765625L144.9375 211.96875Q144.5 210.890625 144.0625 209.53125ZM193.39732142857144 216.765625Q193.39732142857144 220.171875 192.06919642857144 222.7265625Q190.74107142857144 225.28125 188.30357142857144 226.640625Q185.86607142857144 228.0 182.67857142857144 228.0H174.44419642857144V205.984375H181.72544642857144Q187.31919642857144 205.984375 190.35825892857144 208.7890625Q193.39732142857144 211.59375 193.39732142857144 216.765625ZM190.39732142857144 216.765625Q190.39732142857144 212.671875 188.15513392857144 210.5234375Q185.91294642857144 208.375 181.66294642857144 208.375H177.42857142857144V225.609375H182.33482142857144Q184.75669642857144 225.609375 186.59263392857144 224.546875Q188.42857142857144 223.484375 189.41294642857144 221.484375Q190.39732142857144 219.484375 190.39732142857144 216.765625ZM225.7008928571429 228.0H222.6071428571429L213.6227678571429 205.984375H216.7633928571429L222.8571428571429 221.484375L224.1696428571429 225.375L225.4821428571429 221.484375L231.5446428571429 205.984375H234.6852678571429ZM254.91071428571433 228.0V205.984375H257.89508928571433V228.0ZM296.5424107142858 221.921875Q296.5424107142858 224.96875 294.1595982142858 226.640625Q291.7767857142858 228.3125 287.4486607142858 228.3125Q279.4017857142858 228.3125 278.1205357142858 222.71875L281.0111607142858 222.140625Q281.5111607142858 224.125 283.1361607142858 225.0546875Q284.7611607142858 225.984375 287.5580357142858 225.984375Q290.4486607142858 225.984375 292.0189732142858 224.9921875Q293.5892857142858 224.0 293.5892857142858 222.078125Q293.5892857142858 221.0 293.0970982142858 220.328125Q292.6049107142858 219.65625 291.7142857142858 219.21875Q290.8236607142858 218.78125 289.5892857142858 218.484375Q288.3549107142858 218.1875 286.8549107142858 217.84375Q284.2455357142858 217.265625 282.8939732142858 216.6875Q281.5424107142858 216.109375 280.7611607142858 215.3984375Q279.9799107142858 214.6875 279.5658482142858 213.734375Q279.1517857142858 212.78125 279.1517857142858 211.546875Q279.1517857142858 208.71875 281.3158482142858 207.1875Q283.4799107142858 205.65625 287.5111607142858 205.65625Q291.2611607142858 205.65625 293.2455357142858 206.8046875Q295.2299107142858 207.953125 296.0267857142858 210.71875L293.0892857142858 211.234375Q292.6049107142858 209.484375 291.2455357142858 208.6953125Q289.8861607142858 207.90625 287.4799107142858 207.90625Q284.8392857142858 207.90625 283.4486607142858 208.78125Q282.0580357142858 209.65625 282.0580357142858 211.390625Q282.0580357142858 212.40625 282.5970982142858 213.0703125Q283.1361607142858 213.734375 284.1517857142858 214.1953125Q285.1674107142858 214.65625 288.1986607142858 215.328125Q289.2142857142858 215.5625 290.2220982142858 215.8046875Q291.2299107142858 216.046875 292.1517857142858 216.3828125Q293.0736607142858 216.71875 293.8783482142858 217.171875Q294.6830357142858 217.625 295.2767857142858 218.28125Q295.8705357142858 218.9375 296.2064732142858 219.828125Q296.5424107142858 220.71875 296.5424107142858 221.921875ZM338.6116071428572 216.890625Q338.6116071428572 220.34375 337.2912946428572 222.9375Q335.9709821428572 225.53125 333.5022321428572 226.921875Q331.0334821428572 228.3125 327.6741071428572 228.3125Q324.2834821428572 228.3125 321.8225446428572 226.9375Q319.3616071428572 225.5625 318.0647321428572 222.9609375Q316.7678571428572 220.359375 316.7678571428572 216.890625Q316.7678571428572 211.609375 319.6584821428572 208.6328125Q322.5491071428572 205.65625 327.7053571428572 205.65625Q331.0647321428572 205.65625 333.5334821428572 206.9921875Q336.0022321428572 208.328125 337.3069196428572 210.875Q338.6116071428572 213.421875 338.6116071428572 216.890625ZM335.5647321428572 216.890625Q335.5647321428572 212.78125 333.5100446428572 210.4375Q331.4553571428572 208.09375 327.7053571428572 208.09375Q323.9241071428572 208.09375 321.8616071428572 210.40625Q319.7991071428572 212.71875 319.7991071428572 216.890625Q319.7991071428572 221.03125 321.8850446428572 223.4609375Q323.9709821428572 225.890625 327.6741071428572 225.890625Q331.4866071428572 225.890625 333.5256696428572 223.5390625Q335.5647321428572 221.1875 335.5647321428572 216.890625ZM374.39955357142867 228.0 368.68080357142867 218.859375H361.82142857142867V228.0H358.83705357142867V205.984375H369.19642857142867Q372.91517857142867 205.984375 374.93861607142867 207.6484375Q376.96205357142867 209.3125 376.96205357142867 212.28125Q376.96205357142867 214.734375 375.53236607142867 216.40625Q374.10267857142867 218.078125 371.58705357142867 218.515625L377.83705357142867 228.0ZM373.96205357142867 212.3125Q373.96205357142867 210.390625 372.65736607142867 209.3828125Q371.35267857142867 208.375 368.89955357142867 208.375H361.82142857142867V216.5H369.02455357142867Q371.38392857142867 216.5 372.67299107142867 215.3984375Q373.96205357142867 214.296875 373.96205357142867 212.3125ZM409.5000000000001 218.875V228.0H406.5312500000001V218.875L398.0625000000001 205.984375H401.3437500000001L408.0468750000001 216.46875L414.7187500000001 205.984375H418.0000000000001Z" fill="#FFFFFF"/></svg>
   </a>
   <div class="header-title">Sales Maturity Assessment</div>
 </div>
@@ -303,26 +315,24 @@ body{font-family:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Arial,sa
     <div class="consent-note" style="margin-top:-10px;">I keep your answers and details so I can send you your results and, only if you've ticked the box, get in touch. I don't pass them on to anyone else. To have them deleted, email nick@arc-advisory.co.uk.</div>
     <div class="nav-buttons">
       <button class="btn btn-secondary" onclick="backFromDetails()">← Back</button>
-      <button class="btn btn-primary btn-lg" onclick="submitAssessment()">Show me the picture →</button>
+      <button class="btn btn-primary btn-lg" onclick="submitAssessment()">Show my results →</button>
     </div>
     <div class="form-error" id="details-error"></div>
   </div>
 
   <!-- RESULT -->
   <div class="screen" id="screen-result">
-    <div class="result-lead">There's your picture.</div>
+    <div class="result-lead" id="result-lead"></div>
+    <div class="download-bar">
+      <button class="link-btn" id="download-btn" onclick="downloadReport()">Download a copy</button>
+      <span class="download-status" id="download-status"></span>
+    </div>
     <div class="result-card" id="result-card"></div>
     <div class="result-close">
-      <p>That's the whole picture. Six areas, thirty questions, all your own answers. Sit it next to a decision you're actually making this month, that's what it's for.</p>
+      <p id="result-close-intro"></p>
       <p id="result-close-verdict"></p>
     </div>
     <div class="result-cta" id="result-cta"></div>
-    <div class="download-bar">
-      <button class="btn btn-primary" id="talk-btn" onclick="talkItThrough()">Book time with me</button>
-      <button class="btn btn-secondary" id="download-btn" onclick="downloadReport()">Download your report</button>
-      <div class="download-status" id="download-status"></div>
-    </div>
-    <div class="cta-contact" id="cta-contact"></div>
   </div>
 
 </div>
@@ -896,8 +906,8 @@ function sectionNoteCallout(d) {
     quote = (lastStop > 60 ? cut.slice(0, lastStop + 1) : cut) + ' ...';
   }
   const lead = pulls.length
-    ? `On question ${pick.i + 1} you scored full marks, and in your own words: "${quote}" That looks like a caveat to the score, worth talking through.`
-    : `The note that says the most in this area is on question ${pick.i + 1}: "${quote}" Worth talking through alongside the score.`;
+    ? `On question ${pick.i + 1} you gave the top answer, and added in your own words: "${quote}" The note reads as a caveat to that answer.`
+    : `The most relevant note in this area is on question ${pick.i + 1}: "${quote}" It adds context to the score.`;
   return lead;
 }
 
@@ -1191,7 +1201,7 @@ function weakestOf(dimScores) {
 function broadUnderdevelopment(dimScores) {
   const avg = averageOf(dimScores);
   if (avg >= OVERALL_AVERAGE_GATE) return null;
-  return `None of the six areas stands out as a single outlier, the real story is the average itself, ${fmt(round1(avg))} out of 10 across the board. That's not one weak spot to patch, it's a sales engine that hasn't been built out yet in most of the places that matter. Worth a proper look, not because one thing's broken, but because most of it hasn't been put together at all.`;
+  return `No single area stands apart from the others. The average across all six is ${fmt(round1(avg))} out of 10, which suggests the sales engine has not yet been built out in most areas. That makes it a broader piece of work than fixing one weak point.`;
 }
 
 // Step 1 — read the spread out loud, using the real high and low.
@@ -1203,25 +1213,25 @@ function openingLine(dimScores) {
   const avg = averageOf(dimScores);
 
   if (spread === 0) {
-    return `All six areas came out level, at ${fmt(strongest.score)} out of 10 each. Nothing stands apart in either direction, so this reads as a consistent engine rather than one with a single obvious hole in it.`;
+    return `All six areas came out level, at ${fmt(strongest.score)} out of 10 each. No area stands apart in either direction, which points to a consistent picture with no single obvious gap.`;
   }
   if (spread < 1.0) {
-    return `Your six areas came out within a point of each other, from ${fmt(weakest.score)} to ${fmt(strongest.score)} out of 10, averaging ${fmt(round1(avg))}. Nothing stands apart in either direction, so this reads as a consistent engine rather than one with a single obvious hole in it.`;
+    return `Your six areas came out within a point of each other, from ${fmt(weakest.score)} to ${fmt(strongest.score)} out of 10, averaging ${fmt(round1(avg))}. No area stands apart in either direction, which points to a consistent picture with no single obvious gap.`;
   }
 
   const others = dimScores.filter(d => d.id !== weakest.id);
   const othersAvg = averageOf(others);
   if (othersAvg - weakest.score >= 1.5) {
     if (avg < OVERALL_AVERAGE_GATE) {
-      return `Five of your six areas average ${fmt(round1(othersAvg))} out of 10, and ${weakest.name} sits further back still, at ${fmt(weakest.score)}. The whole engine is working from a low base, not just one part of it.`;
+      return `Five of your six areas average ${fmt(round1(othersAvg))} out of 10, and ${weakest.name} is lower again, at ${fmt(weakest.score)}. The scores are low across the whole sales engine, with ${weakest.name} the lowest.`;
     }
     const word = othersAvg >= 8 ? 'strongly' : othersAvg >= 6.5 ? 'well' : 'reasonably well';
-    return `You scored ${word} across five of six areas, averaging ${fmt(round1(othersAvg))} out of 10 between them. The one that stands apart is ${weakest.name}, at ${fmt(weakest.score)} out of 10, noticeably behind the rest.`;
+    return `You scored ${word} across five of the six areas, averaging ${fmt(round1(othersAvg))} out of 10 between them. ${weakest.name} stands apart, at ${fmt(weakest.score)} out of 10, noticeably behind the rest.`;
   }
 
   const atOrAbove = dimScores.filter(d => d.score >= avg).length;
   const tally = atOrAbove === 1 ? 'One of the six sits' : `${atOrAbove} of the six sit`;
-  return `Your strongest area is ${strongest.name}, at ${fmt(strongest.score)} out of 10, and your weakest is ${weakest.name}, at ${fmt(weakest.score)}. ${tally} at or above your average of ${fmt(round1(avg))}, so the gaps here are spread rather than concentrated in one place.`;
+  return `Your strongest area is ${strongest.name}, at ${fmt(strongest.score)} out of 10, and your lowest scoring is ${weakest.name}, at ${fmt(weakest.score)}. ${tally} at or above your average of ${fmt(round1(avg))}, so the gaps are spread across several areas.`;
 }
 
 function round1(n) { return Math.round(n * 10) / 10; }
@@ -1231,7 +1241,7 @@ function round1(n) { return Math.round(n * 10) / 10; }
 function foundationGate(dimScores) {
   const sd = byId(dimScores, 'd2');
   if (sd.score >= 4) return null;
-  return `Your biggest gap sits in Systems & Data, at ${fmt(sd.score)} out of 10. That's different from a gap anywhere else, it's the foundation the other five sit on. A proper diagnostic needs real data to work from. Right now there may not be enough captured to tell you much you don't already sense. Worth getting the basics in place first, a system, some real discipline around it, before a deeper look would earn its keep.`;
+  return `Your biggest gap is in Systems & Data, at ${fmt(sd.score)} out of 10. This area matters more than the others because the other five depend on it. A deeper review needs reliable data to work from, and at the moment there may not be enough captured to tell you much beyond what you already know. The first step is to get the basics in place: one system, and the discipline to keep it current.`;
 }
 
 // Step 3 — cross-dimension patterns, checked in order, first match wins. Each
@@ -1246,19 +1256,19 @@ function crossDiagnostic(dimScores) {
   const slider = sliderValue();
 
   if (f.score < 5 && sd.score < 5) {
-    return `Forecasting scored ${fmt(f.score)} out of 10. Systems & Data scored ${fmt(sd.score)}. The forecasting problem may not actually be a forecasting problem, it may be that there's nowhere reliable for a forecast to come from.`;
+    return `Forecasting scored ${fmt(f.score)} out of 10 and Systems & Data scored ${fmt(sd.score)}. The two are likely to be linked. A forecast is difficult to build when there is no reliable data for it to come from.`;
   }
   if (f.score < 5 && pg.score < 5) {
-    return `Forecasting scored ${fmt(f.score)} out of 10. Process & Governance scored ${fmt(pg.score)}. Forecast inconsistency here looks like a symptom, not the disease, it's what inconsistent sales execution looks like once it reaches the number.`;
+    return `Forecasting scored ${fmt(f.score)} out of 10 and Process & Governance scored ${fmt(pg.score)}. The forecast is likely to be inconsistent because the sales process behind it is applied inconsistently.`;
   }
   if (cf.score >= 7 && mf.score < 5) {
-    return `Commercial Foundation scored ${fmt(cf.score)} out of 10. Market Feasibility scored ${fmt(mf.score)}. That's a competent sales machine pointed at a market that may not be big enough, or accessible enough, to reward it.`;
+    return `Commercial Foundation scored ${fmt(cf.score)} out of 10 and Market Feasibility scored ${fmt(mf.score)}. The sales operation looks capable, but the market it is aimed at may not be large enough, or accessible enough, to reward it.`;
   }
   if (mf.score >= 7 && cf.score < 5) {
-    return `Market Feasibility scored ${fmt(mf.score)} out of 10. Commercial Foundation scored ${fmt(cf.score)}. The opportunity looks real. What's missing is the commercial architecture to actually go and capture it.`;
+    return `Market Feasibility scored ${fmt(mf.score)} out of 10 and Commercial Foundation scored ${fmt(cf.score)}. The opportunity looks to be there. The commercial structure needed to capture it is less developed.`;
   }
   if (cp.score < 5 && slider !== undefined && slider >= 7) {
-    return `Customer & Pricing scored ${fmt(cp.score)} out of 10, while most new revenue is coming from new prospects rather than the existing base. This may mean you're good at winning customers and quietly losing the value of them afterwards, through retention, expansion, or pricing discipline.`;
+    return `Customer & Pricing scored ${fmt(cp.score)} out of 10, and most new revenue is coming from new prospects, with less from existing customers. This may mean the business wins customers well and then loses some of their value afterwards, through retention, expansion or pricing.`;
   }
   return null;
 }
@@ -1280,21 +1290,21 @@ function singleGapFallback(dimScores) {
 function closingLine(dimScores) {
   const avg = averageOf(dimScores);
   if (avg < OVERALL_AVERAGE_GATE) {
-    return `There's a genuine case for a proper look here, across most of the picture, not just one corner of it.`;
+    return `There is a case for a closer look across most of these areas.`;
   }
   if (!hasMaterialGap(dimScores)) {
-    return `Nothing here points to a material gap worth chasing right now. Your sales engine looks reasonably well-controlled. That's a genuinely good outcome, not every business needs a deeper look, and this one might not right now.`;
+    return `Nothing here points to a material gap that needs attention right now. Your sales engine looks reasonably well controlled. That is a good outcome, and it may mean a deeper look isn't needed at the moment.`;
   }
   const outlierCount = dimScores.filter(d => avg - d.score >= MATERIAL_GAP).length;
-  if (outlierCount === 1) return `One area stands out as worth a proper look.`;
-  if (outlierCount > 1) return `There's real ground to make up across ${outlierCount} of the six areas.`;
+  if (outlierCount === 1) return `One area stands out as a priority for a closer look.`;
+  if (outlierCount > 1) return `There is ground to make up in ${outlierCount} of the six areas.`;
   const sortedAsc = [...dimScores].sort((a, b) => a.score - b.score);
   const othersAvgForClose = averageOf(sortedAsc.slice(1));
   if (othersAvgForClose - sortedAsc[0].score >= 1.5) {
     // The opening line has already named one area standing apart, so don't say there isn't one.
-    return `Alongside that, there's real, specific ground to make up elsewhere, spread across most of the picture. Worth a proper look at what's actually addressable.`;
+    return `Alongside that, there is specific ground to make up in most of the other areas. Your answers in each area show where.`;
   }
-  return `Nothing here is a single stand-out problem, but there's real, specific ground to make up, spread across most of the picture rather than sitting in one place. Worth a proper look at what's actually addressable.`;
+  return `No single area stands out as a problem. There is specific ground to make up, spread across most areas. Your answers in each area show where.`;
 }
 
 function buildNarrative(dimScores) {
@@ -1333,12 +1343,12 @@ function buildNarrative(dimScores) {
 --------------------------------------------------------------------------- */
 
 const WHAT_GOOD_LOOKS_LIKE = {
-  d1: "the target ties back to a real annual operating plan, the business forecasts at least one quarter ahead as standard, the number breaks down by revenue type rather than sitting as one blended figure, and the deals in the forecast in week one are recognisably the same deals still there in week thirteen.",
-  d2: "one system holding the pipeline that people actually use rather than work around, deal history pullable with real confidence, and a system trusted enough to drive decisions on its own rather than consulted then overridden.",
-  d3: "one named person owning the sales process, deals moving stage against criteria consistently applied, and stage definitions meaning the same thing to everyone, not five different things depending who's asked.",
-  d4: "a written, specific definition of who you win. Pipeline generation built to point at that definition on purpose. A regular, real check of whether the customers you've actually got still match it. And someone who owns going back into the existing base for what it's worth, not as a fallback when new logos are slow, but as a deliberate motion running alongside them.",
-  d5: "market position reviewed on a real, set cadence rather than only after something's gone wrong, targeting deliberately revisited as the market shifts, growth and decline tracked segment by segment, and competitor losses that actually feed back into pricing, positioning, or product.",
-  d6: "knowing precisely what share of revenue sits with the top slice of customers, real willingness to walk away from the wrong ones, clear and consistent criteria for what's worth chasing, pricing that flexes deliberately by deal size or type, and a formal habit of reviewing wins and losses.",
+  d1: "the target ties back to an annual operating plan, the business forecasts at least one quarter ahead as standard, the number is broken down by revenue type, and the deals in the forecast in week one are largely the same deals still there in week thirteen.",
+  d2: "one system holds the pipeline and people use it without working around it, deal history can be pulled with confidence, and the system is trusted enough to drive decisions without being overridden.",
+  d3: "one named person owns the sales process, deals move stage against criteria that are applied consistently, and stage definitions mean the same thing to everyone on the team.",
+  d4: "a written, specific definition of the customers you win. Pipeline generation aimed at that definition. A regular check that your current customers still match it. And someone who owns growth within the existing customer base as a planned activity, running alongside new business.",
+  d5: "market position is reviewed on a set schedule, targeting is revisited as the market changes, growth and decline are tracked by segment, and losses to competitors feed back into pricing, positioning or product.",
+  d6: "knowing what share of revenue comes from your largest customers, being prepared to walk away from customers who are a poor fit, clear and consistent criteria for which opportunities to pursue, pricing that varies by deal size or type on purpose, and a formal review of wins and losses.",
 };
 
 // Per question, per tier (0=worst .. 2=best), a hedged fragment for the
@@ -1346,46 +1356,46 @@ const WHAT_GOOD_LOOKS_LIKE = {
 // outside this fragment system (the slider, the open-text quote).
 const ANSWER_FRAGMENTS = {
   d1: [
-    ["the target doesn't look tied to any documented plan", "the target appears loosely tied to a plan, more attached than following from it", "the target does look genuinely tied to a documented plan"],
-    ["forecasting doesn't look like it extends past the current quarter", "forecasting looks occasional beyond the current quarter, not yet a habit", "forecasting does look like it consistently extends at least one quarter ahead"],
-    ["the number looks tracked as one blended figure rather than broken out by revenue type", "revenue-type breakdown looks inconsistent, depending who's building the number", "the number does look broken down by revenue type consistently"],
-    ["weighting by forecast category doesn't look applied", "weighting by forecast category looks informal, more gut feel than method", "weighting by forecast category does look applied consistently"],
+    ["the target does not appear to be tied to a documented plan", "the target appears to be loosely tied to a plan", "the target appears to be tied to a documented plan"],
+    ["forecasting does not appear to extend beyond the current quarter", "forecasting beyond the current quarter appears to be occasional", "forecasting appears to extend at least one quarter ahead consistently"],
+    ["the number appears to be tracked as one blended figure, without a breakdown by revenue type", "the breakdown by revenue type appears to be inconsistent, and to depend on who builds the number", "the number appears to be broken down by revenue type consistently"],
+    ["weighting by forecast category does not appear to be applied", "weighting by forecast category appears to be informal and based on judgement", "weighting by forecast category appears to be applied consistently"],
     null,
   ],
   d2: [
-    ["the pipeline doesn't look held in one trusted system", "there's a main system, but people also appear to work outside it", "the pipeline does look held in one system that's genuinely used"],
-    ["deal history and win and loss reasons don't look like they exist in a form you could pull", "deal history and win and loss reasons look roughly pullable, but with caveats you'd want to check first", "deal history and win and loss reasons do look pullable and trusted"],
-    ["keeping deals current doesn't look enforced", "keeping deals current looks expected but not really enforced", "keeping deals current does look genuinely enforced"],
-    ["the data doesn't look like it feeds anything leadership looks at", "the data looks pulled occasionally rather than routinely", "the data does look like it feeds reports leadership regularly uses"],
-    ["the system doesn't look like it drives decisions", "the system looks like it informs decisions, with people overriding it often", "the system does look used autonomously to drive decisions"],
+    ["the pipeline does not appear to be held in one trusted system", "there is a main system, but people also appear to work outside it", "the pipeline appears to be held in one system that people use"],
+    ["deal history and win and loss reasons do not appear to exist in a form that can be pulled", "deal history and win and loss reasons appear to be available, with caveats that need checking first", "deal history and win and loss reasons appear to be available and trusted"],
+    ["keeping deals current does not appear to be enforced", "keeping deals current appears to be expected but not enforced", "keeping deals current appears to be enforced"],
+    ["the data does not appear to feed anything leadership reviews", "the data appears to be pulled occasionally, not routinely", "the data appears to feed reports that leadership uses regularly"],
+    ["the system does not appear to drive decisions", "the system appears to inform decisions, though people often override it", "the system appears to drive decisions without being overridden"],
   ],
   d3: [
-    ["ownership of the sales process doesn't look clearly named", "ownership looks informal, unofficial, not formalised", "there does look to be a clearly named owner of the sales process"],
-    ["deals don't look like they move stage against consistent criteria", "there look to be guidelines, but they don't look consistently followed", "deals do look like they move stage against clear, consistently applied criteria"],
-    ["there doesn't look to be a pipeline review kept separate from the commit call", "a separate review looks folded into the commit call rather than run on its own", "a proper, separate pipeline review does look like it happens regularly"],
-    ["large or non-standard deals don't look like they get a formal review", "large or non-standard deals look reviewed only sometimes, depending who notices", "large or non-standard deals do look like they get a formal review every time"],
-    ["stage and forecast definitions don't look consistent across the team", "stage and forecast definitions look roughly, rather than exactly, shared", "stage and forecast definitions do look documented and consistent across the team"],
+    ["ownership of the sales process does not appear to be clearly named", "ownership of the sales process appears to be informal", "the sales process appears to have a clearly named owner"],
+    ["deals do not appear to move stage against consistent criteria", "there appear to be guidelines for moving deals between stages, but they are not followed consistently", "deals appear to move stage against clear criteria that are applied consistently"],
+    ["there does not appear to be a pipeline review separate from the commit call", "the pipeline review appears to be folded into the commit call", "a separate pipeline review appears to happen regularly"],
+    ["large or non-standard deals do not appear to get a formal review", "large or non-standard deals appear to be reviewed only some of the time", "large or non-standard deals appear to get a formal review every time"],
+    ["stage and forecast definitions do not appear to be consistent across the team", "stage and forecast definitions appear to be broadly shared, but not exactly", "stage and forecast definitions appear to be documented and consistent across the team"],
   ],
   d4: [
-    ["there doesn't look to be a written ideal customer profile", "there's a rough sense of the ideal customer, but it doesn't look written down", "there does look to be a clearly defined, written ideal customer profile"],
-    ["pipeline generation doesn't look targeted at that profile", "pipeline generation only partly looks aligned to that profile", "pipeline generation does look consistently targeted at that profile"],
-    ["the existing customer base doesn't look checked against that profile", "there's a rough sense of fit, but it doesn't look properly checked", "the existing customer base does look formally assessed against that profile"],
+    ["there does not appear to be a written ideal customer profile", "there is a rough sense of the ideal customer, but it does not appear to be written down", "there appears to be a clearly defined, written ideal customer profile"],
+    ["pipeline generation does not appear to be targeted at that profile", "pipeline generation appears to be only partly aligned to that profile", "pipeline generation appears to be targeted at that profile consistently"],
+    ["the existing customer base does not appear to be checked against that profile", "there is a rough sense of how well existing customers fit, but it does not appear to be checked formally", "the existing customer base appears to be formally assessed against that profile"],
     null,
-    ["nobody looks like they own monitoring white space in existing accounts", "someone appears to keep half an eye on it, but it doesn't look properly owned", "a dedicated team does look like it owns monitoring white space"],
+    ["nobody appears to own the monitoring of white space in existing accounts", "someone appears to keep an eye on white space in existing accounts, but without clear ownership", "a dedicated team appears to own the monitoring of white space in existing accounts"],
   ],
   d5: [
-    ["market position doesn't look reviewed until performance is already slipping", "market review looks occasional, usually prompted by something going wrong", "market position does look reviewed on a genuine, set cadence"],
-    ["targeting doesn't look like it's changed in the last twelve months", "targeting looks like it's changed, but reactively, without much planning", "targeting does look like it's changed deliberately in the last twelve months"],
-    ["growth and decline across the market don't look tracked by segment", "there's a rough sense of segment movement, though not tracked in detail", "growth and decline do look tracked segment by segment"],
-    ["competitor losses don't look tracked", "competitor losses look noted sometimes, but don't look like they go anywhere", "competitor losses do look tracked and genuinely fed into decisions"],
-    ["naming genuinely happy customers doesn't look straightforward", "naming happy customers looks possible, but would need checking with the team first", "naming genuinely happy customers does look like a real strength"],
+    ["market position does not appear to be reviewed until performance is already slipping", "market review appears to be occasional, usually prompted by a problem", "market position appears to be reviewed on a set schedule"],
+    ["targeting does not appear to have changed in the last twelve months", "targeting appears to have changed in response to events, without much planning", "targeting appears to have been changed on purpose in the last twelve months"],
+    ["growth and decline across the market do not appear to be tracked by segment", "there is a rough sense of how segments are moving, but it is not tracked in detail", "growth and decline appear to be tracked by segment"],
+    ["losses to competitors do not appear to be tracked", "losses to competitors appear to be noted sometimes, but not acted on", "losses to competitors appear to be tracked and fed into decisions"],
+    ["naming happy customers does not appear to be easy", "naming happy customers appears possible, but would need checking with the team first", "naming happy customers appears to be a strength"],
   ],
   d6: [
-    ["revenue concentration in the top customer segment doesn't look known", "revenue concentration looks roughly known, not precisely", "revenue concentration does look precisely known"],
-    ["there doesn't look to be a customer that would genuinely be walked away from", "there looks to be a customer that would be walked away from in theory, but probably wouldn't be in practice", "there does look to be a customer that would genuinely be walked away from, and acted on"],
-    ["criteria for what's worth chasing don't look consistent", "there's a rough sense of what's worth chasing, but it doesn't look consistent", "criteria for what's worth chasing do look clear and consistently applied"],
-    ["deal size or type doesn't look like it affects selling or pricing", "deal size or type looks like it affects selling or pricing a little, informally", "deal size or type does look like it clearly and consistently affects selling and pricing"],
-    ["wins and losses don't look formally reviewed", "wins and losses look reviewed occasionally, informally", "wins and losses do look formally reviewed every time"],
+    ["the share of revenue from your largest customers does not appear to be known", "the share of revenue from your largest customers appears to be known roughly, not precisely", "the share of revenue from your largest customers appears to be known precisely"],
+    ["there does not appear to be a customer the business would walk away from", "there appears to be a customer the business would walk away from in principle, but probably not in practice", "the business appears willing to walk away from a customer, and to act on it"],
+    ["criteria for which opportunities to pursue do not appear to be consistent", "there is a rough sense of which opportunities to pursue, but it does not appear to be applied consistently", "criteria for which opportunities to pursue appear to be clear and applied consistently"],
+    ["deal size or type does not appear to affect selling or pricing", "deal size or type appears to affect selling or pricing a little, informally", "deal size or type appears to affect selling and pricing clearly and consistently"],
+    ["wins and losses do not appear to be formally reviewed", "wins and losses appear to be reviewed occasionally and informally", "wins and losses appear to be formally reviewed every time"],
   ],
 };
 
@@ -1394,55 +1404,55 @@ const ANSWER_FRAGMENTS = {
 function sliderFragment() {
   const v = sliderValue();
   if (v === undefined) return null;
-  if (v <= 3) return "when asked where new revenue is actually coming from, the answer sits close to the existing-base end of the scale, so most of it looks to come from customers you already have, which is noted here as context and doesn't count towards the score";
-  if (v <= 7) return "when asked where new revenue is actually coming from, the answer sits somewhere in the middle, a mix of new prospects and the existing base, which is noted here as context and doesn't count towards the score";
-  return "when asked where new revenue is actually coming from, the answer sits close to the new-prospects end of the scale, so most of it looks to come from new customers, which is noted here as context and doesn't count towards the score";
+  if (v <= 3) return "when asked where new revenue comes from, your answer was close to the existing customer end of the scale, so most of it appears to come from customers you already have. This is context and does not count towards the score";
+  if (v <= 7) return "when asked where new revenue comes from, your answer was in the middle of the scale, a mix of new prospects and existing customers. This is context and does not count towards the score";
+  return "when asked where new revenue comes from, your answer was close to the new prospect end of the scale, so most of it appears to come from new customers. This is context and does not count towards the score";
 }
 
 // Per-question action bullet, included only when that answer scored below
 // the top tier (i.e. there's something real to act on).
 const ACTION_BULLETS = {
   d1: [
-    "Tie the annual target explicitly back to the plan it's meant to come from",
-    "Forecast at least one quarter ahead as a standing habit, not just the current one",
-    "Split the number by revenue type instead of one blended figure",
-    "Bring the informal weighting into a documented method",
+    "Tie the annual target back to the plan it comes from",
+    "Forecast at least one quarter ahead as routine",
+    "Split the number by revenue type",
+    "Document the method used to weight the forecast",
     null,
   ],
   d2: [
-    "Get pipeline data into one system people actually use, not work around",
+    "Hold all pipeline data in one system that everyone uses",
     "Build confidence in deal history with a regular audit and clean-up",
-    "Make keeping deals current genuinely enforced, not just expected",
-    "Get the data feeding routine reports leadership actually reviews",
-    "Push decisions to rely on the system first, with overrides logged as the exception",
+    "Enforce the rule that deals are kept current",
+    "Use the data in regular reports that leadership reviews",
+    "Base decisions on the system first, and log any override as an exception",
   ],
   d3: [
-    "Name one actual owner of the sales process",
-    "Require evidence in the CRM before a deal moves stage, not just a verbal call",
-    "Add a pipeline review kept separate from the commit conversation",
-    "Set a fixed trigger for a large-deal review, rather than leaving it to who notices",
+    "Name one owner of the sales process",
+    "Require evidence in the CRM before a deal moves stage",
+    "Hold a pipeline review that is separate from the commit call",
+    "Set a fixed trigger for reviewing large deals",
     "Get the whole team using the same stage and forecast definitions",
   ],
   d4: [
-    "Write the ideal customer profile down, specific enough two people would describe the same target the same way",
-    "Point pipeline generation directly at that profile",
+    "Write down the ideal customer profile, in enough detail that two people would describe the same target",
+    "Aim pipeline generation at that profile",
     "Check the current customer base against the profile and flag the mismatches",
-    "Set a real target split between new-logo and existing-base revenue, so growth isn't quietly running on one leg",
-    "Name an actual owner for expansion inside existing accounts, separate from whoever's chasing new logos",
+    "Set a target split between revenue from new customers and revenue from existing customers",
+    "Name an owner for white space in existing accounts, separate from new business",
   ],
   d5: [
-    "Put a real cadence on market review, not triggered only by a bad quarter",
-    "Revisit targeting deliberately at least once a year against what's actually moved",
-    "Track growth and decline by segment, not as one blended read",
-    "Build a simple habit for feeding competitor-loss information back into pricing or positioning",
-    "Confirm which customers count as genuinely happy with the wider team, not just top-of-mind",
+    "Review market position on a set schedule",
+    "Revisit targeting at least once a year against how the market has changed",
+    "Track growth and decline by segment",
+    "Feed what is learned from losses to competitors back into pricing or positioning",
+    "Agree with the wider team which customers are happy, beyond the ones that come to mind first",
   ],
   d6: [
-    "Get an exact, not rough, figure for revenue concentration in the top customer segment",
-    "Turn the theoretical willingness to walk away into an actual, applied rule",
-    "Write down what \"not worth chasing\" actually means, so it's consistent rather than a feeling",
-    "Build a real system for how deal size or type affects pricing",
-    "Formalise win/loss review as a standing habit, not an occasional one",
+    "Get an exact figure for the share of revenue that comes from your largest customers",
+    "Agree a rule for when to walk away from a customer, and apply it",
+    "Write down the criteria for an opportunity that should not be pursued, so they are applied consistently",
+    "Set out how deal size or type affects pricing",
+    "Review wins and losses formally, every time",
   ],
 };
 
@@ -1454,46 +1464,46 @@ const ACTION_BULLETS = {
 // continue line here.
 const CONTINUE_BULLETS = {
   d1: [
-    "Keep the annual target tied to the plan it's meant to follow from",
-    "Keep forecasting at least one quarter ahead as standing practice",
-    "Keep breaking the number down by revenue type rather than one blended figure",
+    "Keep the annual target tied to the plan it comes from",
+    "Keep forecasting at least one quarter ahead as routine",
+    "Keep breaking the number down by revenue type",
     "Keep the forecast-category weighting applied consistently",
     null,
   ],
   d2: [
-    "Keep the pipeline in one system that people actually use",
-    "Keep deal history reliable enough to pull with real confidence",
-    "Keep enforcing that deals stay current, not just expecting it",
-    "Keep the data feeding the reports leadership actually looks at",
-    "Keep decisions running off the system first, not overridden by default",
+    "Keep the pipeline in one system that everyone uses",
+    "Keep deal history reliable enough to pull with confidence",
+    "Keep enforcing the rule that deals are kept current",
+    "Keep the data feeding the reports leadership reviews",
+    "Keep basing decisions on the system first",
   ],
   d3: [
     "Keep the sales process under one named owner",
-    "Keep deals moving stage against criteria that's consistently applied",
+    "Keep deals moving stage against criteria that are applied consistently",
     "Keep the pipeline review separate from the commit call",
-    "Keep the formal review running on every large or non-standard deal",
+    "Keep holding a formal review of every large or non-standard deal",
     "Keep stage and forecast definitions consistent across the team",
   ],
   d4: [
     "Keep the ideal customer profile written down and specific",
-    "Keep pipeline generation pointed at that same profile",
-    "Keep formally checking the existing base against the profile",
+    "Keep pipeline generation aimed at that profile",
+    "Keep formally checking the existing customer base against the profile",
     null,
-    "Keep a dedicated owner on white space in existing accounts",
+    "Keep a dedicated owner for white space in existing accounts",
   ],
   d5: [
-    "Keep reviewing market position on a genuine, set cadence",
-    "Keep revisiting targeting deliberately, not just reactively",
-    "Keep tracking growth and decline segment by segment",
-    "Keep feeding competitor losses back into pricing or positioning",
-    "Keep the wider team able to name genuinely happy customers, not just top of mind",
+    "Keep reviewing market position on a set schedule",
+    "Keep revisiting targeting on purpose as the market changes",
+    "Keep tracking growth and decline by segment",
+    "Keep feeding losses to competitors back into pricing or positioning",
+    "Keep the wider team able to name happy customers",
   ],
   d6: [
-    "Keep an exact figure on revenue concentration in the top customer segment",
-    "Keep the willingness to walk away from the wrong customer real, not just theoretical",
-    "Keep the criteria for what's worth chasing clear and consistently applied",
-    "Keep pricing and selling flexed deliberately by deal size or type",
-    "Keep the formal win and loss review running every time",
+    "Keep an exact figure for the share of revenue that comes from your largest customers",
+    "Keep walking away from customers who are a poor fit",
+    "Keep the criteria for which opportunities to pursue clear and consistently applied",
+    "Keep varying pricing and selling by deal size or type on purpose",
+    "Keep reviewing wins and losses formally, every time",
   ],
 };
 
@@ -1509,20 +1519,20 @@ const CONTINUE_BULLETS = {
 const STOP_BULLETS = {
   d1: [null, null, null, null, null],
   d2: [null, null, null, null,
-    "Stop letting decisions get made in conversation while the system sits there unused",
+    "Stop making decisions in conversation without reference to the system",
   ],
   d3: [null,
-    "Stop letting deals move stage on someone's say so instead of against real criteria",
+    "Stop moving deals between stages on one person's say so, without set criteria",
     null, null, null,
   ],
   d4: [null, null, null, null, null],
   d5: [
-    "Stop waiting for performance to slip before market position gets a proper look",
+    "Stop waiting for performance to slip before reviewing market position",
     null, null, null, null,
   ],
   d6: [null,
-    "Stop taking every customer's money regardless of fit",
-    "Stop chasing every opportunity that comes in, whether or not it's worth having",
+    "Stop taking on every customer regardless of fit",
+    "Stop pursuing every opportunity that comes in, regardless of its value",
     null, null,
   ],
 };
@@ -1537,34 +1547,34 @@ const STOP_BULLETS = {
 // stays consistent with the red/amber/green language already on the wheel.
 const WORTH_KNOWING = {
   d1: [
-    "A forecast that reshuffles through the quarter isn't forecasting at all, it's a diary of whatever's already closed, written up after the fact. At this level the number being reported and the number actually happening in the business may barely be in the same conversation.",
-    "A forecast that reshuffles through the quarter isn't really forecasting, it's a running commentary on whatever's happened to close so far. Where weighting is a strength but the horizon and the plan aren't, that's discipline applied to the wrong stretch of the process.",
-    "This is close to what a forecast is meant to do, hold its shape through the quarter rather than reassemble itself around whatever's already closing. Worth protecting, this is usually the first discipline that slips when growth gets messy.",
+    "A forecast that changes through the quarter is mostly a record of what has already closed. At this level, the reported number and what is happening in the business may be some distance apart.",
+    "A forecast that changes through the quarter is mostly a record of what has closed so far. Your answers suggest some forecasting discipline is in place, but not yet across the whole process.",
+    "This is close to what a forecast should do: hold steady through the quarter, without being rebuilt around the deals that happen to be closing. It needs protecting, because forecasting discipline is often the first to slip when the business gets busy.",
   ],
   d2: [
-    "Scattered systems and unenforced discipline usually means there's no single trustworthy record of what's actually happening in the pipeline at all. Every other number in this report, including this one, is only as good as what's been typed in somewhere.",
-    "A CRM only kept current when a deal looks winnable is built for optics, not truth, silently filtered before anyone looks at it. That's a different problem to data simply being missing, it means what's there may already be the flattering half of the picture.",
-    "One system, genuinely used, genuinely trusted enough to drive decisions without people quietly working around it, that's rarer than it should be. Worth protecting as the business scales, since this is exactly the discipline that erodes first under growth pressure.",
+    "Separate systems, and discipline that is not enforced, usually mean there is no single reliable record of what is happening in the pipeline. Every other score in this report is only as reliable as the data that has been entered.",
+    "When a CRM is kept current for some deals and not others, the record is partial, and it tends to favour the deals that look winnable. That is a different problem from missing data, because what is there may show a better picture than the full one.",
+    "One system that people use, and trust enough to drive decisions, is less common than it should be. Keep it protected as the business grows, because this discipline tends to weaken under growth pressure.",
   ],
   d3: [
-    "Without a named owner or consistently applied criteria, stage movement stops meaning anything, a deal's stage says more about who's updating it than where it actually sits. That's the kind of gap that quietly corrupts every number built on top of it.",
-    "A process several people use for different reasons isn't really one process, it's several informal ones sharing a CRM. That tends to surface downstream in forecasting and data quality too, since nobody's enforcing the same gate the same way twice.",
-    "One owner, criteria that actually get applied, definitions the whole team shares, that's a genuinely governed process rather than a shared habit. Worth protecting, it's what makes the rest of this report trustworthy.",
+    "Without a named owner or consistently applied criteria, a deal's stage says more about who updated it than about where the deal stands. That affects every number built on top of it.",
+    "When several people use the process in different ways, it works as several informal processes sharing one CRM. That tends to show up later in forecasting and data quality, because the same stage rules are not applied the same way each time.",
+    "One owner, criteria that are applied, and definitions the whole team shares mean the process is governed and does not rely on habit. Hold on to it, because the other numbers in this report depend on it.",
   ],
   d4: [
-    "Without a written target and pipeline built to point at it, growth isn't really being aimed anywhere, it's being taken wherever it shows up. That works until it doesn't, usually right when the easy wins run out.",
-    "The strongest businesses point everything, targeting, pipeline, incentives, at a customer chosen on purpose. What's showing here reads closer to reactive than intentional, revenue looks like it's coming from wherever it's easiest to get, rather than from a chosen target being pursued deliberately. That's not automatically a crisis. It suggests growth right now may be running on what's already been won, not on a repeatable motion for winning more of the right kind on purpose.",
-    "Everything pointed at a customer chosen on purpose, and someone actively working the value already sitting in the existing base, that's a genuinely intentional commercial engine. Worth protecting, most businesses lose this discipline the moment growth gets easy.",
+    "Without a written target customer, and pipeline generation aimed at it, growth comes from wherever it appears. That works for a time, and usually stops working when the easier wins run out.",
+    "The strongest businesses aim their targeting, pipeline and incentives at a customer they have chosen on purpose. Your answers suggest revenue is coming from wherever it is easiest to win, more than from a chosen target. That is not a crisis. It suggests current growth may depend on what has already been won, without a repeatable way to win more of the right kind of customer.",
+    "Everything aimed at a chosen customer, with someone working the value in the existing customer base, is a deliberate commercial engine. It needs protecting, because this discipline is easy to lose when growth comes easily.",
   ],
   d5: [
-    "Reviewing the market only once something's already gone wrong means the business finds out about a shift after it's already cost something. In a market moving unevenly, that's not a minor gap, it's the difference between adjusting and reacting.",
-    "A market only looked at when something's already wrong means finding out after the fact, not ahead of it. Unchanged targeting in a market that may be moving in different directions in different places is worth a second look on its own.",
-    "A genuine, set cadence on market review, targeting revisited deliberately rather than reactively, that's rarer than it sounds. Worth protecting, it's usually the first thing to slip once the internal numbers look fine.",
+    "Reviewing the market only after something has gone wrong means the business learns about a change once it has already had a cost. In a market that is moving unevenly, that leaves the business reacting to changes it could have adjusted for earlier.",
+    "Looking at the market only when something is already wrong means finding out after the event. Targeting that has not changed, in a market that may be moving differently from one segment to the next, is a point to review.",
+    "A set schedule for market review, and targeting that is revisited on purpose, are less common than they sound. Keep both going, because they are often the first things to slip when internal numbers look fine.",
   ],
   d6: [
-    "Chasing almost everything and pricing every deal the same way usually means margin and effort are being spent on customers that were never worth the same amount. That's not a pricing problem so much as a discipline problem showing up in the numbers.",
-    "The gap between a willingness to walk away \"in theory\" and doing it in practice is worth sitting with, it suggests the business may already know where its bad-fit customers are, and just hasn't built the discipline to act on that yet.",
-    "Knowing exactly where revenue concentrates, walking away from the wrong customers in practice not just in theory, that's genuine commercial discipline. Worth protecting, it's an easy thing to let slip once the pipeline's full.",
+    "Pursuing almost every opportunity, and pricing every deal the same way, usually means margin and effort are going to customers of very different value. The cause is usually a lack of agreed criteria more than the pricing itself.",
+    "The gap between being willing to walk away in principle and doing it in practice is the point to look at. It suggests the business may already know which customers are a poor fit, and has not yet built the discipline to act on it.",
+    "Knowing where revenue is concentrated, and walking away from poor fit customers in practice, shows commercial discipline. It needs protecting, because it is easy to let slip when the pipeline is full.",
   ],
 };
 
@@ -1639,7 +1649,7 @@ function buildSectionHtml(dim, dimScore) {
   const answers = whatAnswersShow(dim);
   const flags = sectionNoteFlags(dim);
   const flagBlock = flags.length
-    ? `<div class="dim-block note-flag">${flags.map(f => `<p>You picked “${escapeHtml(f.answer)}” and wrote “${escapeHtml(f.note)}” <span class="flag-line">${escapeHtml(NOTE_FLAG_LINE)}</span></p>`).join('')}</div>`
+    ? `<div class="dim-block note-flag">${flags.map(f => `<p>You answered “${escapeHtml(f.answer)}” and added “${escapeHtml(f.note)}” <span class="flag-line">${escapeHtml(NOTE_FLAG_LINE)}</span></p>`).join('')}</div>`
     : '';
   const worthKnowing = worthKnowingText(dim, dimScore);
   const b = sectionActionBullets(dim);
@@ -1647,14 +1657,14 @@ function buildSectionHtml(dim, dimScore) {
     ? `<div class="action-group action-group-${cls}"><div class="action-group-label">${escapeHtml(label)}</div><ul class="dim-bullets">${items.map(x => `<li>${escapeHtml(x)}</li>`).join('')}</ul></div>`
     : '';
   const doingBlock = (b.stop.length || b.start.length || b.keep.length)
-    ? `<div class="dim-block"><strong>Worth doing:</strong>${group('stop', 'Stop', b.stop)}${group('start', 'Start', b.start)}${group('keep', 'Keep doing', b.keep)}</div>`
+    ? `<div class="dim-block"><strong>Suggested actions</strong>${group('stop', 'Stop', b.stop)}${group('start', 'Start', b.start)}${group('keep', 'Keep doing', b.keep)}</div>`
     : '';
   return `<div class="dim-section">
-    <div class="dim-section-head">${escapeHtml(dim.name.toUpperCase())} — ${fmt(dimScore.score)}/10</div>
-    <div class="dim-block"><strong>What good looks like:</strong> ${escapeHtml(WHAT_GOOD_LOOKS_LIKE[dim.id])}</div>
-    <div class="dim-block"><strong>What your answers show:</strong> ${escapeHtml(answers)}</div>
+    <div class="dim-section-head"><span>${escapeHtml(dim.name.toUpperCase())}</span><span>${fmt(dimScore.score)} out of 10</span></div>
+    <div class="dim-block"><strong>What good looks like</strong> ${escapeHtml(capitalise(WHAT_GOOD_LOOKS_LIKE[dim.id]))}</div>
+    <div class="dim-block"><strong>What your answers show</strong> ${escapeHtml(answers)}</div>
     ${flagBlock}
-    <div class="dim-block"><strong>Worth knowing:</strong> ${escapeHtml(worthKnowing)}</div>
+    <div class="dim-block"><strong>What this means</strong> ${escapeHtml(worthKnowing)}</div>
     ${doingBlock}
   </div>`;
 }
@@ -1715,13 +1725,12 @@ function quoteHtml() {
     return `<div class="quote-block">
       <div class="quote-label">In your own words</div>
       <div class="quote-q">${escapeHtml(d.q[idx].text)}</div>
-      <div class="quote-a" style="font-style:normal;color:var(--mid-grey);">You skipped this one. It's the question that usually tells the most, so it's worth coming back to.</div>
-      <div class="quote-note">Not scored, and deliberately kept off the wheel — forecast stability is a judgement, not a number.</div>
+      <div class="quote-a" style="font-style:normal;color:var(--mid-grey);">${escapeHtml(QUOTE_SKIPPED)}</div>
     </div>`;
   }
   const footer = q.isOpen
-    ? `Not scored, and deliberately kept off the wheel — forecast stability is a judgement, not a number.`
-    : `The sharpest line in your answers, from ${escapeHtml(q.dimName)}. Added detail, not scored on its own, worth more than the tick box next to it.`;
+    ? escapeHtml(QUOTE_OPEN_FOOT)
+    : escapeHtml(quoteNoteFoot(q.dimName));
   return `<div class="quote-block">
     <div class="quote-label">In your own words</div>
     <div class="quote-q">${escapeHtml(q.question)}</div>
@@ -1747,15 +1756,28 @@ function joinNatural(names) {
 }
 
 
-// Closing call to action, wording from ARC_SMA_Action_Page_Draft.md.
-// No FILTER, no price, no "free".
-function ctaCopy(company) {
+// Closing section. Following up is ARC's job, so there is no booking link.
+// Two versions of the last paragraph: one for people who ticked the box to be
+// contacted, one for people who did not. The line above it changes when the
+// result found no material gap.
+const CLOSING_INTRO = "That is the full assessment: six areas and thirty questions, based entirely on your own answers. It is most useful read alongside a decision you are making in the next few weeks.";
+const QUOTE_OPEN_FOOT = "This answer is not scored and does not appear on the wheel, because forecast stability is a matter of judgement.";
+const QUOTE_SKIPPED = "You left this question blank. It is often the most telling one in the assessment.";
+function quoteNoteFoot(dimName) {
+  return `The most detailed note in your answers, from ${dimName}. Notes are not scored, but they add context to the scores.`;
+}
+function noMaterialGap(dimScores) {
+  return averageOf(dimScores) >= OVERALL_AVERAGE_GATE && !hasMaterialGap(dimScores);
+}
+function ctaCopy(company, consent, noGap) {
   return {
-    head: "Let's go through it together.",
-    p1: "What this doesn't show is why it looks like this, and that's the useful part. More important is the impact small, incremental changes might have on " + company + ".",
-    p2: "Book time with me and we'll go through the two areas at the top of your metaphorical list, how they actually run today, and I'll tell you straight where I'd start.",
-    link: 'meetings-eu1.hubspot.com/nick-riggott',
-    email: 'nick@arc-advisory.co.uk',
+    head: "What happens next",
+    p1: noGap
+      ? `Your answers don't point to a material gap. A conversation would be about protecting what is working at ${company} and tightening the smaller points.`
+      : `Your answers show where things stand today. The reasons behind them, and what a small change in one area could mean for ${company}, come out in conversation.`,
+    p2: consent
+      ? "Thank you for being so open in your answers. I'll reach out in the next few days to find a time to talk. We can go through the areas that look like the strongest priorities and how they work for you today, and I'll suggest a few places we could start together."
+      : "Thank you for being so open in your answers. You haven't asked me to get in touch, so I won't. If you'd like to talk through the areas that look like the strongest priorities and how they work for you today, email me at nick@arc-advisory.co.uk and I'll suggest a few places we could start together.",
   };
 }
 
@@ -1767,12 +1789,12 @@ function closingVerdict(dimScores) {
   const hasSingleWish = last.score < secondLast.score;
 
   const starsPara = hasSecondStar
-    ? `Two areas came through as real strengths: ${first.name} and ${second.name}. Worth holding onto as things get busier, strengths like these tend to erode quietly if nobody's watching them.`
-    : `One area came through clearly as a strength: ${first.name}. Worth holding onto as things get busier. Nothing else stood out on its own, the rest of the picture sits close together, which is its own kind of signal, less a set of separate strengths and weaknesses than a system that hasn't been built out much anywhere yet.`;
+    ? `Two areas came through as strengths: ${first.name} and ${second.name}. Both need protecting as the business gets busier, because strengths like these tend to slip when they are not looked after.`
+    : `One area came through clearly as a strength: ${first.name}. It needs protecting as the business gets busier. The other areas scored close to one another, so no second strength stands out.`;
 
   const wishPara = hasSingleWish
-    ? `The one area that asked the most of you to answer honestly was ${last.name}. That's not unusual, most businesses carry exactly one area like this, and it's usually the one worth the most attention.`
-    : `More than one area asked the most of you to answer honestly: ${joinNatural(sorted.filter(d => d.score === last.score).map(d => d.name))}. That's less one broken thing and more a sign the system hasn't been built out much yet, across the board.`;
+    ? `The area with the most room to improve is ${last.name}. It is usually the best place to start.`
+    : `More than one area shares the lowest score: ${joinNatural(sorted.filter(d => d.score === last.score).map(d => d.name))}. The room to improve is spread across those areas, with no single one to start with.`;
 
   return `${starsPara} ${wishPara}`;
 }
@@ -1785,12 +1807,12 @@ function closingVerdict(dimScores) {
 // as settled, this is closer to real judgement than anything else drafted
 // tonight and deserves the same scrutiny.
 const BOTTLENECK_SYMPTOM = {
-  d1: "When Forecasting is the lowest score, the number usually isn't wrong because of the maths. It's wrong because it was set from above rather than built from what's actually moving through the pipeline, and that gap only shows itself late in the quarter, when there's little time left to close it.",
-  d2: "Everything else in this report leans on Systems & Data being right. When it's the lowest score, forecasting, pipeline reviews, even the other numbers here, are only as good as whatever's been typed in somewhere. Usually nobody's lying about the numbers, they're just each trusting a slightly different version of them.",
-  d3: "When Process & Governance is the lowest score, deals tend to move stage on a feeling rather than a criteria, and the same stage name ends up meaning different things to different people. Month to month it doesn't look serious. It shows up as small, unexplained swings in the forecast that never quite trace back to a cause.",
-  d4: "Growth doesn't stop when Commercial Foundation is the lowest score, it just stops being deliberate. Revenue keeps coming from wherever it's easiest to find, rather than from a customer chosen on purpose, and that holds up fine right until the easy accounts run out and there's no repeatable way to go and find more of the right kind.",
-  d5: "A business can keep executing well while Market Feasibility quietly becomes the lowest score. The numbers hold up for a while because nobody's checking whether the ground underneath the plan has already started to move, and by the time it's obvious, it's not a small correction anymore.",
-  d6: "When Customer & Pricing is the lowest score, the effort tends to be spread evenly across customers who were never worth the same amount. From the inside it rarely looks like a pricing problem. It looks like a lot of hard work for a number that doesn't grow the way the pipeline suggests it should.",
+  d1: "When Forecasting is the lowest score, the cause is usually how the number was set. A target set from the top down, without being built from what is moving through the pipeline, tends to show a gap late in the quarter, when there is little time left to close it.",
+  d2: "The rest of this report depends on Systems & Data. When it is the lowest score, forecasts, pipeline reviews and the other scores here are only as reliable as the data that has been entered. In most cases the numbers are reported in good faith, but people are working from slightly different versions of them.",
+  d3: "When Process & Governance is the lowest score, deals tend to move stage on judgement, without set criteria, and the same stage name can mean different things to different people. Month to month this is easy to miss. It usually shows up as small swings in the forecast that are hard to trace back to a cause.",
+  d4: "When Commercial Foundation is the lowest score, growth usually continues but becomes less deliberate. Revenue comes from wherever it is easiest to find, without a chosen type of customer behind it. That holds until the easier accounts run out and there is no repeatable way to find more of the right kind.",
+  d5: "A business can keep performing well while Market Feasibility becomes its lowest score. Results hold up for a time because nobody is checking whether the market behind the plan has started to change. By the time the change is obvious, the correction needed is larger.",
+  d6: "When Customer & Pricing is the lowest score, effort tends to be spread evenly across customers of very different value. From the inside it rarely looks like a pricing problem. It looks like a lot of work for revenue that grows more slowly than the pipeline suggests it should.",
 };
 
 // Only names a single bottleneck when there genuinely is one. If the
@@ -1804,7 +1826,7 @@ function bottleneckHtml(dimScores) {
   if (sorted[0].score === sorted[1].score) return '';
   const lowest = sorted[0];
   return `<div class="bottleneck-block">
-    <div class="bottleneck-label">Where this is dragging most</div>
+    <div class="bottleneck-label">Your lowest scoring area</div>
     <div class="bottleneck-text">${escapeHtml(BOTTLENECK_SYMPTOM[lowest.id])}</div>
   </div>`;
 }
@@ -1820,27 +1842,28 @@ function renderResult() {
   const name = state.details.name.trim();
 
   document.getElementById('result-close-verdict').textContent = closingVerdict(dimScores);
-  const cta = ctaCopy(company === 'Your business' ? 'your business' : company);
+  document.getElementById('result-close-intro').textContent = CLOSING_INTRO;
+  const cta = ctaCopy(company === 'Your business' ? 'your business' : company, !!state.details.consent, noMaterialGap(dimScores));
   const ctaEl = document.getElementById('result-cta');
   ctaEl.textContent = '';
   [['cta-head', 'div', cta.head], [null, 'p', cta.p1], [null, 'p', cta.p2]].forEach(([cls, tag, str]) => {
     const el = document.createElement(tag); if (cls) el.className = cls; el.textContent = str; ctaEl.appendChild(el);
   });
-  document.getElementById('cta-contact').textContent = cta.link + '  ·  ' + cta.email;
 
   document.getElementById('result-card').innerHTML = `
     <div class="result-header">
-      <div class="result-brand">ARC ADVISORY — SALES MATURITY ASSESSMENT</div>
+      <div class="result-logo">${document.getElementById('arc-logo').outerHTML.replace('id="arc-logo"', '').replace(/width="131" height="60" style="[^"]*"/, '')}</div>
+      <div class="result-brand">SALES MATURITY ASSESSMENT</div>
       <div class="result-client">Assessed<strong>${escapeHtml(company)}</strong></div>
       <div class="result-meta">${name ? escapeHtml(name) + ' · ' : ''}${date}</div>
     </div>
     <div class="result-body">
       <div class="wheel-box">${wheelSvg}</div>
-      <div class="wheel-caption">Wheel of Motion — each of the six areas scored out of 10</div>
+      <div class="wheel-caption">Your six areas, each scored out of 10</div>
       <div class="narrative">${narrative.map(p => `<p>${escapeHtml(p)}</p>`).join('')}</div>
       ${bottleneckHtml(dimScores)}
       ${quoteHtml()}
-      <div class="dim-sections-head">YOUR SIX AREAS, ONE AT A TIME</div>
+      <div class="dim-sections-head">YOUR SIX AREAS IN DETAIL</div>
       ${buildAllSectionsHtml(dimScores)}
     </div>
   `;
@@ -1862,6 +1885,7 @@ function collectSubmission() {
       dimensionScores: dimScores.map(d => ({ name: d.name, outOf10: round1(d.score), raw: d.raw, rawMax: d.rawMax })),
     },
     narrative: buildNarrative(dimScores),
+    noteFlags: DIMENSIONS.flatMap(d => sectionNoteFlags(d).map(f => ({ area: d.name, question: d.q[f.i].text, answer: f.answer, note: f.note }))),
     dimensions: DIMENSIONS.map(d => ({
       name: d.name,
       outOf10: round1(dimScore10(d).score10),
@@ -1926,14 +1950,11 @@ function submitAssessment() {
   const submission = collectSubmission();
   const dimScores = buildDimScores();
 
-  // Phase 2, live: Airtable capture (same base, same function, same tables the
-  // facilitator tool already writes to) and Netlify's own form-handling for the
-  // email notification. Both are best-effort — neither should ever be able to
-  // stop someone seeing their own result if either call fails or is slow.
-  notifyAndSave(submission, dimScores);
-
+  // The result shows straight away. Saving to Airtable and emailing the report
+  // run behind it, and neither can stop someone seeing their own result.
   renderResult();
   goTo('result');
+  saveAndSend(submission, dimScores);
 }
 
 // The real total score, in the same raw-points-out-of-raw-max shape the
@@ -1963,22 +1984,33 @@ function outcomeBand(dimScores) {
   return (sd + pg >= 11 && dealHistory === 2) ? 'FILTER-Ready' : 'Foundation Gap';
 }
 
-function notifyAndSave(submission, dimScores) {
+// One call to the save function does both jobs: it stores the session in
+// Airtable and emails the report to the person and to ARC. The page is on
+// arc-advisory.co.uk and the function is on Netlify, so the call goes to the
+// full address. The delivery line on the result screen only says "emailed"
+// when the function confirms the email was accepted.
+const SAVE_URL = 'https://arc-filter-salesmaturity.netlify.app/.netlify/functions/save-session';
+async function saveAndSend(submission, dimScores) {
   const { raw, max } = totalRawScore(dimScores);
   const band = outcomeBand(dimScores);
+  setDelivery('sending');
 
-  // This page is served from arc-advisory.co.uk (GitHub Pages), a different
-  // origin from the Netlify site the save function actually runs on, so the
-  // call has to go to the full address, not a relative one, and the function
-  // itself now sends back the CORS header that allows it. The Netlify Forms
-  // email notification that used to fire here doesn't have an equivalent,
-  // that's Netlify's own built-in form handling tied to a same-site request,
-  // there's no cross-origin version of it — dropped rather than left in
-  // looking like it works. The Airtable write below is the real record.
+  let email = null;
   try {
-    fetch('https://arc-filter-salesmaturity.netlify.app/.netlify/functions/save-session', {
+    if (window.jspdf && window.jspdf.jsPDF) {
+      const report = await buildReport();
+      const uri = report.doc.output('datauristring');
+      email = { filename: reportFilename(), pdfBase64: uri.slice(uri.indexOf('base64,') + 7) };
+    }
+  } catch (e) { email = null; }
+
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 30000);
+  try {
+    const res = await fetch(SAVE_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
+      signal: controller.signal,
       body: JSON.stringify({
         type: 'sales_maturity',
         company: submission.contact.company,
@@ -1989,69 +2021,93 @@ function notifyAndSave(submission, dimScores) {
           'Assessed By': 'Self-serve (public tool)',
           'Contact Name': submission.contact.name,
           'Email': submission.contact.email,
-'Consent to Contact': submission.contact.consent,
+          'Consent to Contact': submission.contact.consent,
         },
         data: submission,
+        email,
       }),
-    }).catch(() => {});
-  } catch (e) { /* best-effort — never blocks the result screen */ }
+    });
+    const out = await res.json().catch(() => ({}));
+    setDelivery(out && out.email && out.email.customer === 'sent' ? 'sent' : 'failed');
+  } catch (e) {
+    setDelivery('failed');
+  } finally {
+    clearTimeout(timer);
+  }
 }
 
-/* --------------------------- DOWNLOADABLE REPORT --------------------------
-   Built entirely in the browser from data already in the session: no server
-   round-trip, no email, nothing leaves the page. jsPDF is served from this
-   site rather than a CDN so the page makes no third-party requests.
+/* ---------------------- REPORT: PDF, EMAIL AND DOWNLOAD --------------------
+   The PDF is built in the browser from data already in the session. On submit
+   it is sent with the answers to the save function, which stores the session
+   and emails the report to the person and to ARC. The download link builds
+   the same PDF locally. jsPDF is served from this site, not a CDN.
 --------------------------------------------------------------------------- */
 
 // jsPDF's built-in fonts are WinAnsi, so fold the typographic characters in the
-// copy down to their ASCII equivalents rather than risk dropped glyphs.
+// copy down to their plain equivalents rather than risk dropped glyphs.
 function pdfSafe(s) {
   return String(s)
     .replace(/[‘’]/g, "'")
     .replace(/[“”]/g, '"')
     .replace(/[–—]/g, '-')
     .replace(/…/g, '...')
-    .replace(/·/g, '-')
     .replace(/ /g, ' ')
     .replace(/&amp;/g, '&');
 }
 
-// Rasterise the wheel so the PDF carries the same chart the screen shows.
-function wheelToPng(svg, scale) {
+function svgToPng(svg, w, h, background) {
   return new Promise((resolve, reject) => {
     const img = new Image();
     img.onload = () => {
       try {
         const canvas = document.createElement('canvas');
-        canvas.width = 580 * scale;
-        canvas.height = 470 * scale;
+        canvas.width = w;
+        canvas.height = h;
         const ctx = canvas.getContext('2d');
-        ctx.fillStyle = '#FFFFFF';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        if (background) { ctx.fillStyle = background; ctx.fillRect(0, 0, w, h); }
+        ctx.drawImage(img, 0, 0, w, h);
         resolve(canvas.toDataURL('image/png'));
       } catch (e) { reject(e); }
     };
-    img.onerror = () => reject(new Error('wheel image failed to load'));
+    img.onerror = () => reject(new Error('image failed to load'));
     img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
   });
 }
 
-// The CTA, mailto rather than a booking link, matching the pattern already
-// used on the FILTER Diagnostic tool's "Book a Diagnostic Call" button. No
-// FILTER name, no price, no Recoverable Revenue figure, this is the free
-// front door, not the pitch. It names the weakest dimension because that
-// gives Nick something real to open the reply with, not because it's trying
-// to make the ask sound more official than it is.
-function talkItThrough() {
-  if (!lastResult) return;
-  const company = state.details.company.trim() || 'my business';
-  const weakest = weakestOf(lastResult.dimScores);
-  const subject = encodeURIComponent(`Sales Maturity Assessment — ${company}`);
-  const body = encodeURIComponent(
-    `Hi Nick,\n\nI've just run ${company} through the Sales Maturity Assessment. ${weakest.name} came out as the area with the most room to move, at ${fmt(round1(weakest.score))} out of 10.\n\nI'd like to talk it through, when's a good time?\n\n`
-  );
-  window.open('https://meetings-eu1.hubspot.com/nick-riggott', '_blank', 'noopener');
+// Rasterise the wheel so the PDF carries the same chart the screen shows.
+function wheelToPng(svg, scale) { return svgToPng(svg, 580 * scale, 470 * scale, '#FFFFFF'); }
+
+// The real ARC logo, taken from the page header so there is one copy of it.
+// Drawn on the navy band, so the PNG carries the band colour behind it.
+function logoToPng() {
+  const el = document.getElementById('arc-logo');
+  if (!el) return Promise.reject(new Error('logo missing'));
+  const clone = el.cloneNode(true);
+  clone.setAttribute('width', '522');
+  clone.setAttribute('height', '240');
+  clone.removeAttribute('style');
+  const svg = new XMLSerializer().serializeToString(clone);
+  return svgToPng(svg, 522 * 3, 240 * 3, '#0D1B2A');
+}
+
+async function buildReport() {
+  let wheelPng = null, logoPng = null;
+  try { wheelPng = await wheelToPng(lastResult.wheelSvg, 2); } catch (e) { wheelPng = null; }
+  try { logoPng = await logoToPng(); } catch (e) { logoPng = null; }
+  return { doc: buildPdf(wheelPng, logoPng), wheelOk: !!wheelPng };
+}
+
+// The line at the top of the result screen, which says where the report went.
+function setDelivery(kind) {
+  const el = document.getElementById('result-lead');
+  if (!el) return;
+  const email = state.details.email || 'your inbox';
+  const lines = {
+    sending: `Thank you. Your report is below, and a copy is on its way to ${email}.`,
+    sent: `Thank you. Your report has been emailed to ${email}, and it is also below.`,
+    failed: `Thank you. Your report is below. The email to ${email} could not be sent, so please download a copy.`,
+  };
+  el.textContent = lines[kind] || lines.sending;
 }
 
 async function downloadReport() {
@@ -2059,34 +2115,24 @@ async function downloadReport() {
   const status = document.getElementById('download-status');
   if (!lastResult) return;
   if (!(window.jspdf && window.jspdf.jsPDF)) {
-    status.textContent = 'The report builder didn’t load. A page refresh usually fixes it — your answers are still here.';
+    status.textContent = 'The report could not be built. Refreshing the page usually fixes it, and your answers are saved.';
     status.style.color = 'var(--red)';
     return;
   }
-
   btn.disabled = true;
-  const originalLabel = btn.textContent;
-  btn.textContent = 'Building your report…';
   status.textContent = '';
   status.style.color = 'var(--mid-grey)';
-
   try {
-    let wheelPng = null;
-    try {
-      wheelPng = await wheelToPng(lastResult.wheelSvg, 2);
-    } catch (e) {
-      wheelPng = null;   // fall back to a plain score table below
-    }
-    buildPdf(wheelPng).save(reportFilename());
-    status.textContent = wheelPng
-      ? 'Downloaded. It’s yours to keep — nothing was sent anywhere.'
-      : 'Downloaded. The wheel wouldn’t render in this browser, so your scores are listed instead.';
+    const report = await buildReport();
+    report.doc.save(reportFilename());
+    status.textContent = report.wheelOk
+      ? 'Downloaded.'
+      : 'Downloaded. The wheel could not be drawn in this browser, so your scores are listed instead.';
   } catch (err) {
-    status.textContent = 'Couldn’t build the report — ' + err.message + '. Your results are still on screen.';
+    status.textContent = 'The report could not be built (' + err.message + '). Your results are still on screen.';
     status.style.color = 'var(--red)';
   } finally {
     btn.disabled = false;
-    btn.textContent = originalLabel;
   }
 }
 
@@ -2095,194 +2141,299 @@ function reportFilename() {
   return `arc-sales-maturity-${slug || 'report'}.pdf`;
 }
 
-function buildPdf(wheelPng) {
-  const doc = new window.jspdf.jsPDF({ unit: 'pt', format: 'a4' });
+// Laid out to match the ARC letterhead used for client reports: navy band
+// with the centred logo, teal rule, centred title block, Arial-metric body
+// text, and the contact and company details in the footer of every page.
+function buildPdf(wheelPng, logoPng) {
+  const doc = new window.jspdf.jsPDF({ unit: 'pt', format: 'a4', compress: true });
+  const MM = 2.8346;
   const PAGE_W = doc.internal.pageSize.getWidth();
   const PAGE_H = doc.internal.pageSize.getHeight();
-  const M = 46;                       // page margin
+  const M = 20 * MM;                  // side margin, as the letterhead
+  const TOP = 16 * MM;                // top margin on pages after the first
+  const BOTTOM = 30 * MM;             // footer zone
   const COL = PAGE_W - M * 2;
-  const NAVY = [13, 27, 42], TEAL = [78, 205, 196], GREY = [107, 114, 128], INK = [31, 41, 55], AMBER = [245, 158, 11];
+  const NAVY = [13, 27, 42], TEAL = [78, 205, 196], TEAL_DEEP = [46, 143, 149];
+  const INK = [31, 41, 51], GREY = [91, 102, 112], RULE = [221, 227, 232], PAPER = [238, 241, 243];
+  const AMBER = [180, 83, 9], RED = [185, 28, 28], GREEN = [4, 120, 87];
+  const BODY = 10, LEAD = 15.5;
   let y = 0;
 
-  function newPage() {
-    doc.addPage();
-    y = M;
+  function newPage() { doc.addPage(); y = TOP; }
+  function room(h) { if (y + h > PAGE_H - BOTTOM) newPage(); }
+  function setFont(o) {
+    doc.setFont('helvetica', o.style || 'normal');
+    doc.setFontSize(o.size || BODY);
+    doc.setTextColor.apply(doc, o.color || INK);
   }
-  function room(h) { if (y + h > PAGE_H - M) newPage(); }
+  function linesOf(str, o) {
+    setFont(o);
+    return doc.splitTextToSize(pdfSafe(str), o.width || COL);
+  }
+  function heightOf(str, o) {
+    return linesOf(str, o).length * (o.lead || (o.size || BODY) * 1.5) + (o.after || 0);
+  }
+  // One line set flush to both edges. Falls back to left aligned when the
+  // gaps would be wide enough to look like holes in the paragraph.
+  function justifiedLine(line, x, baseline, width) {
+    const words = line.trim().split(/\s+/);
+    if (words.length < 3) { doc.text(line, x, baseline); return; }
+    const widths = words.map(w => doc.getTextWidth(w));
+    const gap = (width - widths.reduce((a, b) => a + b, 0)) / (words.length - 1);
+    if (gap > doc.getTextWidth(' ') * 2.6) { doc.text(line, x, baseline); return; }
+    let cx = x;
+    words.forEach((w, i) => { doc.text(w, cx, baseline); cx += widths[i] + gap; });
+  }
+  // Paragraph text. Justified by default; headings, labels and bullets pass
+  // justify: false.
   function text(str, opts) {
     const o = opts || {};
-    const size = o.size || 10.5;
-    const lead = o.lead || size * 1.45;
-    doc.setFont('helvetica', o.style || 'normal');
-    doc.setFontSize(size);
-    doc.setTextColor.apply(doc, o.color || INK);
-    const lines = doc.splitTextToSize(pdfSafe(str), o.width || COL);
-    lines.forEach(line => {
+    const size = o.size || BODY;
+    const lead = o.lead || size * 1.5;
+    const x = o.x || M;
+    const width = o.width || COL;
+    const lines = linesOf(str, o);
+    if (lines.length <= 8) room(lines.length * lead);
+    lines.forEach((line, i) => {
       room(lead);
-      doc.text(line, o.x || M, y + size * 0.85);
+      setFont(o);
+      const baseline = y + size * 0.85;
+      if (o.align === 'center') doc.text(line, x + width / 2, baseline, { align: 'center' });
+      else if (o.justify !== false && i < lines.length - 1) justifiedLine(line, x, baseline, width);
+      else doc.text(line, x, baseline);
       y += lead;
     });
     if (o.after) y += o.after;
   }
+  function h2(str, need) {
+    room(need || 110);
+    y += 5 * MM;
+    text(str, { size: 12, style: 'bold', color: NAVY, justify: false, lead: 16, after: 1 * MM });
+    doc.setDrawColor.apply(doc, RULE);
+    doc.setLineWidth(0.85);
+    doc.line(M, y, M + COL, y);
+    y += 3 * MM;
+  }
+  function label(str, color) {
+    room(62);
+    text(str, { size: 9.5, style: 'bold', color: color || NAVY, justify: false, lead: 13.5, after: 1 });
+  }
+  function bullets(items) {
+    items.forEach(item => {
+      const o = { size: BODY, lead: 14.5, width: COL - 14, x: M + 14, justify: false, after: 2 };
+      room(heightOf(item, o));
+      doc.setFillColor.apply(doc, TEAL_DEEP);
+      doc.circle(M + 5, y + 6.2, 1.5, 'F');
+      text(item, o);
+    });
+  }
+  // A tinted block with a coloured bar down its left edge. parts is a list of
+  // [string, options]; the block is kept on one page.
+  function box(parts, bar) {
+    const PAD = 10, innerW = COL - PAD * 2 - 3;
+    const sized = parts.map(([str, o]) => [str, Object.assign({ width: innerW, x: M + PAD + 3 }, o)]);
+    const h = sized.reduce((t, [str, o]) => t + heightOf(str, o), 0) + PAD * 2 - 2;
+    room(h + 8);
+    doc.setFillColor.apply(doc, PAPER);
+    doc.rect(M, y, COL, h, 'F');
+    doc.setFillColor.apply(doc, bar);
+    doc.rect(M, y, 3, h, 'F');
+    y += PAD;
+    sized.forEach(([str, o]) => text(str, o));
+    y += PAD - 2 + 4 * MM;
+  }
 
-  // --- Branded header band, in the same navy/teal as the screen ---
+  const company = state.details.company.trim() || 'your business';
+
+  // --- Letterhead band: navy, centred logo, tagline, teal rule ---
+  const LOGO_H = 20 * MM, LOGO_W = LOGO_H * 522 / 240;
+  const bandH = 6 * MM + LOGO_H + 2 * MM + 8 + 6 * MM;
   doc.setFillColor.apply(doc, NAVY);
-  doc.rect(0, 0, PAGE_W, 108, 'F');
-  doc.setFont('helvetica', 'bold');
-  doc.setFontSize(26);
-  doc.setTextColor(255, 255, 255);
-  doc.text('ARC', M, 48, { charSpace: 4 });
+  doc.rect(0, 0, PAGE_W, bandH, 'F');
+  if (logoPng) {
+    doc.addImage(logoPng, 'PNG', (PAGE_W - LOGO_W) / 2, 6 * MM, LOGO_W, LOGO_H, 'arc-logo', 'FAST');
+  } else {
+    doc.setFont('helvetica', 'bold'); doc.setFontSize(26); doc.setTextColor(255, 255, 255);
+    doc.text('ARC ADVISORY', PAGE_W / 2, 6 * MM + LOGO_H * 0.65, { align: 'center', charSpace: 3 });
+  }
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(8);
-  doc.text('ADVISORY', M + 2, 62, { charSpace: 3 });
-  doc.setFont('helvetica', 'bold');
-  doc.setFontSize(9);
   doc.setTextColor.apply(doc, TEAL);
-  doc.text('SALES MATURITY ASSESSMENT', PAGE_W - M, 48, { align: 'right', charSpace: 1.5 });
-  doc.setFont('helvetica', 'normal');
-  doc.setFontSize(9);
-  doc.setTextColor(255, 255, 255);
-  const who = [state.details.company, state.details.name].filter(Boolean).join(' - ');
-  doc.text(pdfSafe(who), PAGE_W - M, 64, { align: 'right' });
-  doc.text(pdfSafe(lastResult.date), PAGE_W - M, 78, { align: 'right' });
+  const tag = 'HELPING BUSINESSES MAKE SALES REVENUE MORE PREDICTABLE';
+  const tagW = doc.getTextWidth(tag) + (tag.length - 1) * 1.1;
+  doc.text(tag, (PAGE_W - tagW) / 2, 6 * MM + LOGO_H + 2 * MM + 6, { charSpace: 1.1 });
+  doc.setFillColor.apply(doc, TEAL_DEEP);
+  doc.rect(0, bandH, PAGE_W, 1 * MM, 'F');
 
-  y = 138;
-  text('There’s your picture.', { size: 17, style: 'bold', color: NAVY, after: 8 });
+  // --- Title block ---
+  y = bandH + 1 * MM + 9 * MM;
+  text('Sales Maturity Assessment', { size: 16, style: 'bold', color: NAVY, align: 'center', lead: 21, after: 1 });
+  text(`Prepared for ${company}  ·  ${lastResult.date}`, { size: 9, color: GREY, align: 'center', lead: 13, after: 3 * MM });
+  doc.setFillColor.apply(doc, TEAL_DEEP);
+  doc.rect((PAGE_W - 16 * MM) / 2, y, 16 * MM, 0.6 * MM, 'F');
+  y += 6 * MM;
 
   // --- The wheel, or its scores in plain text if rasterising failed ---
   if (wheelPng) {
-    const w = COL, h = (470 / 580) * COL;
-    room(h + 10);
-    doc.addImage(wheelPng, 'PNG', M, y, w, h);
-    y += h + 4;
-    text('Wheel of Motion - each of the six areas scored out of 10', { size: 8, color: GREY, after: 12 });
+    const w = COL * 0.8, h = (470 / 580) * w;
+    room(h + 24);
+    doc.addImage(wheelPng, 'PNG', M + (COL - w) / 2, y, w, h, 'wheel', 'FAST');
+    y += h + 2;
+    text('Your six areas, each scored out of 10', { size: 8.5, color: GREY, align: 'center', after: 2 * MM });
   } else {
-    text('Your six areas, scored out of 10', { size: 11, style: 'bold', color: NAVY, after: 4 });
+    label('Your six areas, each scored out of 10');
     lastResult.dimScores.forEach(d => {
-      text(`${d.name}: ${fmt(round1(d.score))} out of 10`, { size: 10.5, after: 0 });
+      text(`${d.name}: ${fmt(round1(d.score))} out of 10`, { justify: false, lead: 14.5 });
     });
-    y += 10;
+    y += 3 * MM;
   }
 
-  // --- The composed narrative, verbatim from the result screen ---
+  // --- Summary, the same paragraphs as the result screen ---
+  h2('Summary');
   lastResult.narrative.forEach((p, i) => {
-    text(p, { size: 11, style: i === 0 ? 'bold' : 'normal', color: i === 0 ? NAVY : INK, lead: 15.5, after: 8 });
+    text(p, { style: i === 0 ? 'bold' : 'normal', color: i === 0 ? NAVY : INK, lead: LEAD, after: 3 * MM });
   });
 
-  // --- Where this is dragging most, same tie check as the screen: only
-  // names a single bottleneck when there genuinely is one ---
+  // --- Lowest scoring area, same tie check as the screen ---
   {
-    const sortedForBottleneck = [...lastResult.dimScores].sort((a, b) => a.score - b.score);
-    if (sortedForBottleneck[0].score !== sortedForBottleneck[1].score) {
-      room(50);
-      y += 4;
-      text('WHERE THIS IS DRAGGING MOST', { size: 8, style: 'bold', color: AMBER, after: 3 });
-      text(BOTTLENECK_SYMPTOM[sortedForBottleneck[0].id], { size: 10.5, lead: 15, after: 10 });
+    const sorted = [...lastResult.dimScores].sort((a, b) => a.score - b.score);
+    if (sorted[0].score !== sorted[1].score) {
+      y += 1 * MM;
+      box([
+        ['Your lowest scoring area', { size: 9.5, style: 'bold', color: AMBER, justify: false, lead: 14, after: 2 }],
+        [BOTTLENECK_SYMPTOM[sorted[0].id], { lead: LEAD }],
+      ], AMBER);
     }
   }
 
-  // --- The strongest quote found anywhere, as on screen, not just Forecasting ---
-  const quote = findBestQuote();
-  if (quote) {
-    room(60);
-    y += 4;
-    text('IN YOUR OWN WORDS', { size: 8, style: 'bold', color: GREY, after: 3 });
-    text(quote.question, { size: 10, style: 'bold', color: NAVY, after: 3 });
-    text('"' + quote.answer + '"', { size: 10.5, style: 'italic', after: 2 });
-    if (quote.isOpen && quote.note) text('You added: ' + quote.note, { size: 9, color: GREY, after: 2 });
-    const footer = quote.isOpen
-      ? 'Not scored, and deliberately kept off the wheel.'
-      : `The sharpest line in your answers, from ${quote.dimName}.`;
-    text(footer, { size: 8.5, color: GREY, after: 10 });
-  } else {
-    const d1 = DIMENSIONS[0];
-    const idx = d1.q.findIndex(x => x.open);
-    room(60);
-    y += 4;
-    text('IN YOUR OWN WORDS', { size: 8, style: 'bold', color: GREY, after: 3 });
-    text(d1.q[idx].text, { size: 10, style: 'bold', color: NAVY, after: 3 });
-    text('Not answered.', { size: 10.5, style: 'italic', after: 2 });
-    text('Not scored, and deliberately kept off the wheel.', { size: 8.5, color: GREY, after: 10 });
+  // --- In your own words ---
+  {
+    const quote = findBestQuote();
+    const parts = [['In your own words', { size: 9.5, style: 'bold', color: TEAL_DEEP, justify: false, lead: 14, after: 2 }]];
+    if (quote) {
+      parts.push([quote.question, { style: 'bold', color: NAVY, justify: false, lead: 14.5, after: 3 }]);
+      parts.push(['"' + quote.answer + '"', { lead: LEAD, after: 3 }]);
+      if (quote.isOpen && quote.note) parts.push(['You added: ' + quote.note, { size: 9, color: GREY, lead: 13, after: 3 }]);
+      parts.push([quote.isOpen ? QUOTE_OPEN_FOOT : quoteNoteFoot(quote.dimName), { size: 8.5, color: GREY, justify: false, lead: 12.5 }]);
+    } else {
+      const d1 = DIMENSIONS[0];
+      parts.push([d1.q[d1.q.findIndex(x => x.open)].text, { style: 'bold', color: NAVY, justify: false, lead: 14.5, after: 3 }]);
+      parts.push([QUOTE_SKIPPED, { color: GREY, lead: LEAD }]);
+    }
+    box(parts, TEAL_DEEP);
   }
 
-  // --- Every question, with the answer actually given ---
-  // Starts on the same page when there's real room left (a short quote used
-  // to leave page 2 mostly blank). Needs space for the heading and the first
-  // area's opening questions, otherwise it takes a fresh page.
-  if (y + 220 > PAGE_H - M) {
-    newPage();
-  } else {
-    y += 14;
-    doc.setDrawColor(229, 231, 235);
+  // --- The six areas in detail, as on the result screen ---
+  h2('Your six areas in detail');
+  DIMENSIONS.forEach((d, idx) => {
+    const s = lastResult.dimScores.find(x => x.id === d.id);
+    room(110);
+    if (idx > 0) y += 3 * MM;
+    setFont({ size: 11, style: 'bold', color: NAVY });
+    doc.text(pdfSafe(d.name), M, y + 9.5);
+    setFont({ size: 10, style: 'bold', color: TEAL_DEEP });
+    doc.text(`${fmt(round1(s.score))} out of 10`, M + COL, y + 9.5, { align: 'right' });
+    y += 15;
+    doc.setDrawColor.apply(doc, RULE); doc.setLineWidth(0.5);
     doc.line(M, y, M + COL, y);
-    y += 20;
-  }
-  text('YOUR ANSWERS IN FULL', { size: 9, style: 'bold', color: TEAL, after: 4 });
-  text('All thirty questions, and what you said to each.', { size: 10, color: GREY, after: 14 });
+    y += 2.5 * MM;
 
+    label('What good looks like');
+    text(capitalise(WHAT_GOOD_LOOKS_LIKE[d.id]), { lead: LEAD, after: 2.5 * MM });
+    label('What your answers show');
+    text(whatAnswersShow(d), { lead: LEAD, after: 2.5 * MM });
+    sectionNoteFlags(d).forEach(f => {
+      box([
+        [`You answered "${f.answer}" and added "${f.note}"`, { lead: 14.5, after: 3 }],
+        [NOTE_FLAG_LINE, { size: 9.5, style: 'bold', color: AMBER, justify: false, lead: 13.5 }],
+      ], AMBER);
+    });
+    label('What this means');
+    text(worthKnowingText(d, s), { lead: LEAD, after: 2.5 * MM });
+    const b = sectionActionBullets(d);
+    if (b.stop.length || b.start.length || b.keep.length) {
+      label('Suggested actions');
+      [['Stop', b.stop, RED], ['Start', b.start, AMBER], ['Keep doing', b.keep, GREEN]].forEach(([name, items, color]) => {
+        if (!items.length) return;
+        room(46);
+        text(name, { size: 8.5, style: 'bold', color, justify: false, lead: 13, after: 1 });
+        bullets(items);
+        y += 1.5 * MM;
+      });
+    }
+  });
+
+  // --- Closing summary and what happens next, as on the result screen ---
+  h2('In summary');
+  text(CLOSING_INTRO, { lead: LEAD, after: 3 * MM });
+  text(closingVerdict(lastResult.dimScores), { lead: LEAD, after: 3 * MM });
+  {
+    const cta = ctaCopy(company, !!state.details.consent, noMaterialGap(lastResult.dimScores));
+    h2(cta.head, 230);
+    text(cta.p1, { lead: LEAD, after: 3 * MM });
+    text(cta.p2, { lead: LEAD, after: 4 * MM });
+    text('Nick Riggott', { style: 'bold', color: NAVY, justify: false, lead: 14 });
+    text('ARC Advisory', { color: GREY, justify: false, lead: 14 });
+  }
+
+  // --- Every question, with the answer given, as an appendix ---
+  h2('Your answers in full', 200);
+  text('All thirty questions, with the answer you gave to each.', { color: GREY, justify: false, after: 3 * MM });
   DIMENSIONS.forEach(d => {
     const s = lastResult.dimScores.find(x => x.id === d.id);
-    room(46);
-    text(`${d.name.toUpperCase()} - ${fmt(round1(s.score))}/10`, { size: 10.5, style: 'bold', color: NAVY, after: 2 });
-    doc.setDrawColor(229, 231, 235);
+    room(70);
+    y += 2 * MM;
+    setFont({ size: 10.5, style: 'bold', color: NAVY });
+    doc.text(pdfSafe(d.name), M, y + 9);
+    setFont({ size: 9.5, style: 'bold', color: TEAL_DEEP });
+    doc.text(`${fmt(round1(s.score))} out of 10`, M + COL, y + 9, { align: 'right' });
+    y += 14;
+    doc.setDrawColor.apply(doc, RULE); doc.setLineWidth(0.5);
     doc.line(M, y, M + COL, y);
-    y += 8;
-    if (d.id === 'd4') {
-      const sf = sliderFragment();
-      if (sf) { room(50); text(sf.charAt(0).toUpperCase() + sf.slice(1) + '.', { size: 10, color: INK, lead: 14, after: 6 }); }
-    }
-    const callout = sectionNoteCallout(d);
-    if (callout) {
-      room(60);
-      text(callout, { size: 10, color: INK, lead: 14, after: 6 });
-      y += 4;
-    }
+    y += 2.5 * MM;
+    const callout = sectionNoteFlags(d).length ? null : sectionNoteCallout(d);
+    if (callout) text(callout, { size: 9.5, lead: 14, after: 2.5 * MM });
     d.q.forEach((q, i) => {
-      room(40);
-      text(`${i + 1}. ${q.text}`, { size: 10, style: 'bold', color: INK, lead: 13.5, after: 1 });
       const sc = q.open ? null : questionScore(d, q, i);
       const scoreTag = (q.open || q.slider) ? ' (context, not scored)' : ` (${sc}/2)`;
-      text(answerText(d, q, i) + scoreTag, { size: 10, color: GREY, lead: 13.5, after: 1 });
       const note = ans(d.id, i).note.trim();
+      const qo = { size: 9.5, style: 'bold', color: INK, justify: false, lead: 13.5, after: 1 };
+      const ao = { size: 9.5, color: GREY, justify: false, lead: 13.5, after: 1 };
+      room(heightOf(`${i + 1}. ${q.text}`, qo) + heightOf(answerText(d, q, i) + scoreTag, ao) + 4);
+      text(`${i + 1}. ${q.text}`, qo);
+      text(answerText(d, q, i) + scoreTag, ao);
       if (note) {
-        text('Your detail: ' + note, { size: 9.5, style: 'italic', color: GREY, lead: 13, after: 1 });
+        text('Your note: ' + note, { size: 9, color: GREY, justify: false, lead: 13, after: 1 });
         if (!q.open) {
           const flagged = !q.slider && noteFlag(note, sc) > 0;
-          if (flagged) text(NOTE_FLAG_LINE, { size: 9, style: 'bold', color: [180, 83, 9], lead: 12, after: 1 });
-          else text('Your note adds context beyond the score.', { size: 9, color: NAVY, lead: 12, after: 1 });
+          if (flagged) text(NOTE_FLAG_LINE, { size: 8.5, style: 'bold', color: AMBER, justify: false, lead: 12, after: 1 });
+          else text('Your note adds context beyond the score.', { size: 8.5, color: NAVY, justify: false, lead: 12, after: 1 });
         }
       }
-      y += 5;
+      y += 4;
     });
-    y += 8;
   });
 
-  // --- Closing summary and CTA, matching the on-screen result-close block ---
-  room(90);
-  y += 6;
-  text("That's the whole picture. Six areas, thirty questions, all your own answers. Sit it next to a decision you're actually making this month, that's what it's for.", { size: 10.5, lead: 15, after: 8 });
-  const verdictText = closingVerdict(lastResult.dimScores);
-  text(verdictText, { size: 10.5, lead: 15, after: 10 });
-  {
-    const cta = ctaCopy(state.details.company.trim() || 'your business');
-    room(150);
-    text(cta.head, { size: 13, style: 'bold', color: NAVY, after: 6 });
-    text(cta.p1, { size: 10.5, lead: 15, after: 8 });
-    text(cta.p2, { size: 10.5, lead: 15, after: 10 });
-    text('BOOK TIME WITH ME', { size: 8, style: 'bold', color: TEAL, after: 3 });
-    text(cta.link, { size: 10.5, style: 'bold', color: NAVY, after: 3 });
-    text(cta.email, { size: 10.5, style: 'bold', color: NAVY, after: 12 });
-  }
-
-  // --- Footer on every page ---
+  // --- Letterhead footer on every page ---
+  const LEGAL = 'ARC Advisory is a trading name of ARC Commercial Advisory Ltd. Registered in England and Wales, company number 17407501. Registered office: Kln Accountancy Services Limited, Units 1-2 Basford House, Derby Road, Heanor, United Kingdom, DE75 7QL.';
   const pages = doc.internal.getNumberOfPages();
   for (let p = 1; p <= pages; p++) {
     doc.setPage(p);
-    doc.setFont('helvetica', 'normal');
-    doc.setFontSize(8);
-    doc.setTextColor.apply(doc, GREY);
-    doc.text('ARC Advisory - Sales Maturity Assessment', M, PAGE_H - 24);
-    doc.text(`${p} of ${pages}`, PAGE_W - M, PAGE_H - 24, { align: 'right' });
+    let fy = PAGE_H - BOTTOM + 6 * MM;
+    doc.setDrawColor.apply(doc, RULE); doc.setLineWidth(0.85);
+    doc.line(M, fy, M + COL, fy);
+    fy += 2.5 * MM + 7;
+    setFont({ size: 8, color: NAVY });
+    doc.text('nick@arc-advisory.co.uk  ·  arc-advisory.co.uk', PAGE_W / 2, fy, { align: 'center' });
+    fy += 4 * MM;
+    setFont({ size: 6.5, color: GREY });
+    doc.splitTextToSize(LEGAL, COL - 12 * MM).forEach(line => {
+      doc.text(line, PAGE_W / 2, fy, { align: 'center' });
+      fy += 8.6;
+    });
+    fy += 3;
+    setFont({ size: 7, color: GREY });
+    doc.text(`Page ${p} of ${pages}`, PAGE_W / 2, fy, { align: 'center' });
   }
   return doc;
 }
