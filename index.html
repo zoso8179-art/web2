@@ -729,6 +729,16 @@ footer .fm{font-size:12px;letter-spacing:.06em}
 .sma .body>p:first-child{margin-top:0}
 .founder .body p{margin-top:0;margin-bottom:26px;line-height:1.75;text-align:left}
 .sma-img{margin-top:6px}
+/* Self-assessment section: heading and plain description first, one main button, the conversation route set apart below. */
+.sma .sma-intro{max-width:760px;margin:0 auto 56px;text-align:center}
+.sma .sma-intro h2{max-width:none;margin:0 auto 22px;color:#fff}
+.sma .sma-intro p{color:rgba(255,255,255,.88);font-size:18px;line-height:1.7;margin:0 0 14px}
+.sma-caption{text-align:center;color:rgba(255,255,255,.55);font-size:13px;margin-top:10px}
+.sma-action{margin-top:8px}
+.sma .problem-grid{align-items:center}
+.sma-alt{margin:64px auto 0;padding-top:40px;border-top:1px solid var(--line-dark);text-align:center;max-width:760px}
+.sma-alt h3{color:#fff;font-size:clamp(19px,2.2vw,23px);line-height:1.4;font-weight:600;margin:0 0 20px}
+@media(max-width:860px){.sma .sma-intro{margin-bottom:36px;text-align:left}.sma .sma-intro p{font-size:16.5px}.sma-alt{margin-top:44px}}
 @media(max-width:860px){.sma-img{margin-top:0}}
 .portrait .cap .r{font-size:14px;letter-spacing:.02em;text-transform:none}
 
@@ -907,14 +917,17 @@ footer .fm{font-size:12px;letter-spacing:.06em}
 <!-- SALES MATURITY ASSESSMENT -->
 <section class="sma" id="sma">
   <div class="wrap">
-    <div class="section-head rv"><p class="eyebrow on-dark">Sales Maturity Self-Assessment</p></div>
+    <div class="sma-intro rv">
+      <h2>Sales Maturity Self-Assessment</h2>
+      <p>The Sales Maturity Self-Assessment is thirty questions about how your business sells today. It shows which parts of your sales operation are working and which parts might be holding revenue back.</p>
+      <p>You'll receive a written report by email, with a score for each of the six areas, the notes you add along the way, and suggested actions for each one.</p>
+    </div>
     <div class="problem-grid">
       <div class="rv sma-shot">
-        <h2 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Sales Maturity Self-Assessment</h2>
-        <img class="sma-img" src="sma-document-and-scorecard-v3.png" alt="Sample Sales Maturity Assessment document and scorecard">
+        <img class="sma-img" src="sma-report-preview.png" width="1400" height="1264" alt="The first two pages of a sample Sales Maturity Assessment report: the six area wheel and summary, then one area in detail with suggested actions">
+        <p class="sma-caption">A sample report</p>
       </div>
       <div class="body rv">
-        <p>See for yourself how mature your sales process is, and which areas to look at first.</p>
         <div class="sma-get rv">
           <svg class="wheel" viewBox="-26 0 372 290" role="img" aria-label="Illustration: a six area wheel, one spoke each for forecasting, systems, process, commercial foundations, market position and pricing, with some areas strong and some thin.">
             <polygon points="160.0,123.3 183.1,136.7 183.1,163.3 160.0,176.7 136.9,163.3 136.9,136.7" fill="none" stroke="rgba(255,255,255,.16)" stroke-width="1"/><polygon points="160.0,96.7 206.2,123.3 206.2,176.7 160.0,203.3 113.8,176.7 113.8,123.3" fill="none" stroke="rgba(255,255,255,.16)" stroke-width="1"/><polygon points="160.0,70.0 229.3,110.0 229.3,190.0 160.0,230.0 90.7,190.0 90.7,110.0" fill="none" stroke="rgba(255,255,255,.16)" stroke-width="1"/><line x1="160" y1="150" x2="160.0" y2="70.0" stroke="rgba(255,255,255,.16)" stroke-width="1"/><line x1="160" y1="150" x2="229.3" y2="110.0" stroke="rgba(255,255,255,.16)" stroke-width="1"/><line x1="160" y1="150" x2="229.3" y2="190.0" stroke="rgba(255,255,255,.16)" stroke-width="1"/><line x1="160" y1="150" x2="160.0" y2="230.0" stroke="rgba(255,255,255,.16)" stroke-width="1"/><line x1="160" y1="150" x2="90.7" y2="190.0" stroke="rgba(255,255,255,.16)" stroke-width="1"/><line x1="160" y1="150" x2="90.7" y2="110.0" stroke="rgba(255,255,255,.16)" stroke-width="1"/>
@@ -931,15 +944,16 @@ footer .fm{font-size:12px;letter-spacing:.06em}
             <li>Where you sit in your market</li>
             <li>Pricing</li>
           </ul>
-          <p class="get-text">You end up with one picture of how your business sells, with the strong areas and the weak areas laid out plainly. It gives us something solid to anchor our conversation around, and it's yours to keep.</p>
         </div>
-        <p>Allow up to half an hour. The more comments you add as you go, the more useful the picture will be. You keep the result whether or not we ever talk.</p>
-        <p>If you'd rather talk it through, I'm happy to do that with you.</p>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;">
+        <p>The more notes you add as you go, the more useful the report will be. It's yours to keep whether or not we ever talk.</p>
+        <div class="sma-action">
           <a class="btn btn-teal" href="self-assessment.html">Take the self assessment</a>
-          <a class="btn btn-outline" href="#contact">Talk it through</a>
         </div>
       </div>
+    </div>
+    <div class="sma-alt rv">
+      <h3>Not ready to put a number on it? Start with a conversation instead.</h3>
+      <a class="btn btn-outline" href="#contact">Talk it through</a>
     </div>
   </div>
 </section>
